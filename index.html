@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome | Sahil Sawant Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Sticky Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav .menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav .menu li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav .menu li a:hover {
+      color: #ff6600;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('where-is-clemson.jpg') no-repeat center center/cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      padding-top: 80px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 1rem;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-primary {
+      background-color: #ff6600;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #e05500;
+    }
+
+    /* Animation for hero text */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Top-left corner card (below name) */
+    .corner-card {
+      position: absolute;
+      top: 90px; /* Position below the navigation bar */
+      left: 30px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 1.8rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      z-index: 3;
+      width: 300px;
+      font-family: 'Arial', sans-serif;
+      text-align: left; /* Left align text */
+      transition: transform 0.3s ease-in-out;
+      backdrop-filter: blur(5px);
+    }
+
+    /* Hover effect */
+    .corner-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Image inside the card */
+    .corner-card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+
+    /* Text styling */
+    .corner-card p {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #222;
+      margin: 0.5rem 0;
+      letter-spacing: 0.5px;
+    }
+
+    /* Line separator */
+    .corner-card p:not(:last-child) {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.6rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background-color: #222;
+      color: white;
+      padding: 1rem 0;
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+
+    /* Smooth link transition */
+    a {
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Sahil Sawant</div>
+    <ul class="menu">
+      <li><a href="about.html">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Corner Card (Now at the Top Left) -->
+  <div class="corner-card">
+    <img src="CECAS.png" alt="Clemson College of Computing Logo" loading="lazy" />
+    <p>Department of Industrial Engineering</p>
+    <p>Master’s Student</p>
+    <p>Graduate Research Assistant</p>
+    <p>Clemson University</p>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to My Portfolio</h1>
+      <p>
+        A quick look at my journey as a UX Researcher, Designer, and Engineer.
+      </p>
+      <a href="about.html" class="btn-primary">Learn More</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Sahil Sawant. All rights reserved.</p>
+  </footer>
+</body>
+</html>

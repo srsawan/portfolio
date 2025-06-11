@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Experience | Sahil Sawant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    /* General Styling */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
+    }
+
+    /* Navigation */
+    nav {
+      background: #fff;
+      color: #333;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    nav .menu {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+    }
+
+    nav .menu li a {
+      color: #34495e;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav .menu li a:hover {
+      color: #3498db;
+    }
+
+    /* Experience Container */
+    .experience-section {
+      margin-top: 80px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .experience-heading {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .experience-heading h2 {
+      font-size: 2.8rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .experience-heading h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: #3498db;
+    }
+
+    /* Three-column layout */
+    .experience-content {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Profile Column */
+    .profile-column {
+      flex: 0 1 280px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .profile-column img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid #ecf0f1;
+    }
+
+    .profile-column h3 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .profile-column p {
+      color: #7f8c8d;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    /* Timeline Column */
+    .timeline-column {
+      flex: 1 1 600px;
+      background: #fff;
+      padding: 35px;
+      border-radius: 10px;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-entry {
+      margin-bottom: 35px;
+      padding-left: 25px;
+      border-left: 3px solid #3498db;
+    }
+
+    .timeline-entry h3 {
+      color: #2c3e50;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .timeline-entry p {
+      color: #7f8c8d;
+      line-height: 1.6;
+      margin-bottom: 5px;
+    }
+
+    .timeline-entry strong {
+      color: #34495e;
+      font-weight: 600;
+    }
+
+    /* Recommendations Section */
+    .recommendations-section {
+      flex: 0 1 280px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .recommendations-section h2 {
+      color: #2c3e50;
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .recommendations-box {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 4px solid #3498db;
+    }
+
+    .recommendations-box h4 {
+      color: #2c3e50;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .recommendations-box p {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .experience-content {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .profile-column,
+      .recommendations-section {
+        flex: 1 1 100%;
+        max-width: 600px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav .menu {
+        gap: 15px;
+        font-size: 0.9rem;
+      }
+      
+      .experience-heading h2 {
+        font-size: 2.2rem;
+      }
+      
+      .timeline-entry {
+        padding-left: 15px;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: #ecf0f1;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 50px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">Sahil Sawant</div>
+    <ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="experience.html" class="active">Experience</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- EXPERIENCE SECTION -->
+  <div class="experience-section">
+    <div class="experience-heading">
+      <h2>My Career</h2>
+    </div>
+
+    <div class="experience-content">
+      <!-- LEFT COLUMN: Profile -->
+      <div class="profile-column">
+        <img src="images/profile.jpeg" alt="Profile Photo">
+        <h3>Sahil Sawant</h3>
+        <p><i class="fas fa-user"></i> Graduate Research Assistant [IRB Certified]</p>
+        <p><i class="fas fa-phone"></i> +1 864 722 7604</p>
+        <p><i class="fas fa-envelope"></i> srsawan@clemson.edu</p>
+        <p><i class="fas fa-briefcase"></i> www.site.com</p>
+      </div>
+
+      <!-- CENTER COLUMN: Timeline -->
+      <div class="timeline-column">
+        <div class="timeline-entry">
+          <h3>2024 - Present</h3>
+          <p><strong>Graduate Research Assistant, Clemson University</strong></p>
+          <p>Conducting research in industrial engineering, focusing on human factors.</p>
+        </div>
+
+        <div class="timeline-entry">
+          <h3>Feb 2024 - Jul 2024</h3>
+          <p><strong>Executive Technical Content Writer, TRITORC</strong></p>
+          <p>Developed research papers and collaborated on technical case studies.</p>
+        </div>
+
+        <div class="timeline-entry">
+          <h3>May 2023 - Jan 2024</h3>
+          <p><strong>UX Design Intern, Brainheaters</strong></p>
+          <p>Designed UI, conducted user research, and improved app experience.</p>
+        </div>
+
+        <div class="timeline-entry">
+          <h3>Sep 2021 - Aug 2022</h3>
+          <p><strong>Steering & Suspension Lead, Torrid Racing</strong></p>
+          <p>Designed ATV steering systems and won top rankings.</p>
+        </div>
+
+        <div class="timeline-entry">
+          <h3>Oct 2021 - Mar 2022</h3>
+          <p><strong>Data Science Intern, DevTown</strong></p>
+          <p>Built ML models and visualized data insights.</p>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Recommendations -->
+      <div class="recommendations-section">
+        <h2>Recommendations</h2>
+
+        <div class="recommendations-box">
+          <h4>Manager 1 (TRITORC)</h4>
+          <p>"Sahil was an exceptional technical writer who consistently delivered high-quality work."</p>
+        </div>
+
+        <div class="recommendations-box">
+          <h4>Manager 2 (Brainheaters)</h4>
+          <p>"His user-centric design approach brought a fresh perspective to our UX strategy."</p>
+        </div>
+
+        <div class="recommendations-box">
+          <h4>Simran Purswani (Business Development @ TRITORC, July 5, 2024)</h4>
+          <p>
+            "An absolute pleasure working with a bright mind like Sahil. As the marketing manager, 
+            I was impressed by his never say no attitude. His writing skills combined with the 
+            understanding of mechanical engineering allowed him to produce high-quality content. 
+            I have no doubt he will continue to excel in his future endeavours."
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Sahil Sawant. All rights reserved.</p>
+  </footer>
+
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

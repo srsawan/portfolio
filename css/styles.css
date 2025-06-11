@@ -1,0 +1,287 @@
+/****************************************
+ *            GLOBAL STYLES
+ *****************************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth; /* For smooth scrolling */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f3f4f6;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto 4rem auto;
+}
+
+/****************************************
+ *            NAVIGATION BAR
+ *****************************************/
+nav {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ff6600;
+}
+
+/* Desktop Menu */
+.menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu li a {
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menu li a:hover {
+  color: #ff6600;
+}
+
+/* Active link highlight (optional) */
+.menu li a.active {
+  color: #ff6600;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/****************************************
+ *   HAMBURGER MENU FOR MOBILE
+ *****************************************/
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+}
+
+/* Mobile Nav Menu (hidden by default) */
+.mobile-nav {
+  display: none;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem 2rem;
+}
+
+.mobile-nav ul {
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobile-nav li a {
+  display: inline-block;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: color 0.3s;
+}
+
+.mobile-nav li a:hover {
+  color: #ff6600;
+}
+
+/****************************************
+ *            HERO SECTION
+ *****************************************/
+.hero {
+  background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  margin-top: 68px; /* offset for nav */
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 1rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  background-color: #ff6600;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background-color: #e05500;
+}
+
+/****************************************
+ *           SECTION TITLES
+ *****************************************/
+.section-title {
+  text-align: center;
+  margin: 3rem 0 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #ff6600;
+  margin: 1rem auto;
+}
+
+/****************************************
+ *    FADE-IN ANIMATION CLASSES
+ *****************************************/
+.fade {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.7s ease;
+}
+
+/****************************************
+ *     FOOTER & GENERAL STYLING
+ *****************************************/
+footer {
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+
+footer p {
+  margin-bottom: 0.5rem;
+}
+
+footer a {
+  color: #ff6600;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/****************************************
+ *        SCROLL TO TOP BUTTON
+ *****************************************/
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999;
+}
+
+#scrollToTopBtn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/****************************************
+ *          RESPONSIVE DESIGN
+ *****************************************/
+@media screen and (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
