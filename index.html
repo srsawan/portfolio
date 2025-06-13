@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
+    /* Global Font */
+    * {
+      font-family: Tahoma, sans-serif;
+    }
+
     /* Sticky Navigation */
     nav {
       position: fixed;
@@ -109,51 +114,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-    }
-
-    /* Top-left corner card (below name) */
-    .corner-card {
-      position: absolute;
-      top: 90px; /* Position below the navigation bar */
-      left: 30px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 15px;
-      padding: 1.8rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      z-index: 3;
-      width: 300px;
-      font-family: 'Arial', sans-serif;
-      text-align: left; /* Left align text */
-      transition: transform 0.3s ease-in-out;
-      backdrop-filter: blur(5px);
-    }
-
-    /* Hover effect */
-    .corner-card:hover {
-      transform: scale(1.05);
-    }
-
-    /* Image inside the card */
-    .corner-card img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-    }
-
-    /* Text styling */
-    .corner-card p {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #222;
-      margin: 0.5rem 0;
-      letter-spacing: 0.5px;
-    }
-
-    /* Line separator */
-    .corner-card p:not(:last-child) {
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 0.6rem;
     }
 
     /* Footer */
