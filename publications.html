@@ -2,65 +2,1329 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Publications | Sahil Sawant</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications | Sahil Sawant Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* CSS Reset for better cross-browser compatibility */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Global Font with extensive fallbacks */
+    * {
+      font-family: Tahoma, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Prevent horizontal scroll */
+    html {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      overflow-x: hidden;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f5f5;
+      background: -webkit-linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      background: -o-linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    /* Sticky Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      background: -webkit-linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
+      background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
+      padding: 1rem 2rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      z-index: 9999;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    nav .menu {
+      list-style: none;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      gap: 1.25rem;
+      margin: 0;
+      padding: 0;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    nav .menu li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      -webkit-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      display: block;
+      white-space: nowrap;
+    }
+
+    nav .menu li a:hover,
+    nav .menu li a:focus {
+      color: #ff6600;
+      background-color: rgba(255, 102, 0, 0.1);
+      outline: none;
+    }
+
+    nav .menu li a.active {
+      color: #ff6600;
+      background-color: rgba(255, 102, 0, 0.15);
+    }
+
+    /* Main Content */
+    .main-content {
+      padding-top: 100px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      width: 100%;
+    }
+
+    /* Page Header */
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 3rem 1rem;
+      background: white;
+      border-radius: 20px;
+      -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: -webkit-linear-gradient(45deg, #ff6600, #ffaa44, #ff6600);
+      background: -o-linear-gradient(45deg, #ff6600, #ffaa44, #ff6600);
+      background: linear-gradient(45deg, #ff6600, #ffaa44, #ff6600);
+      background-size: 200% 200%;
+      -webkit-animation: gradientShift 3s ease-in-out infinite;
+      animation: gradientShift 3s ease-in-out infinite;
+    }
+
+    @-webkit-keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .page-header h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: #333;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .page-header p {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      color: #666;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Conference Presentations */
+    .presentations-section {
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: #333;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: #ff6600;
+      border-radius: 2px;
+    }
+
+    .presentations-grid {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      gap: 2rem;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .presentation-card {
+      background: white;
+      border-radius: 20px;
+      padding: 0;
+      -webkit-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      -webkit-transition: all 0.4s ease;
+      -o-transition: all 0.4s ease;
+      transition: all 0.4s ease;
+      overflow: hidden;
+      width: 100%;
+      max-width: 500px;
+      position: relative;
+    }
+
+    .presentation-card:hover {
+      -webkit-transform: translateY(-10px);
+      -ms-transform: translateY(-10px);
+      transform: translateY(-10px);
+      -webkit-box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .presentation-image {
+      width: 100%;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .presentation-image::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+      background: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    }
+
+    .conference-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #ff6600;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      z-index: 2;
+    }
+
+    .presentation-content {
+      padding: 2rem;
+    }
+
+    .presentation-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .presentation-description {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .presentation-meta {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .presentation-date {
+      color: #ff6600;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .presentation-type {
+      background: #f8f9fa;
+      color: #495057;
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* Publications Grid */
+    .publications-grid {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .publication-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2.5rem;
+      -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      border-left: 5px solid #ff6600;
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .publication-card:hover {
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+      -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .publication-header {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .publication-icon {
+      width: 60px;
+      height: 60px;
+      background: -webkit-linear-gradient(45deg, #ff6600, #ffaa44);
+      background: -o-linear-gradient(45deg, #ff6600, #ffaa44);
+      background: linear-gradient(45deg, #ff6600, #ffaa44);
+      border-radius: 12px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+      -webkit-box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+      box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+    }
+
+    .publication-info h3 {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: #333;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .publication-venue {
+      color: #ff6600;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .publication-date {
+      color: #666;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .publication-abstract {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    .publication-tags {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .publication-tag {
+      background: #f0f8ff;
+      color: #0066cc;
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid #cce7ff;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+    }
+
+    .publication-tag:hover {
+      background: #0066cc;
+      color: white;
+      -webkit-transform: translateY(-1px);
+      -ms-transform: translateY(-1px);
+      transform: translateY(-1px);
+    }
+
+    .publication-actions {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      gap: 1rem;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+
+    .publication-btn {
+      background: #ff6600;
+      color: white;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .publication-btn:hover {
+      background: #e55a00;
+      -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+      transform: translateY(-2px);
+      -webkit-box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+      box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+    }
+
+    .publication-btn.secondary {
+      background: transparent;
+      color: #ff6600;
+      border: 2px solid #ff6600;
+    }
+
+    .publication-btn.secondary:hover {
+      background: #ff6600;
+      color: white;
+    }
+
+    /* Statistics Section */
+    .research-stats {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      gap: 2rem;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      margin: 3rem 0;
+      padding: 2rem;
+      background: white;
+      border-radius: 20px;
+      -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-item {
+      text-align: center;
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #ff6600;
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: #555;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background-color: #222;
+      background: -webkit-linear-gradient(#222, #1a1a1a);
+      background: -o-linear-gradient(#222, #1a1a1a);
+      background: linear-gradient(#222, #1a1a1a);
+      color: white;
+      padding: 2rem 1rem;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      margin-top: 2rem;
+    }
+
+    /* Animations */
+    @-webkit-keyframes fadeInUp {
+      from {
+        opacity: 0;
+        -webkit-transform: translateY(30px);
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        -webkit-transform: translateY(30px);
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+    }
+
+    .publication-card,
+    .presentation-card {
+      -webkit-animation: fadeInUp 0.6s ease-out;
+      animation: fadeInUp 0.6s ease-out;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+
+    .publication-card:nth-child(1) { -webkit-animation-delay: 0.1s; animation-delay: 0.1s; }
+    .publication-card:nth-child(2) { -webkit-animation-delay: 0.2s; animation-delay: 0.2s; }
+    .publication-card:nth-child(3) { -webkit-animation-delay: 0.3s; animation-delay: 0.3s; }
+    .publication-card:nth-child(4) { -webkit-animation-delay: 0.4s; animation-delay: 0.4s; }
+    .publication-card:nth-child(5) { -webkit-animation-delay: 0.5s; animation-delay: 0.5s; }
+
+    .presentation-card:nth-child(1) { -webkit-animation-delay: 0.1s; animation-delay: 0.1s; }
+    .presentation-card:nth-child(2) { -webkit-animation-delay: 0.3s; animation-delay: 0.3s; }
+
+    /* Mobile Responsive Styles */
+    @media screen and (max-width: 768px) {
+      nav {
+        padding: 1rem;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 1rem;
+        background: rgba(0, 0, 0, 0.95);
+      }
+
+      nav .logo {
+        font-size: 1.4rem;
+      }
+
+      nav .menu {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      nav .menu li a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.6rem;
+      }
+
+      .main-content {
+        padding-top: 140px;
+      }
+
+      .container {
+        padding: 1.5rem 1rem;
+      }
+
+      .page-header {
+        padding: 2rem 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .presentations-grid {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .presentation-card {
+        max-width: 100%;
+      }
+
+      .publication-card {
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+      }
+
+      .publication-header {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      .research-stats {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .stat-item {
+        min-width: auto;
+        margin-bottom: 1rem;
+      }
+
+      .publication-actions {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      nav .menu li a {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.5rem;
+      }
+
+      .main-content {
+        padding-top: 160px;
+      }
+
+      .container {
+        padding: 1rem 0.5rem;
+      }
+
+      .page-header {
+        padding: 1.5rem 1rem;
+      }
+
+      .publication-card {
+        padding: 1.5rem 1rem;
+      }
+
+      .presentation-image {
+        height: 250px;
+      }
+
+      .presentation-content {
+        padding: 1.5rem;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      nav,
+      footer {
+        display: none;
+      }
+
+      .main-content {
+        padding-top: 0;
+      }
+
+      .publication-card,
+      .presentation-card {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+      }
+    }
+
+    /* Accessibility Improvements */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        -webkit-animation-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        -webkit-animation-iteration-count: 1 !important;
+        animation-iteration-count: 1 !important;
+        -webkit-transition-duration: 0.01ms !important;
+        -o-transition-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .publication-card:focus-visible,
+    .presentation-card:focus-visible,
+    nav .menu li a:focus-visible {
+      outline: 2px solid #ff6600;
+      outline-offset: 2px;
+    }
+  </style>
 </head>
 <body>
-  <nav>
+  <!-- Navigation -->
+  <nav role="navigation" aria-label="Main navigation">
     <div class="logo">Sahil Sawant</div>
     <ul class="menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="experience.html">Experience</a></li>
-      <li><a href="education.html">Education</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="publications.html" class="active">Publications</a></li>
-      <li><a href="skills.html">Skills</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html" aria-label="Go to home page">Home</a></li>
+      <li><a href="about.html" aria-label="Go to about page">About</a></li>
+      <li><a href="experience.html" aria-label="Go to experience page">Experience</a></li>
+      <li><a href="education.html" aria-label="Go to education page">Education</a></li>
+      <li><a href="projects.html" aria-label="Go to projects page">Projects</a></li>
+      <li><a href="publications.html" class="active" aria-current="page" aria-label="Current page: Publications">Publications</a></li>
+      <li><a href="skills.html" aria-label="Go to skills page">Skills</a></li>
+      <li><a href="contact.html" aria-label="Go to contact page">Contact</a></li>
     </ul>
-    <div class="hamburger" id="hamburger">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-    <div class="mobile-nav" id="mobileNav">
-      <ul>
-        <li><a href="index.html" onclick="toggleMobileNav()">Home</a></li>
-        <li><a href="about.html" onclick="toggleMobileNav()">About</a></li>
-        <li><a href="experience.html" onclick="toggleMobileNav()">Experience</a></li>
-        <li><a href="education.html" onclick="toggleMobileNav()">Education</a></li>
-        <li><a href="projects.html" onclick="toggleMobileNav()">Projects</a></li>
-        <li><a href="publications.html" onclick="toggleMobileNav()" class="active">Publications</a></li>
-        <li><a href="skills.html" onclick="toggleMobileNav()">Skills</a></li>
-        <li><a href="contact.html" onclick="toggleMobileNav()">Contact</a></li>
-      </ul>
-    </div>
   </nav>
 
-  <div class="container" style="margin-top:100px;">
-    <h2 class="section-title fade">Publications</h2>
-    <div class="fade" style="margin-bottom:2rem;">
-      <h3 style="color:#ff6600;">Usability Testing of Healthcare Devices</h3>
-      <p><strong>HFES | Aug 11, 2023</strong></p>
-      <p style="margin-left:1rem;">
-        A review of current UX methods used for usability testing of healthcare devices.
-      </p>
-    </div>
-    <div class="fade">
-      <h3 style="color:#ff6600;">Fabrication of Electromagnetic Damper</h3>
-      <p><strong>IJRASER | Apr 20, 2023</strong></p>
-      <p style="margin-left:1rem;">
-        Development of an electromagnetic suspension system for high-speed transportation.
-      </p>
-    </div>
-  </div>
+  <!-- Main Content -->
+  <main class="main-content" role="main">
+    <div class="container">
+      <!-- Page Header -->
+      <header class="page-header">
+        <h1>Research & Publications</h1>
+        <p>Contributing to the advancement of human factors engineering, healthcare technology, and industrial systems through evidence-based research and academic collaboration</p>
+      </header>
 
-  <footer>
+      <!-- Research Statistics -->
+      <section class="research-stats" aria-label="Research impact metrics">
+        <div class="stat-item">
+          <span class="stat-number">6</span>
+          <div class="stat-label">Published Papers</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2</span>
+          <div class="stat-label">Conference Presentations</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <div class="stat-label">Research Areas</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">30+</span>
+          <div class="stat-label">Studies Reviewed</div>
+        </div>
+      </section>
+
+      <!-- Conference Presentations -->
+      <section class="presentations-section">
+        <h2 class="section-title">Conference Presentations</h2>
+        
+        <div class="presentations-grid">
+          <!-- IISE Presentation -->
+          <article class="presentation-card" tabindex="0">
+            <div class="presentation-image" style="background-image: url('images/iise-presentation.jpg');">
+              <div class="conference-badge">IISE 2025</div>
+            </div>
+            <div class="presentation-content">
+              <h3 class="presentation-title">The Effect of Scale of Technology Updates on Workflow Disruptions: A Scoping Review</h3>
+              <p class="presentation-description">
+                Presented comprehensive scoping review investigating how different scales of Health IT changes (major, moderate, minor) impact clinical workflows. Research highlights critical reporting gap for frequent, small-scale updates that silently disrupt workflows but often go unnoticed in literature.
+              </p>
+              <div class="presentation-meta">
+                <div class="presentation-date">Annual Conference & Expo 2025</div>
+                <div class="presentation-type">Oral Presentation</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- HFES Presentation -->
+          <article class="presentation-card" tabindex="0">
+            <div class="presentation-image" style="background-image: url('images/hfes-presentation.jpg');">
+              <div class="conference-badge">HFES 2024</div>
+            </div>
+            <div class="presentation-content">
+              <h3 class="presentation-title">Significance of Usability Testing in the Medical Device Market</h3>
+              <p class="presentation-description">
+                Delivered keynote presentation on the critical importance of usability testing in medical device development. Discussed how medical errors are the third leading cause of death in the United States, emphasizing the role of human factors engineering in improving healthcare outcomes.
+              </p>
+              <div class="presentation-meta">
+                <div class="presentation-date">Annual Meeting 2024</div>
+                <div class="presentation-type">Keynote Presentation</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Publications Section -->
+      <section class="publications-section">
+        <h2 class="section-title">Peer-Reviewed Publications</h2>
+        
+        <div class="publications-grid">
+          <!-- Publication 1: QR Codes in Healthcare -->
+          <article class="publication-card" tabindex="0">
+            <div class="publication-header">
+              <div class="publication-icon">🏥</div>
+              <div class="publication-info">
+                <h3>The Impact and Potential of Quick Response (QR) Codes in Healthcare: A Comprehensive Review</h3>
+                <div class="publication-venue">Proceedings of the Human Factors and Ergonomics Society Annual Meeting</div>
+                <div class="publication-date">November 4, 2024</div>
+              </div>
+            </div>
+            <div class="publication-abstract">
+              In today's rapidly evolving healthcare landscape, the integration of innovative technologies is becoming increasingly essential to enhance patient care, medication and overall healthcare outcomes. Through a review of 30 studies, we uncover the significant impact of integrating QR codes into healthcare systems. Notable findings include the role of QR codes in ensuring medication safety and advancing education as well as training within healthcare settings. Despite some challenges, user satisfaction remains high, underscoring QR codes' effectiveness in optimizing healthcare delivery and outcomes from a human-centred perspective.
+            </div>
+            <div class="publication-tags">
+              <span class="publication-tag">Healthcare Technology</span>
+              <span class="publication-tag">QR Codes</span>
+              <span class="publication-tag">Patient Safety</span>
+              <span class="publication-tag">Human Factors</span>
+              <span class="publication-tag">Literature Review</span>
+            </div>
+            <div class="publication-actions">
+              <a href="#" class="publication-btn">📄 View Publication</a>
+              <a href="#" class="publication-btn secondary">📊 Research Data</a>
+            </div>
+          </article>
+
+          <!-- Publication 2: Usability Testing of Healthcare Devices -->
+          <article class="publication-card" tabindex="0">
+            <div class="publication-header">
+              <div class="publication-icon">🔬</div>
+              <div class="publication-info">
+                <h3>Usability Testing of Healthcare Devices: A Review of Current UX Methods</h3>
+                <div class="publication-venue">Human Factors and Ergonomics Society (HFES)</div>
+                <div class="publication-date">August 11, 2023</div>
+              </div>
+            </div>
+            <div class="publication-abstract">
+              This literature review examines the state of usability testing in medical device design, focusing on techniques and instruments used for assessing user-centered design. The analysis includes 30 studies from various fields, such as telemedicine, assistive technology, and healthcare devices. The review discusses different UX analysis techniques and their benefits and drawbacks, highlighting significant obstacles and the need for more rigorous testing procedures and user-centered design concepts.
+            </div>
+            <div class="publication-tags">
+              <span class="publication-tag">Usability Testing</span>
+              <span class="publication-tag">Medical Devices</span>
+              <span class="publication-tag">User Experience</span>
+              <span class="publication-tag">Healthcare Design</span>
+              <span class="publication-tag">Systematic Review</span>
+            </div>
+            <div class="publication-actions">
+              <a href="#" class="publication-btn">📄 View Publication</a>
+              <a href="#" class="publication-btn secondary">🔍 Methodology</a>
+            </div>
+          </article>
+
+          <!-- Publication 3: YouTube Health Information -->
+          <article class="publication-card" tabindex="0">
+            <div class="publication-header">
+              <div class="publication-icon">📱</div>
+              <div class="publication-info">
+                <h3>Evaluation of YouTube Videos as Information Source on Omicron Symptoms and Prevention</h3>
+                <div class="publication-venue">Proceedings of Human Factors and Ergonomics Society</div>
+                <div class="publication-date">October 27, 2022</div>
+              </div>
+            </div>
+            <div class="publication-abstract">
+              This study evaluates the content quality and reliability of YouTube videos as a source of health information regarding Omicron variant symptoms and prevention strategies. The research analyzed video content quality, accuracy, and potential impact on public health understanding during the COVID-19 pandemic, providing insights into social media's role in health information dissemination.
+            </div>
+            <div class="publication-tags">
+              <span class="publication-tag">Health Communication</span>
+              <span class="publication-tag">Social Media</span>
+              <span class="publication-tag">COVID-19</span>
+              <span class="publication-tag">Content Analysis</span>
+              <span class="publication-tag">Public Health</span>
+            </div>
+            <div class="publication-actions">
+              <a href="#" class="publication-btn">📄 View Publication</a>
+              <a href="#" class="publication-btn secondary">📈 Analysis Results</a>
+            </div>
+          </article>
+
+          <!-- Publication 4: User Personas for Google UX -->
+          <article class="publication-card" tabindex="0">
+            <div class="publication-header">
+              <div class="publication-icon">👥</div>
+              <div class="publication-info">
+                <h3>Case Study: Creating User Personas for Google's UX Design Certificate</h3>
+                <div class="publication-venue">UX Design Research Publication</div>
+                <div class="publication-date">2024</div>
+              </div>
+            </div>
+            <div class="publication-abstract">
+              Applied research in user-centered design methodology and persona development for Google's UX Design Certificate program. This case study demonstrates practical application of human-centered design principles, user research methodologies, and persona creation techniques in educational technology contexts. The work contributes to understanding effective UX education strategies.
+            </div>
+            <div class="publication-tags">
+              <span class="publication-tag">User Personas</span>
+              <span class="publication-tag">UX Design</span>
+              <span class="publication-tag">Case Study</span>
+              <span class="publication-tag">Educational Technology</span>
+              <span class="publication-tag">User Research</span>
+            </div>
+            <div class="publication-actions">
+              <a href="#" class="publication-btn">📄 View Case Study</a>
+              <a href="#" class="publication-btn secondary">🎨 Design Process</a>
+            </div>
+          </article>
+
+          <!-- Publication 5: Electromagnetic Damper -->
+          <article class="publication-card" tabindex="0">
+            <div class="publication-header">
+              <div class="publication-icon">⚙️</div>
+              <div class="publication-info">
+                <h3>Fabrication of Electromagnetic Damper</h3>
+                <div class="publication-venue">Engineering Research Publication</div>
+                <div class="publication-date">2023</div>
+              </div>
+            </div>
+            <div class="publication-abstract">
+              Engineering research focused on the design, fabrication, and testing of electromagnetic damping systems for mechanical applications. This study presents innovative approaches to vibration control using electromagnetic principles, with applications in automotive and industrial systems. The research contributes to advancing damping technology for improved system performance and reliability.
+            </div>
+            <div class="publication-tags">
+              <span class="publication-tag">Mechanical Engineering</span>
+              <span class="publication-tag">Electromagnetic Systems</span>
+              <span class="publication-tag">Vibration Control</span>
+              <span class="publication-tag">Automotive Technology</span>
+              <span class="publication-tag">Experimental Research</span>
+            </div>
+            <div class="publication-actions">
+              <a href="#" class="publication-btn">📄 View Publication</a>
+              <a href="#" class="publication-btn secondary">🔧 Technical Details</a>
+            </div>
+          </article>
+
+          <!-- Publication 6: EHR Workflow Disruptions -->
+          <article class="publication-card" tabindex="0">
+            <div class="publication-header">
+              <div class="publication-icon">💻</div>
+              <div class="publication-info">
+                <h3>The Effect of Scale of Technology Updates on Workflow Disruptions: A Scoping Review</h3>
+                <div class="publication-venue">IISE Annual Conference & Expo Proceedings</div>
+                <div class="publication-date">2025</div>
+              </div>
+            </div>
+            <div class="publication-abstract">
+              This scoping review investigates how different scales of Health IT changes (major, moderate, minor) are studied in terms of their impact on clinical workflows. The research highlights a critical reporting gap for frequent, small-scale updates that silently disrupt workflows but often go unnoticed or underreported in literature. Findings provide insights for healthcare technology implementation strategies and workflow optimization.
+            </div>
+            <div class="publication-tags">
+              <span class="publication-tag">Healthcare IT</span>
+              <span class="publication-tag">Workflow Analysis</span>
+              <span class="publication-tag">Technology Implementation</span>
+              <span class="publication-tag">Scoping Review</span>
+              <span class="publication-tag">Clinical Operations</span>
+            </div>
+            <div class="publication-actions">
+              <a href="#" class="publication-btn">📄 View Publication</a>
+              <a href="#" class="publication-btn secondary">📊 Scoping Analysis</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
     <p>&copy; 2025 Sahil Sawant. All rights reserved.</p>
   </footer>
 
-  <button id="scrollToTopBtn">&#8679;</button>
-  <script src="js/script.js"></script>
+  <script>
+    // Enhanced JavaScript for interactivity and animations
+    (function() {
+      'use strict';
+      
+      // Intersection Observer for better animation performance
+      var observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      function handleIntersection(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      }
+
+      // Initialize Intersection Observer if supported
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(handleIntersection, observerOptions);
+        var elements = document.querySelectorAll('.publication-card, .presentation-card, .research-stats');
+        
+        elements.forEach(function(element) {
+          observer.observe(element);
+        });
+      }
+
+      // Enhanced card interactions
+      function initializeCardInteractions() {
+        var cards = document.querySelectorAll('.publication-card, .presentation-card');
+        
+        cards.forEach(function(card) {
+          card.addEventListener('mouseenter', function() {
+            var tags = this.querySelectorAll('.publication-tag');
+            var buttons = this.querySelectorAll('.publication-btn');
+            
+            // Animate tags
+            tags.forEach(function(tag, index) {
+              setTimeout(function() {
+                tag.style.transform = 'scale(1.05) translateY(-2px)';
+              }, index * 50);
+            });
+            
+            // Animate buttons
+            buttons.forEach(function(btn, index) {
+              setTimeout(function() {
+                btn.style.transform = 'translateY(-2px)';
+              }, index * 100);
+            });
+          });
+          
+          card.addEventListener('mouseleave', function() {
+            var tags = this.querySelectorAll('.publication-tag');
+            var buttons = this.querySelectorAll('.publication-btn');
+            
+            tags.forEach(function(tag) {
+              tag.style.transform = 'scale(1) translateY(0)';
+            });
+            
+            buttons.forEach(function(btn) {
+              btn.style.transform = 'translateY(0)';
+            });
+          });
+          
+          // Keyboard accessibility
+          card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              var firstButton = this.querySelector('.publication-btn');
+              if (firstButton) firstButton.click();
+            }
+          });
+        });
+      }
+
+      // Animated counter for statistics
+      function animateCounters() {
+        var counters = document.querySelectorAll('.stat-number');
+        
+        counters.forEach(function(counter) {
+          var target = parseInt(counter.textContent.replace('+', ''));
+          var current = 0;
+          var increment = target / 50;
+          var hasPlus = counter.textContent.includes('+');
+          
+          function updateCounter() {
+            if (current < target) {
+              current += increment;
+              counter.textContent = Math.ceil(current) + (hasPlus ? '+' : '');
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target + (hasPlus ? '+' : '');
+            }
+          }
+          
+          // Start animation when element is visible
+          var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                updateCounter();
+                observer.unobserve(entry.target);
+              }
+            });
+          });
+          
+          observer.observe(counter);
+        });
+      }
+
+      // Smooth scroll for internal links
+      function initializeSmoothScroll() {
+        var links = document.querySelectorAll('a[href^="#"]');
+        
+        links.forEach(function(link) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          });
+        });
+      }
+
+      // Touch device optimizations
+      function optimizeForTouch() {
+        var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        if (isTouch) {
+          document.body.classList.add('touch-device');
+          
+          var cards = document.querySelectorAll('.publication-card, .presentation-card');
+          cards.forEach(function(card) {
+            card.addEventListener('touchstart', function() {
+              this.classList.add('touch-active');
+            });
+            
+            card.addEventListener('touchend', function() {
+              var self = this;
+              setTimeout(function() {
+                self.classList.remove('touch-active');
+              }, 150);
+            });
+          });
+        }
+      }
+
+      // Performance optimizations
+      function optimizePerformance() {
+        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        
+        function handleReducedMotion(e) {
+          if (e.matches) {
+            document.body.classList.add('reduce-motion');
+          } else {
+            document.body.classList.remove('reduce-motion');
+          }
+        }
+        
+        prefersReducedMotion.addListener(handleReducedMotion);
+        handleReducedMotion(prefersReducedMotion);
+      }
+
+      // Enhanced keyboard navigation
+      function enhanceKeyboardNavigation() {
+        document.addEventListener('keydown', function(e) {
+          var focusableElements = 'a, button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+          var focusable = Array.prototype.slice.call(document.querySelectorAll(focusableElements));
+          var index = focusable.indexOf(document.activeElement);
+
+          if (e.key === 'Tab') {
+            if (e.shiftKey) {
+              if (index === 0) {
+                focusable[focusable.length - 1].focus();
+                e.preventDefault();
+              }
+            } else {
+              if (index === focusable.length - 1) {
+                focusable[0].focus();
+                e.preventDefault();
+              }
+            }
+          }
+        });
+      }
+
+      // Viewport height fix for mobile browsers
+      function setVH() {
+        var vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', vh + 'px');
+      }
+      
+      // Initialize everything when DOM is ready
+      function initialize() {
+        initializeCardInteractions();
+        animateCounters();
+        initializeSmoothScroll();
+        optimizeForTouch();
+        optimizePerformance();
+        enhanceKeyboardNavigation();
+        setVH();
+      }
+
+      // Wait for DOM to be ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initialize);
+      } else {
+        initialize();
+      }
+
+      // Handle window resize
+      window.addEventListener('resize', setVH);
+      window.addEventListener('orientationchange', function() {
+        setTimeout(setVH, 100);
+      });
+
+      // Error handling for older browsers
+      window.addEventListener('error', function(e) {
+        console.warn('Compatibility fallback activated:', e.message);
+      });
+
+    })();
+  </script>
+
+  <style>
+    /* Additional animation and interaction styles */
+    .touch-active {
+      -webkit-transform: scale(0.98) !important;
+      -ms-transform: scale(0.98) !important;
+      transform: scale(0.98) !important;
+    }
+
+    .animate-in {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+      transform: translateY(0);
+    }
+
+    /* High performance mode */
+    .reduce-motion .publication-card,
+    .reduce-motion .presentation-card,
+    .reduce-motion * {
+      -webkit-animation: none !important;
+      animation: none !important;
+      -webkit-transition: none !important;
+      -o-transition: none !important;
+      transition: none !important;
+    }
+
+    /* Loading state */
+    .publication-card[data-loading="true"],
+    .presentation-card[data-loading="true"] {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    /* Hover enhancements */
+    .publication-card:hover .publication-icon {
+      -webkit-transform: scale(1.1) rotate(5deg);
+      -ms-transform: scale(1.1) rotate(5deg);
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .presentation-card:hover .conference-badge {
+      -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+      transform: scale(1.05);
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+      .publication-card,
+      .presentation-card {
+        border: 2px solid #333;
+      }
+      
+      .publication-tag {
+        border: 2px solid #666;
+      }
+    }
+
+    /* Reduced motion accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .page-header::before {
+        animation: none;
+        background: #ff6600;
+      }
+    }
+  </style>
 </body>
 </html>
