@@ -126,65 +126,74 @@
       line-height: 1.5;
     }
 
-    /* Experience Timeline - Widened */
+    /* Experience Timeline - Linear Layout */
     .timeline-container {
       position: relative;
-      max-width: 1600px;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
-    /* Timeline Line */
+    /* Timeline Line - Vertical on left */
     .timeline-container::before {
       content: '';
       position: absolute;
-      left: 50%;
+      left: 23%;
       top: 0;
       bottom: 0;
-      width: 4px;
+      width: 3px;
       background: linear-gradient(to bottom, #ff6600, #e05500);
-      transform: translateX(-50%);
     }
 
-    /* Experience Item - Widened */
+    /* Experience Item - Linear Layout */
     .timeline-item {
       position: relative;
       margin-bottom: 40px;
-      width: 70%;
-      padding: 0 40px;
+      display: flex;
+      width: 100%;
+      align-items: flex-start;
+      gap: 0;
     }
 
-    .timeline-item:nth-child(odd) {
-      left: 0;
+    /* Timeline Info Section (Left 23%) */
+    .timeline-info {
+      width: 23%;
+      padding: 20px 15px 20px 0;
       text-align: right;
-    }
-
-    .timeline-item:nth-child(even) {
-      left: 52%;
-      text-align: left;
+      position: relative;
     }
 
     /* Timeline Dot */
     .timeline-item::before {
       content: '';
       position: absolute;
-      width: 20px;
-      height: 20px;
+      width: 16px;
+      height: 16px;
       background: #ff6600;
-      border: 4px solid white;
+      border: 3px solid white;
       border-radius: 50%;
-      top: 35px;
-      box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
+      right: -8px;
+      top: 25px;
+      box-shadow: 0 3px 10px rgba(255, 102, 0, 0.4);
+      z-index: 2;
     }
 
-    .timeline-item:nth-child(odd)::before {
-      right: -12px;
+    /* Timeline Info Styling */
+    .timeline-date {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ff6600;
+      margin-bottom: 8px;
+      line-height: 1.3;
     }
 
-    .timeline-item:nth-child(even)::before {
-      left: -12px;
+    .timeline-location {
+      font-size: 0.95rem;
+      color: #7f8c8d;
+      font-style: italic;
+      line-height: 1.2;
     }
 
-    /* Experience Card - Widened and Enhanced */
+    /* Experience Card - Right Side (77%) */
     .experience-card {
       background: white;
       padding: 40px 45px;
@@ -194,8 +203,9 @@
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
-      min-height: 350px;
-      width: 100%;
+      min-height: 320px;
+      width: 77%;
+      margin-left: 0;
     }
 
     .experience-card::before {
@@ -230,16 +240,11 @@
     }
 
     .job-duration {
-      font-size: 1.05rem;
-      color: #7f8c8d;
-      margin-bottom: 18px;
-      font-style: italic;
+      display: none; /* Hide duration from main card since it's in timeline info */
     }
 
     .job-location {
-      font-size: 0.95rem;
-      color: #95a5a6;
-      margin-bottom: 25px;
+      display: none; /* Hide location from main card since it's in timeline info */
     }
 
     .job-description {
@@ -449,16 +454,16 @@
         max-width: 900px;
       }
 
-      .timeline-item {
-        width: 47%;
-        padding: 0 30px;
+      .timeline-container::before {
+        left: 25%;
       }
 
-      .timeline-item:nth-child(even) {
-        left: 53%;
+      .timeline-info {
+        width: 25%;
       }
 
       .experience-card {
+        width: 75%;
         padding: 35px 40px;
       }
     }
@@ -489,19 +494,28 @@
       }
 
       .timeline-item {
+        flex-direction: column;
+        margin-bottom: 30px;
+      }
+
+      .timeline-info {
         width: 100%;
-        left: 0 !important;
-        text-align: left !important;
-        padding-left: 70px;
-        padding-right: 20px;
+        text-align: left;
+        padding: 0 0 15px 60px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #f8f9fa;
       }
 
       .timeline-item::before {
-        left: 20px !important;
+        left: 20px;
+        right: auto;
+        top: 10px;
       }
 
       .experience-card {
+        width: 100%;
         padding: 25px 30px;
+        margin-left: 0;
       }
 
       .skill-tags {
@@ -749,7 +763,22 @@
               <li>Applied engineering principles to solve complex mechanical design challenges</li>
             </ul>
             <div class="achievement">
-              Team secured Overall AIR 5 and AIR 2 in Endurance race at MEGA ATV 2021 competition
+              🏆 Team secured Overall AIR 5 and AIR 2 in Endurance race at MEGA ATV 2021 competition
+            </div>
+          </div>
+          <div class="skills-used">
+            <div class="skills-label">Key Skills:</div>
+            <div class="skill-tags">
+              <span class="skill-tag">SolidWorks</span>
+              <span class="skill-tag">ANSYS FEA</span>
+              <span class="skill-tag">CAD Modeling</span>
+              <span class="skill-tag">Team Leadership</span>
+              <span class="skill-tag">Project Management</span>
+              <span class="skill-tag">Mechanical Design</span>
+            </div>
+          </div>
+        </div>
+      </div>2 in Endurance race at MEGA ATV 2021 competition
             </div>
           </div>
           <div class="skills-used">
