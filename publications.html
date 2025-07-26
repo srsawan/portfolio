@@ -247,25 +247,19 @@
     .presentation-image {
       width: 100%;
       height: 300px;
-      background-size: cover;
+      background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       position: relative;
       overflow: hidden;
+      background-color: #f8f9fa;
       /* Fallback gradient if image doesn't load */
-      background: linear-gradient(135deg, #ff6600 0%, #ffaa44 100%);
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     }
 
+    /* Remove all overlay elements */
     .presentation-image::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 50%;
-      background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-      background: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-      background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+      display: none;
     }
 
     /* Fallback content when image fails to load */
@@ -275,17 +269,18 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 3rem;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      font-size: 2rem;
+      color: #666;
+      text-shadow: none;
+      font-weight: 600;
     }
 
     .presentation-image.iise::after {
-      content: '🏭 IISE';
+      content: 'IISE Conference Image';
     }
 
     .presentation-image.hfes::after {
-      content: '🧠 HFES';
+      content: 'HFES Conference Image';
     }
 
     .conference-badge {
@@ -858,9 +853,10 @@
           <!-- IISE Presentation -->
           <article class="presentation-card" tabindex="0">
             <div class="presentation-image iise" style="background-image: url('images/IISE.jpeg');">
-              <div class="conference-badge">IISE 2025</div>
+              <!-- Removed conference badge overlay -->
             </div>
             <div class="presentation-content">
+              <div class="conference-badge" style="position: static; background: #ff6600; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem; display: inline-block; margin-bottom: 1rem;">IISE 2025</div>
               <h3 class="presentation-title">The Effect of Scale of Technology Updates on Workflow Disruptions: A Scoping Review</h3>
               <p class="presentation-description">
                 Presented comprehensive scoping review investigating how different scales of Health IT changes (major, moderate, minor) impact clinical workflows. Research highlights critical reporting gap for frequent, small-scale updates that silently disrupt workflows but often go unnoticed in literature.
@@ -875,9 +871,10 @@
           <!-- HFES Presentation -->
           <article class="presentation-card" tabindex="0">
             <div class="presentation-image hfes" style="background-image: url('images/HFES.jpeg');">
-              <div class="conference-badge">HFES 2024</div>
+              <!-- Removed conference badge overlay -->
             </div>
             <div class="presentation-content">
+              <div class="conference-badge" style="position: static; background: #ff6600; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem; display: inline-block; margin-bottom: 1rem;">HFES 2024</div>
               <h3 class="presentation-title">Significance of Usability Testing in the Medical Device Market</h3>
               <p class="presentation-description">
                 Delivered keynote presentation on the critical importance of usability testing in medical device development. Discussed how medical errors are the third leading cause of death in the United States, emphasizing the role of human factors engineering in improving healthcare outcomes.
@@ -1088,13 +1085,7 @@
             // Image failed to load, apply fallback styling
             console.warn('Failed to load image:', imageUrl);
             imageDiv.style.backgroundImage = 'none';
-            
-            // Add visible fallback content for better user experience
-            if (imageDiv.classList.contains('iise')) {
-              imageDiv.style.background = 'linear-gradient(135deg, #ff6600 0%, #ffaa44 100%)';
-            } else if (imageDiv.classList.contains('hfes')) {
-              imageDiv.style.background = 'linear-gradient(135deg, #0066cc 0%, #4da6ff 100%)';
-            }
+            imageDiv.style.backgroundColor = '#f8f9fa';
           };
           
           testImg.src = imageUrl;
