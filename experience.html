@@ -133,11 +133,11 @@
       margin: 0 auto;
     }
 
-    /* Timeline Line - Fixed */
+    /* Timeline Line - Shifted Left */
     .timeline-container::before {
       content: '';
       position: absolute;
-      left: 22%;
+      left: 18.5%;
       top: 0;
       bottom: 0;
       width: 3px;
@@ -145,36 +145,36 @@
       z-index: 1;
     }
 
-    /* Experience Item - Fixed Layout */
+    /* Experience Item - Reduced Spacing */
     .timeline-item {
       position: relative;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
       display: flex;
       width: 100%;
       align-items: flex-start;
-      gap: 20px;
+      gap: 15px;
     }
 
-    /* Timeline Info Section (Left 20%) */
+    /* Timeline Info Section (Left 18%) */
     .timeline-info {
-      width: 20%;
-      padding: 25px 20px 25px 0;
+      width: 18%;
+      padding: 20px 15px 20px 0;
       text-align: right;
       position: relative;
       flex-shrink: 0;
     }
 
-    /* Timeline Dot - Fixed */
+    /* Timeline Dot - Shifted Left */
     .timeline-item::after {
       content: '';
       position: absolute;
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       background: #ff6600;
-      border: 4px solid white;
+      border: 3px solid white;
       border-radius: 50%;
-      left: calc(22% - 9px);
-      top: 30px;
+      left: calc(18.5% - 8px);
+      top: 25px;
       box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
       z-index: 2;
     }
@@ -195,17 +195,17 @@
       line-height: 1.2;
     }
 
-    /* Experience Card - Right Side (78%) */
+    /* Experience Card - Right Side (80%) */
     .experience-card {
       background: white;
-      padding: 40px 50px;
+      padding: 35px 45px;
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       border-left: 5px solid #ff6600;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
-      width: 78%;
+      width: 80%;
       flex-grow: 1;
     }
 
@@ -225,38 +225,38 @@
     }
 
     .job-title {
-      font-size: 1.7rem;
+      font-size: 1.6rem;
       font-weight: bold;
       color: #2c3e50;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       line-height: 1.4;
     }
 
     .company-name {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       color: #ff6600;
       font-weight: 600;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     .job-description {
       color: #34495e;
-      line-height: 1.8;
-      margin-bottom: 25px;
+      line-height: 1.7;
+      margin-bottom: 20px;
       font-size: 1.05rem;
     }
 
     .job-description ul {
-      margin: 20px 0;
+      margin: 15px 0;
       padding-left: 0;
       list-style-type: none;
     }
 
     .job-description li {
-      margin-bottom: 18px;
+      margin-bottom: 12px;
       position: relative;
-      padding-left: 30px;
-      line-height: 1.7;
+      padding-left: 25px;
+      line-height: 1.6;
     }
 
     .job-description li::before {
@@ -450,20 +450,20 @@
       }
 
       .timeline-container::before {
-        left: 25%;
+        left: 20%;
       }
 
       .timeline-item::after {
-        left: calc(25% - 9px);
+        left: calc(20% - 8px);
       }
 
       .timeline-info {
-        width: 22%;
+        width: 19%;
       }
 
       .experience-card {
-        width: 76%;
-        padding: 35px 40px;
+        width: 79%;
+        padding: 30px 35px;
       }
     }
 
@@ -494,14 +494,14 @@
 
       .timeline-item {
         flex-direction: column;
-        margin-bottom: 40px;
+        margin-bottom: 35px;
       }
 
       .timeline-info {
         width: 100%;
         text-align: left;
-        padding: 0 0 20px 80px;
-        margin-bottom: 20px;
+        padding: 0 0 15px 80px;
+        margin-bottom: 15px;
         border-bottom: 3px solid #ff6600;
         border-radius: 0 0 10px 0;
       }
@@ -513,7 +513,7 @@
 
       .experience-card {
         width: 100%;
-        padding: 30px 25px;
+        padding: 25px 30px;
         margin-left: 0;
       }
 
