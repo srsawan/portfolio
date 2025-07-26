@@ -2,59 +2,1265 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Projects | Sahil Sawant</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Sahil Sawant Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* CSS Reset for better cross-browser compatibility */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Global Font with extensive fallbacks */
+    * {
+      font-family: Tahoma, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Prevent horizontal scroll */
+    html {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      overflow-x: hidden;
+      line-height: 1.6;
+      color: #333;
+      background: #0a0a0a;
+      background: -webkit-radial-gradient(circle at 20% 50%, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #0a0a0a 100%);
+      background: radial-gradient(circle at 20% 50%, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #0a0a0a 100%);
+      min-height: 100vh;
+    }
+
+    /* Animated background particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 102, 0, 0.6);
+      border-radius: 50%;
+      -webkit-animation: float 6s ease-in-out infinite;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @-webkit-keyframes float {
+      0%, 100% { -webkit-transform: translateY(0px); transform: translateY(0px); }
+      50% { -webkit-transform: translateY(-20px); transform: translateY(-20px); }
+    }
+
+    @keyframes float {
+      0%, 100% { -webkit-transform: translateY(0px); transform: translateY(0px); }
+      50% { -webkit-transform: translateY(-20px); transform: translateY(-20px); }
+    }
+
+    /* Sticky Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      background: -webkit-linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.9));
+      background: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.9));
+      padding: 1rem 2rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      z-index: 9999;
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 102, 0, 0.3);
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    nav .menu {
+      list-style: none;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      gap: 1.25rem;
+      margin: 0;
+      padding: 0;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    nav .menu li a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      -webkit-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      display: block;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    nav .menu li a:hover,
+    nav .menu li a:focus {
+      color: #ff6600;
+      background-color: rgba(255, 102, 0, 0.1);
+      -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    nav .menu li a.active {
+      color: #ff6600;
+      background-color: rgba(255, 102, 0, 0.2);
+      -webkit-box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+      box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+    }
+
+    /* Main Content */
+    .main-content {
+      padding-top: 100px;
+      min-height: 100vh;
+      position: relative;
+      z-index: 2;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .page-hero {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 3rem 1rem;
+      position: relative;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 900;
+      background: -webkit-linear-gradient(45deg, #ff6600, #ffaa44, #ff6600);
+      background: -o-linear-gradient(45deg, #ff6600, #ffaa44, #ff6600);
+      background: linear-gradient(45deg, #ff6600, #ffaa44, #ff6600);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-fill-color: transparent;
+      -webkit-animation: gradientShift 4s ease-in-out infinite;
+      animation: gradientShift 4s ease-in-out infinite;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      text-shadow: 0 0 30px rgba(255, 102, 0, 0.5);
+    }
+
+    @-webkit-keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .page-hero p {
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    /* Filter Controls */
+    .filter-controls {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      padding: 0 1rem;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.9);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .filter-btn:hover {
+      background: rgba(255, 102, 0, 0.2);
+      border-color: #ff6600;
+      color: #ff6600;
+      -webkit-transform: translateY(-3px);
+      -ms-transform: translateY(-3px);
+      transform: translateY(-3px);
+      -webkit-box-shadow: 0 10px 25px rgba(255, 102, 0, 0.3);
+      box-shadow: 0 10px 25px rgba(255, 102, 0, 0.3);
+    }
+
+    .filter-btn.active {
+      background: #ff6600;
+      background: -webkit-linear-gradient(45deg, #ff6600, #e55a00);
+      background: -o-linear-gradient(45deg, #ff6600, #e55a00);
+      background: linear-gradient(45deg, #ff6600, #e55a00);
+      border-color: #ff6600;
+      color: white;
+      -webkit-box-shadow: 0 0 30px rgba(255, 102, 0, 0.5);
+      box-shadow: 0 0 30px rgba(255, 102, 0, 0.5);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      gap: 2rem;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      background: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+      background: -o-linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      width: 400px;
+      max-width: 100%;
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      -o-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: -webkit-linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.1), transparent);
+      background: -o-linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.1), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.1), transparent);
+      -webkit-transition: left 0.5s;
+      -o-transition: left 0.5s;
+      transition: left 0.5s;
+    }
+
+    .project-card:hover::before {
+      left: 100%;
+    }
+
+    .project-card:hover {
+      -webkit-transform: translateY(-15px) scale(1.02);
+      -ms-transform: translateY(-15px) scale(1.02);
+      transform: translateY(-15px) scale(1.02);
+      border-color: rgba(255, 102, 0, 0.5);
+      -webkit-box-shadow: 0 25px 50px rgba(255, 102, 0, 0.2), 0 0 50px rgba(255, 102, 0, 0.1);
+      box-shadow: 0 25px 50px rgba(255, 102, 0, 0.2), 0 0 50px rgba(255, 102, 0, 0.1);
+    }
+
+    .project-icon {
+      width: 80px;
+      height: 80px;
+      background: -webkit-linear-gradient(45deg, #ff6600, #ffaa44);
+      background: -o-linear-gradient(45deg, #ff6600, #ffaa44);
+      background: linear-gradient(45deg, #ff6600, #ffaa44);
+      border-radius: 20px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      -webkit-box-shadow: 0 10px 30px rgba(255, 102, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(255, 102, 0, 0.3);
+    }
+
+    .project-card:hover .project-icon {
+      -webkit-transform: rotateY(180deg) scale(1.1);
+      transform: rotateY(180deg) scale(1.1);
+      -webkit-box-shadow: 0 15px 40px rgba(255, 102, 0, 0.4);
+      box-shadow: 0 15px 40px rgba(255, 102, 0, 0.4);
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .project-description {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-tags {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-tag {
+      background: rgba(255, 102, 0, 0.2);
+      color: #ffaa44;
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 102, 0, 0.3);
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+    }
+
+    .project-tag:hover {
+      background: #ff6600;
+      color: white;
+      -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+      transform: scale(1.05);
+    }
+
+    .project-metrics {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .metric {
+      text-align: center;
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      min-width: 80px;
+    }
+
+    .metric-value {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #ff6600;
+      display: block;
+      line-height: 1;
+    }
+
+    .metric-label {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.2rem;
+    }
+
+    .project-links {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .project-link {
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      padding: 0.6rem 1rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      text-align: center;
+    }
+
+    .project-link:hover {
+      background: #ff6600;
+      color: white;
+      border-color: #ff6600;
+      -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+      transform: translateY(-2px);
+      -webkit-box-shadow: 0 8px 20px rgba(255, 102, 0, 0.3);
+      box-shadow: 0 8px 20px rgba(255, 102, 0, 0.3);
+    }
+
+    /* Project Categories */
+    .project-card[data-category="hidden"] {
+      display: none;
+    }
+
+    .project-card[data-category="sixsigma"] {
+      border-color: rgba(0, 150, 255, 0.3);
+    }
+
+    .project-card[data-category="ux"] {
+      border-color: rgba(150, 0, 255, 0.3);
+    }
+
+    .project-card[data-category="motorsport"] {
+      border-color: rgba(255, 0, 150, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 2rem 1rem;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 102, 0, 0.3);
+    }
+
+    /* Animations */
+    @-webkit-keyframes fadeInUp {
+      from {
+        opacity: 0;
+        -webkit-transform: translateY(50px);
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        -webkit-transform: translateY(50px);
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+    }
+
+    .project-card {
+      -webkit-animation: fadeInUp 0.6s ease-out;
+      animation: fadeInUp 0.6s ease-out;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+
+    /* Staggered animation delays */
+    .project-card:nth-child(1) { -webkit-animation-delay: 0.1s; animation-delay: 0.1s; }
+    .project-card:nth-child(2) { -webkit-animation-delay: 0.2s; animation-delay: 0.2s; }
+    .project-card:nth-child(3) { -webkit-animation-delay: 0.3s; animation-delay: 0.3s; }
+    .project-card:nth-child(4) { -webkit-animation-delay: 0.4s; animation-delay: 0.4s; }
+    .project-card:nth-child(5) { -webkit-animation-delay: 0.5s; animation-delay: 0.5s; }
+    .project-card:nth-child(6) { -webkit-animation-delay: 0.6s; animation-delay: 0.6s; }
+
+    /* Mobile Responsive Styles */
+    @media screen and (max-width: 768px) {
+      nav {
+        padding: 1rem;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 1rem;
+        background: rgba(0, 0, 0, 0.98);
+      }
+
+      nav .logo {
+        font-size: 1.4rem;
+      }
+
+      nav .menu {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      nav .menu li a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.6rem;
+      }
+
+      .main-content {
+        padding-top: 140px;
+      }
+
+      .container {
+        padding: 1.5rem 0.5rem;
+      }
+
+      .page-hero {
+        padding: 2rem 0.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .filter-controls {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .filter-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .projects-grid {
+        gap: 1.5rem;
+      }
+
+      .project-card {
+        width: 100%;
+        max-width: 400px;
+        padding: 1.5rem;
+        margin: 0 auto;
+      }
+
+      .project-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+
+      .project-title {
+        font-size: 1.3rem;
+      }
+
+      .project-links {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      nav .menu li a {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.5rem;
+      }
+
+      .main-content {
+        padding-top: 160px;
+      }
+
+      .project-card {
+        padding: 1rem;
+      }
+
+      .project-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+      }
+
+      .filter-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Accessibility and Performance */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        -webkit-animation-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        -webkit-animation-iteration-count: 1 !important;
+        animation-iteration-count: 1 !important;
+        -webkit-transition-duration: 0.01ms !important;
+        -o-transition-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (prefers-contrast: high) {
+      .project-card {
+        border: 2px solid #fff;
+      }
+      
+      .filter-btn {
+        border: 2px solid #fff;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      nav, footer, .particles {
+        display: none;
+      }
+
+      body {
+        background: white;
+        color: black;
+      }
+
+      .main-content {
+        padding-top: 0;
+      }
+
+      .project-card {
+        border: 1px solid #333;
+        background: white;
+        color: black;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
 </head>
 <body>
-  <nav>
+  <!-- Animated Background Particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Navigation -->
+  <nav role="navigation" aria-label="Main navigation">
     <div class="logo">Sahil Sawant</div>
     <ul class="menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="experience.html">Experience</a></li>
-      <li><a href="education.html">Education</a></li>
-      <li><a href="projects.html" class="active">Projects</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="skills.html">Skills</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html" aria-label="Go to home page">Home</a></li>
+      <li><a href="about.html" aria-label="Go to about page">About</a></li>
+      <li><a href="experience.html" aria-label="Go to experience page">Experience</a></li>
+      <li><a href="education.html" aria-label="Go to education page">Education</a></li>
+      <li><a href="projects.html" class="active" aria-current="page" aria-label="Current page: Projects">Projects</a></li>
+      <li><a href="publications.html" aria-label="Go to publications page">Publications</a></li>
+      <li><a href="skills.html" aria-label="Go to skills page">Skills</a></li>
+      <li><a href="contact.html" aria-label="Go to contact page">Contact</a></li>
     </ul>
-    <div class="hamburger" id="hamburger">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-    <div class="mobile-nav" id="mobileNav">
-      <ul>
-        <li><a href="index.html" onclick="toggleMobileNav()">Home</a></li>
-        <li><a href="about.html" onclick="toggleMobileNav()">About</a></li>
-        <li><a href="experience.html" onclick="toggleMobileNav()">Experience</a></li>
-        <li><a href="education.html" onclick="toggleMobileNav()">Education</a></li>
-        <li><a href="projects.html" onclick="toggleMobileNav()" class="active">Projects</a></li>
-        <li><a href="publications.html" onclick="toggleMobileNav()">Publications</a></li>
-        <li><a href="skills.html" onclick="toggleMobileNav()">Skills</a></li>
-        <li><a href="contact.html" onclick="toggleMobileNav()">Contact</a></li>
-      </ul>
-    </div>
   </nav>
 
-  <div class="container" style="margin-top:100px;">
-    <h2 class="section-title fade">Projects</h2>
-    <div class="fade">
-      <h3 style="color:#ff6600;">Power Generation Using Electromagnetic Suspension</h3>
-      <p><em>Aug 2022 - Present</em></p>
-      <p style="margin-left:1rem;">
-        Converts vehicle bump-generated linear motion and vibration into
-        electricity for battery charging.
-      </p>
-    </div>
-  </div>
+  <!-- Main Content -->
+  <main class="main-content" role="main">
+    <div class="container">
+      <!-- Hero Section -->
+      <section class="page-hero">
+        <h1>Innovation Portfolio</h1>
+        <p>Transforming challenges into solutions through engineering excellence, data-driven insights, and human-centered design</p>
+      </section>
 
-  <footer>
+      <!-- Filter Controls -->
+      <section class="filter-controls" aria-label="Project filters">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="sixsigma">Six Sigma & Quality</button>
+        <button class="filter-btn" data-filter="ux">UX Research & Design</button>
+        <button class="filter-btn" data-filter="motorsport">Motorsport Engineering</button>
+      </section>
+
+      <!-- Projects Grid -->
+      <section class="projects-grid" aria-label="Projects showcase">
+        
+        <!-- Six Sigma Capstone Project -->
+        <article class="project-card" data-category="sixsigma" tabindex="0">
+          <div class="project-icon">⚙️</div>
+          <h3 class="project-title">Six Sigma Green Belt Capstone: Machine Downtime Reduction</h3>
+          <p class="project-description">
+            Comprehensive DMAIC methodology implementation to reduce manufacturing downtime by 54% and increase machine availability from 90% to 97% through preventive maintenance optimization.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Six Sigma</span>
+            <span class="project-tag">DMAIC</span>
+            <span class="project-tag">Statistical Analysis</span>
+            <span class="project-tag">Root Cause Analysis</span>
+            <span class="project-tag">SPC</span>
+          </div>
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-value">54%</span>
+              <span class="metric-label">Downtime Reduction</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">97%</span>
+              <span class="metric-label">Machine Availability</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">75%</span>
+              <span class="metric-label">Issues Addressed</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">📊 View Analysis</a>
+            <a href="#" class="project-link">📈 Results Report</a>
+          </div>
+        </article>
+
+        <!-- IT Ticketing Dashboard -->
+        <article class="project-card" data-category="ux" tabindex="0">
+          <div class="project-icon">🎯</div>
+          <h3 class="project-title">IT Ticketing Dashboard: UX Redesign</h3>
+          <p class="project-description">
+            Redesigned IT ticketing interface using Human-Centered Design principles, implementing role-based navigation and prioritized views to improve task success rates and reduce navigation time.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">UX Design</span>
+            <span class="project-tag">Figma</span>
+            <span class="project-tag">Usability Testing</span>
+            <span class="project-tag">Interface Design</span>
+            <span class="project-tag">SUS Score</span>
+          </div>
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-value">22%</span>
+              <span class="metric-label">Task Success Boost</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">35%</span>
+              <span class="metric-label">Navigation Time Cut</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">70</span>
+              <span class="metric-label">SUS Score</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">🎨 View Prototype</a>
+            <a href="#" class="project-link">📋 UX Report</a>
+          </div>
+        </article>
+
+        <!-- EHR Workflow Optimization -->
+        <article class="project-card" data-category="ux" tabindex="0">
+          <div class="project-icon">🏥</div>
+          <h3 class="project-title">EHR Workflow Optimization: Healthcare UX Research</h3>
+          <p class="project-description">
+            Led comprehensive human factors research at Prisma Health, conducting clinician interviews and workflow mapping to reduce cognitive load by 30% through interface redesign and task flow optimization.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Healthcare UX</span>
+            <span class="project-tag">Human Factors</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">R Analytics</span>
+            <span class="project-tag">NASA-TLX</span>
+            <span class="project-tag">A/B Testing</span>
+          </div>
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-value">15+</span>
+              <span class="metric-label">Clinician Interviews</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">30%</span>
+              <span class="metric-label">Cognitive Load Reduction</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">6</span>
+              <span class="metric-label">Workflows Mapped</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">🔬 Research Findings</a>
+            <a href="#" class="project-link">📊 Data Analysis</a>
+          </div>
+        </article>
+
+        <!-- SAE Baja Steering System -->
+        <article class="project-card" data-category="motorsport" tabindex="0">
+          <div class="project-icon">🏎️</div>
+          <h3 class="project-title">SAE Baja: Advanced Steering System Design</h3>
+          <p class="project-description">
+            Designed and developed high-performance steering system with rack and pinion assembly for ATV competition vehicle. Led team to podium finishes including AIR 5 overall and AIR 2 in Endurance race.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Mechanical Design</span>
+            <span class="project-tag">SolidWorks</span>
+            <span class="project-tag">ANSYS</span>
+            <span class="project-tag">Ackermann Geometry</span>
+            <span class="project-tag">Material Analysis</span>
+            <span class="project-tag">Team Leadership</span>
+          </div>
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-value">AIR 5</span>
+              <span class="metric-label">Overall Position</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">AIR 2</span>
+              <span class="metric-label">Endurance Race</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">2 Years</span>
+              <span class="metric-label">Team Leadership</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">🏁 Competition Results</a>
+            <a href="#" class="project-link">⚙️ Technical Details</a>
+          </div>
+        </article>
+
+        <!-- Educational Platform UX -->
+        <article class="project-card" data-category="ux" tabindex="0">
+          <div class="project-icon">📱</div>
+          <h3 class="project-title">Educational Platform: Beta App Interface Design</h3>
+          <p class="project-description">
+            Led comprehensive UX redesign for educational technology platform, conducting focus groups across engineering disciplines and implementing Human-Centered Design to improve user onboarding by 35%.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Mobile UX</span>
+            <span class="project-tag">Focus Groups</span>
+            <span class="project-tag">User Interviews</span>
+            <span class="project-tag">Wireframing</span>
+            <span class="project-tag">Prototyping</span>
+            <span class="project-tag">App Analytics</span>
+          </div>
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-value">35%</span>
+              <span class="metric-label">Onboarding Improvement</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">25+</span>
+              <span class="metric-label">User Tests</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">18%</span>
+              <span class="metric-label">Navigation Time Cut</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">📱 View Prototype</a>
+            <a href="#" class="project-link">📊 User Research</a>
+          </div>
+        </article>
+
+        <!-- Manufacturing Process Optimization -->
+        <article class="project-card" data-category="sixsigma" tabindex="0">
+          <div class="project-icon">🏭</div>
+          <h3 class="project-title">Manufacturing Process Optimization: Lean Implementation</h3>
+          <p class="project-description">
+            Implemented comprehensive Lean Manufacturing tools including 5S and Kaizen across assembly and CNC machining workflows, achieving 20% reduction in process variability and 15% efficiency improvement.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Lean Manufacturing</span>
+            <span class="project-tag">5S Implementation</span>
+            <span class="project-tag">Kaizen</span>
+            <span class="project-tag">Process Mapping</span>
+            <span class="project-tag">Time-Motion Studies</span>
+            <span class="project-tag">ISO 9001</span>
+          </div>
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-value">20%</span>
+              <span class="metric-label">Variability Reduction</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">15%</span>
+              <span class="metric-label">Efficiency Gain</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">12%</span>
+              <span class="metric-label">Downtime Reduction</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">📈 Process Maps</a>
+            <a href="#" class="project-link">📋 Implementation Plan</a>
+          </div>
+        </article>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
     <p>&copy; 2025 Sahil Sawant. All rights reserved.</p>
   </footer>
 
-  <button id="scrollToTopBtn">&#8679;</button>
-  <script src="js/script.js"></script>
+  <script>
+    // Enhanced JavaScript for interactivity and animations
+    (function() {
+      'use strict';
+      
+      // Create animated background particles
+      function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = window.innerWidth < 768 ? 15 : 30;
+        
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          
+          const size = Math.random() * 4 + 2;
+          const left = Math.random() * 100;
+          const animationDuration = Math.random() * 3 + 3;
+          const delay = Math.random() * 2;
+          
+          particle.style.width = size + 'px';
+          particle.style.height = size + 'px';
+          particle.style.left = left + '%';
+          particle.style.top = Math.random() * 100 + '%';
+          particle.style.animationDuration = animationDuration + 's';
+          particle.style.animationDelay = delay + 's';
+          particle.style.opacity = Math.random() * 0.5 + 0.3;
+          
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // Filter functionality
+      function initializeFilters() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const filter = btn.getAttribute('data-filter');
+            
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Filter projects with animation
+            projectCards.forEach((card, index) => {
+              const category = card.getAttribute('data-category');
+              
+              if (filter === 'all' || category === filter) {
+                card.style.display = 'block';
+                card.style.animation = 'none';
+                setTimeout(() => {
+                  card.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s both`;
+                }, 10);
+              } else {
+                card.style.animation = 'fadeOut 0.3s ease-out forwards';
+                setTimeout(() => {
+                  card.style.display = 'none';
+                }, 300);
+              }
+            });
+          });
+        });
+      }
+
+      // Enhanced card interactions
+      function initializeCardInteractions() {
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        projectCards.forEach(card => {
+          card.addEventListener('mouseenter', () => {
+            // Add hover sound effect (if audio is enabled)
+            playHoverSound();
+            
+            // Enhanced hover animations
+            const icon = card.querySelector('.project-icon');
+            const tags = card.querySelectorAll('.project-tag');
+            
+            tags.forEach((tag, index) => {
+              setTimeout(() => {
+                tag.style.transform = 'scale(1.05) translateY(-2px)';
+              }, index * 50);
+            });
+          });
+          
+          card.addEventListener('mouseleave', () => {
+            const tags = card.querySelectorAll('.project-tag');
+            tags.forEach(tag => {
+              tag.style.transform = 'scale(1) translateY(0)';
+            });
+          });
+          
+          // Keyboard accessibility
+          card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              const firstLink = card.querySelector('.project-link');
+              if (firstLink) firstLink.click();
+            }
+          });
+        });
+      }
+
+      // Parallax scrolling effect
+      function initializeParallax() {
+        window.addEventListener('scroll', () => {
+          const scrolled = window.pageYOffset;
+          const particles = document.querySelectorAll('.particle');
+          
+          particles.forEach((particle, index) => {
+            const speed = (index % 3 + 1) * 0.5;
+            particle.style.transform = `translateY(${scrolled * speed}px)`;
+          });
+        });
+      }
+
+      // Intersection Observer for animations
+      function initializeIntersectionObserver() {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+
+        function handleIntersection(entries) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-in');
+              
+              // Staggered animation for cards
+              if (entry.target.classList.contains('project-card')) {
+                const cards = Array.from(document.querySelectorAll('.project-card'));
+                const index = cards.indexOf(entry.target);
+                entry.target.style.animationDelay = `${index * 0.1}s`;
+              }
+            }
+          });
+        }
+
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver(handleIntersection, observerOptions);
+          const elements = document.querySelectorAll('.project-card, .page-hero');
+          
+          elements.forEach(el => observer.observe(el));
+        }
+      }
+
+      // Audio feedback (optional)
+      function playHoverSound() {
+        try {
+          // Create a subtle audio feedback for interactions
+          const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+          const oscillator = audioContext.createOscillator();
+          const gainNode = audioContext.createGain();
+          
+          oscillator.connect(gainNode);
+          gainNode.connect(audioContext.destination);
+          
+          oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+          gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+          gainNode.gain.linearRampToValueAtTime(0.01, audioContext.currentTime + 0.01);
+          gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.1);
+          
+          oscillator.start(audioContext.currentTime);
+          oscillator.stop(audioContext.currentTime + 0.1);
+        } catch (e) {
+          // Audio not supported or blocked
+        }
+      }
+
+      // Performance optimizations
+      function optimizePerformance() {
+        // Reduce motion for users who prefer it
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        
+        function handleReducedMotion(e) {
+          if (e.matches) {
+            document.body.classList.add('reduce-motion');
+            // Disable particles for better performance
+            document.getElementById('particles').style.display = 'none';
+          } else {
+            document.body.classList.remove('reduce-motion');
+            document.getElementById('particles').style.display = 'block';
+          }
+        }
+        
+        prefersReducedMotion.addListener(handleReducedMotion);
+        handleReducedMotion(prefersReducedMotion);
+
+        // Throttle scroll events
+        let ticking = false;
+        function updateOnScroll() {
+          if (!ticking) {
+            requestAnimationFrame(() => {
+              initializeParallax();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }
+        
+        window.addEventListener('scroll', updateOnScroll, { passive: true });
+      }
+
+      // Touch device optimizations
+      function optimizeForTouch() {
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        if (isTouch) {
+          document.body.classList.add('touch-device');
+          
+          // Add touch-specific interactions
+          const cards = document.querySelectorAll('.project-card');
+          cards.forEach(card => {
+            card.addEventListener('touchstart', () => {
+              card.classList.add('touch-active');
+            });
+            
+            card.addEventListener('touchend', () => {
+              setTimeout(() => {
+                card.classList.remove('touch-active');
+              }, 150);
+            });
+          });
+        }
+      }
+
+      // Initialize everything when DOM is ready
+      function initialize() {
+        createParticles();
+        initializeFilters();
+        initializeCardInteractions();
+        initializeIntersectionObserver();
+        optimizePerformance();
+        optimizeForTouch();
+      }
+
+      // Wait for DOM to be ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initialize);
+      } else {
+        initialize();
+      }
+
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        // Recreate particles on resize
+        const particlesContainer = document.getElementById('particles');
+        particlesContainer.innerHTML = '';
+        createParticles();
+      });
+
+    })();
+  </script>
+
+  <style>
+    /* Additional animation styles */
+    @-webkit-keyframes fadeOut {
+      from { opacity: 1; -webkit-transform: scale(1); transform: scale(1); }
+      to { opacity: 0; -webkit-transform: scale(0.8); transform: scale(0.8); }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; -webkit-transform: scale(1); transform: scale(1); }
+      to { opacity: 0; -webkit-transform: scale(0.8); transform: scale(0.8); }
+    }
+
+    .touch-active {
+      -webkit-transform: scale(0.98) !important;
+      -ms-transform: scale(0.98) !important;
+      transform: scale(0.98) !important;
+    }
+
+    .animate-in {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+      transform: translateY(0);
+    }
+
+    /* High performance mode */
+    .reduce-motion .project-card,
+    .reduce-motion .particle,
+    .reduce-motion * {
+      -webkit-animation: none !important;
+      animation: none !important;
+      -webkit-transition: none !important;
+      -o-transition: none !important;
+      transition: none !important;
+    }
+
+    /* Loading state */
+    .project-card[data-loading="true"] {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    /* Focus styles for accessibility */
+    .project-card:focus-visible {
+      outline: 3px solid #ff6600;
+      outline-offset: 3px;
+    }
+
+    .filter-btn:focus-visible {
+      outline: 2px solid #ff6600;
+      outline-offset: 2px;
+    }
+  </style>
 </body>
 </html>
