@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
   <meta name="format-detection" content="telephone=no" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="stylesheet" href="css/styles.css" />
   <style>
     /* CSS Reset for better cross-browser compatibility */
     *, *::before, *::after {
@@ -36,6 +35,9 @@
       background: -webkit-linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
       background: -o-linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* Sticky Navigation */
@@ -115,8 +117,8 @@
 
     /* Main Content */
     .main-content {
+      flex: 1;
       padding-top: 100px;
-      min-height: 100vh;
     }
 
     .container {
@@ -250,6 +252,8 @@
       background-repeat: no-repeat;
       position: relative;
       overflow: hidden;
+      /* Fallback gradient if image doesn't load */
+      background: linear-gradient(135deg, #ff6600 0%, #ffaa44 100%);
     }
 
     .presentation-image::before {
@@ -262,6 +266,26 @@
       background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
       background: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
       background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    }
+
+    /* Fallback content when image fails to load */
+    .presentation-image::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .presentation-image.iise::after {
+      content: '🏭 IISE';
+    }
+
+    .presentation-image.hfes::after {
+      content: '🧠 HFES';
     }
 
     .conference-badge {
@@ -559,7 +583,7 @@
       color: white;
       padding: 2rem 1rem;
       font-size: clamp(0.9rem, 2vw, 1rem);
-      margin-top: 2rem;
+      margin-top: auto;
     }
 
     /* Animations */
@@ -766,6 +790,11 @@
         -o-transition-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
       }
+
+      .page-header::before {
+        animation: none;
+        background: #ff6600;
+      }
     }
 
     .publication-card:focus-visible,
@@ -828,7 +857,7 @@
         <div class="presentations-grid">
           <!-- IISE Presentation -->
           <article class="presentation-card" tabindex="0">
-            <div class="presentation-image" style="background-image: url('images/iise-presentation.jpg');">
+            <div class="presentation-image iise" style="background-image: url('images/IISE.jpeg');">
               <div class="conference-badge">IISE 2025</div>
             </div>
             <div class="presentation-content">
@@ -845,7 +874,7 @@
 
           <!-- HFES Presentation -->
           <article class="presentation-card" tabindex="0">
-            <div class="presentation-image" style="background-image: url('images/hfes-presentation.jpg');">
+            <div class="presentation-image hfes" style="background-image: url('images/HFES.jpeg');">
               <div class="conference-badge">HFES 2024</div>
             </div>
             <div class="presentation-content">
@@ -1037,6 +1066,41 @@
     (function() {
       'use strict';
       
+      // Image loading fallback system
+      function handleImageErrors() {
+        var presentationImages = document.querySelectorAll('.presentation-image');
+        
+        presentationImages.forEach(function(imageDiv) {
+          // Create a temporary image to test if the background image loads
+          var testImg = new Image();
+          var bgImage = window.getComputedStyle(imageDiv).backgroundImage;
+          var imageUrl = bgImage.slice(4, -1).replace(/"/g, "");
+          
+          // Skip if no URL or already using fallback
+          if (!imageUrl || imageUrl === 'none') return;
+          
+          testImg.onload = function() {
+            // Image loaded successfully, no action needed
+            console.log('Image loaded successfully:', imageUrl);
+          };
+          
+          testImg.onerror = function() {
+            // Image failed to load, apply fallback styling
+            console.warn('Failed to load image:', imageUrl);
+            imageDiv.style.backgroundImage = 'none';
+            
+            // Add visible fallback content for better user experience
+            if (imageDiv.classList.contains('iise')) {
+              imageDiv.style.background = 'linear-gradient(135deg, #ff6600 0%, #ffaa44 100%)';
+            } else if (imageDiv.classList.contains('hfes')) {
+              imageDiv.style.background = 'linear-gradient(135deg, #0066cc 0%, #4da6ff 100%)';
+            }
+          };
+          
+          testImg.src = imageUrl;
+        });
+      }
+
       // Intersection Observer for better animation performance
       var observerOptions = {
         threshold: 0.1,
@@ -1143,100 +1207,11 @@
         });
       }
 
-      // Smooth scroll for internal links
-      function initializeSmoothScroll() {
-        var links = document.querySelectorAll('a[href^="#"]');
-        
-        links.forEach(function(link) {
-          link.addEventListener('click', function(e) {
-            e.preventDefault();
-            var target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-              target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-              });
-            }
-          });
-        });
-      }
-
-      // Touch device optimizations
-      function optimizeForTouch() {
-        var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        if (isTouch) {
-          document.body.classList.add('touch-device');
-          
-          var cards = document.querySelectorAll('.publication-card, .presentation-card');
-          cards.forEach(function(card) {
-            card.addEventListener('touchstart', function() {
-              this.classList.add('touch-active');
-            });
-            
-            card.addEventListener('touchend', function() {
-              var self = this;
-              setTimeout(function() {
-                self.classList.remove('touch-active');
-              }, 150);
-            });
-          });
-        }
-      }
-
-      // Performance optimizations
-      function optimizePerformance() {
-        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        
-        function handleReducedMotion(e) {
-          if (e.matches) {
-            document.body.classList.add('reduce-motion');
-          } else {
-            document.body.classList.remove('reduce-motion');
-          }
-        }
-        
-        prefersReducedMotion.addListener(handleReducedMotion);
-        handleReducedMotion(prefersReducedMotion);
-      }
-
-      // Enhanced keyboard navigation
-      function enhanceKeyboardNavigation() {
-        document.addEventListener('keydown', function(e) {
-          var focusableElements = 'a, button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-          var focusable = Array.prototype.slice.call(document.querySelectorAll(focusableElements));
-          var index = focusable.indexOf(document.activeElement);
-
-          if (e.key === 'Tab') {
-            if (e.shiftKey) {
-              if (index === 0) {
-                focusable[focusable.length - 1].focus();
-                e.preventDefault();
-              }
-            } else {
-              if (index === focusable.length - 1) {
-                focusable[0].focus();
-                e.preventDefault();
-              }
-            }
-          }
-        });
-      }
-
-      // Viewport height fix for mobile browsers
-      function setVH() {
-        var vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', vh + 'px');
-      }
-      
       // Initialize everything when DOM is ready
       function initialize() {
+        handleImageErrors();
         initializeCardInteractions();
         animateCounters();
-        initializeSmoothScroll();
-        optimizeForTouch();
-        optimizePerformance();
-        enhanceKeyboardNavigation();
-        setVH();
       }
 
       // Wait for DOM to be ready
@@ -1246,85 +1221,7 @@
         initialize();
       }
 
-      // Handle window resize
-      window.addEventListener('resize', setVH);
-      window.addEventListener('orientationchange', function() {
-        setTimeout(setVH, 100);
-      });
-
-      // Error handling for older browsers
-      window.addEventListener('error', function(e) {
-        console.warn('Compatibility fallback activated:', e.message);
-      });
-
     })();
   </script>
-
-  <style>
-    /* Additional animation and interaction styles */
-    .touch-active {
-      -webkit-transform: scale(0.98) !important;
-      -ms-transform: scale(0.98) !important;
-      transform: scale(0.98) !important;
-    }
-
-    .animate-in {
-      opacity: 1;
-      -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-      transform: translateY(0);
-    }
-
-    /* High performance mode */
-    .reduce-motion .publication-card,
-    .reduce-motion .presentation-card,
-    .reduce-motion * {
-      -webkit-animation: none !important;
-      animation: none !important;
-      -webkit-transition: none !important;
-      -o-transition: none !important;
-      transition: none !important;
-    }
-
-    /* Loading state */
-    .publication-card[data-loading="true"],
-    .presentation-card[data-loading="true"] {
-      opacity: 0.5;
-      pointer-events: none;
-    }
-
-    /* Hover enhancements */
-    .publication-card:hover .publication-icon {
-      -webkit-transform: scale(1.1) rotate(5deg);
-      -ms-transform: scale(1.1) rotate(5deg);
-      transform: scale(1.1) rotate(5deg);
-    }
-
-    .presentation-card:hover .conference-badge {
-      -webkit-transform: scale(1.05);
-      -ms-transform: scale(1.05);
-      transform: scale(1.05);
-    }
-
-    /* High contrast mode support */
-    @media (prefers-contrast: high) {
-      .publication-card,
-      .presentation-card {
-        border: 2px solid #333;
-      }
-      
-      .publication-tag {
-        border: 2px solid #666;
-      }
-    }
-
-    /* Reduced motion accessibility */
-    @media (prefers-reduced-motion: reduce) {
-      .page-header::before {
-        animation: none;
-        background: #ff6600;
-      }
-    }
-  </style>
 </body>
 </html>
