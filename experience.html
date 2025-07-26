@@ -91,7 +91,7 @@
       font-size: 1.1rem;
     }
 
-    /* Main Container - Widened */
+    /* Main Container */
     .experience-container {
       margin-top: 100px;
       padding: 20px 30px;
@@ -126,61 +126,63 @@
       line-height: 1.5;
     }
 
-    /* Experience Timeline - Linear Layout */
+    /* Experience Timeline - Fixed Layout */
     .timeline-container {
       position: relative;
       max-width: 1400px;
       margin: 0 auto;
     }
 
-    /* Timeline Line - Vertical on left */
+    /* Timeline Line - Fixed */
     .timeline-container::before {
       content: '';
       position: absolute;
-      left: 23%;
+      left: 22%;
       top: 0;
       bottom: 0;
       width: 3px;
       background: linear-gradient(to bottom, #ff6600, #e05500);
+      z-index: 1;
     }
 
-    /* Experience Item - Linear Layout */
+    /* Experience Item - Fixed Layout */
     .timeline-item {
       position: relative;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       display: flex;
       width: 100%;
       align-items: flex-start;
-      gap: 0;
+      gap: 20px;
     }
 
-    /* Timeline Info Section (Left 23%) */
+    /* Timeline Info Section (Left 20%) */
     .timeline-info {
-      width: 23%;
-      padding: 20px 15px 20px 0;
+      width: 20%;
+      padding: 25px 20px 25px 0;
       text-align: right;
       position: relative;
+      flex-shrink: 0;
     }
 
-    /* Timeline Dot */
-    .timeline-item::before {
+    /* Timeline Dot - Fixed */
+    .timeline-item::after {
       content: '';
       position: absolute;
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       background: #ff6600;
-      border: 3px solid white;
+      border: 4px solid white;
       border-radius: 50%;
-      right: -8px;
-      top: 25px;
-      box-shadow: 0 3px 10px rgba(255, 102, 0, 0.4);
+      left: calc(22% - 9px);
+      top: 30px;
+      box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
       z-index: 2;
     }
 
     /* Timeline Info Styling */
     .timeline-date {
       font-size: 1.1rem;
-      font-weight: 600;
+      font-weight: 700;
       color: #ff6600;
       margin-bottom: 8px;
       line-height: 1.3;
@@ -193,19 +195,18 @@
       line-height: 1.2;
     }
 
-    /* Experience Card - Right Side (77%) */
+    /* Experience Card - Right Side (78%) */
     .experience-card {
       background: white;
-      padding: 40px 45px;
+      padding: 40px 50px;
       border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       border-left: 5px solid #ff6600;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
-      min-height: 320px;
-      width: 77%;
-      margin-left: 0;
+      width: 78%;
+      flex-grow: 1;
     }
 
     .experience-card::before {
@@ -219,32 +220,23 @@
     }
 
     .experience-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(255, 102, 0, 0.25);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(255, 102, 0, 0.25);
     }
 
     .job-title {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       font-weight: bold;
       color: #2c3e50;
       margin-bottom: 12px;
       line-height: 1.4;
-      padding-right: 20px;
     }
 
     .company-name {
       font-size: 1.3rem;
       color: #ff6600;
       font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .job-duration {
-      display: none; /* Hide duration from main card since it's in timeline info */
-    }
-
-    .job-location {
-      display: none; /* Hide location from main card since it's in timeline info */
+      margin-bottom: 25px;
     }
 
     .job-description {
@@ -256,24 +248,25 @@
 
     .job-description ul {
       margin: 20px 0;
-      padding-left: 30px;
+      padding-left: 0;
       list-style-type: none;
     }
 
     .job-description li {
-      margin-bottom: 15px;
+      margin-bottom: 18px;
       position: relative;
-      padding-left: 8px;
+      padding-left: 30px;
       line-height: 1.7;
     }
 
     .job-description li::before {
-      content: '•';
+      content: '▶';
       color: #ff6600;
       font-weight: bold;
       position: absolute;
-      left: -25px;
-      font-size: 1.3em;
+      left: 0;
+      font-size: 0.8em;
+      top: 2px;
     }
 
     .job-description strong {
@@ -284,18 +277,19 @@
     .metric {
       background: linear-gradient(135deg, #ff6600, #e05500);
       color: white;
-      padding: 4px 10px;
-      border-radius: 6px;
+      padding: 4px 12px;
+      border-radius: 8px;
       font-weight: bold;
       font-size: 0.95rem;
       display: inline-block;
       margin: 0 3px;
+      box-shadow: 0 2px 8px rgba(255, 102, 0, 0.3);
     }
 
     .skills-used {
-      margin-top: 25px;
-      padding-top: 20px;
-      border-top: 2px solid #f8f9fa;
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 2px solid #f1f3f4;
     }
 
     .skills-label {
@@ -308,63 +302,68 @@
     .skill-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
     }
 
     .skill-tag {
       background: #f8f9fa;
       color: #495057;
       padding: 8px 16px;
-      border-radius: 20px;
+      border-radius: 25px;
       font-size: 0.9rem;
-      border: 1px solid #dee2e6;
-      transition: all 0.2s ease;
+      border: 2px solid #dee2e6;
+      transition: all 0.3s ease;
       white-space: nowrap;
+      font-weight: 500;
     }
 
     .skill-tag:hover {
       background: #ff6600;
       color: white;
       border-color: #ff6600;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
     }
 
     /* Achievement Highlight */
     .achievement {
-      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      background: linear-gradient(135deg, #e8f5e8, #d4edda);
       border-left: 5px solid #28a745;
-      padding: 18px 25px;
-      margin: 20px 0;
-      border-radius: 10px;
+      padding: 20px 25px;
+      margin: 25px 0;
+      border-radius: 12px;
       font-style: italic;
       color: #2c3e50;
       font-size: 1.05rem;
       line-height: 1.6;
+      box-shadow: 0 4px 15px rgba(40, 167, 69, 0.15);
     }
 
     .achievement::before {
       content: "🏆 ";
       margin-right: 10px;
+      font-size: 1.2em;
     }
 
     /* Contact Info Box */
     .contact-info {
       background: linear-gradient(135deg, #2c3e50, #34495e);
       color: white;
-      padding: 35px 45px;
+      padding: 40px 50px;
       border-radius: 15px;
       text-align: center;
-      margin: 60px auto;
-      max-width: 800px;
-      box-shadow: 0 10px 30px rgba(44, 62, 80, 0.3);
+      margin: 70px auto;
+      max-width: 900px;
+      box-shadow: 0 15px 40px rgba(44, 62, 80, 0.3);
     }
 
     .contact-info h3 {
-      margin-bottom: 25px;
-      font-size: 1.6rem;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
     }
 
     .contact-item {
-      margin: 15px 0;
+      margin: 18px 0;
       font-size: 1.1rem;
     }
 
@@ -381,43 +380,43 @@
 
     /* Recommendations Section */
     .recommendations {
-      margin: 60px auto;
-      max-width: 1200px;
+      margin: 70px auto;
+      max-width: 1400px;
     }
 
     .recommendations h2 {
       text-align: center;
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       color: #2c3e50;
       margin-bottom: 50px;
     }
 
     .recommendation-card {
       background: white;
-      padding: 30px 40px;
+      padding: 35px 45px;
       border-radius: 15px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      margin-bottom: 30px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      margin-bottom: 35px;
       border-left: 5px solid #3498db;
       position: relative;
     }
 
     .recommendation-card::before {
       content: '"';
-      font-size: 4rem;
+      font-size: 4.5rem;
       color: #3498db;
       position: absolute;
       top: 15px;
       left: 25px;
-      opacity: 0.3;
+      opacity: 0.2;
     }
 
     .recommendation-text {
       font-style: italic;
       line-height: 1.7;
       color: #34495e;
-      margin-bottom: 20px;
-      padding-left: 50px;
+      margin-bottom: 25px;
+      padding-left: 60px;
       font-size: 1.1rem;
     }
 
@@ -439,8 +438,8 @@
       background: #2c3e50;
       color: #ecf0f1;
       text-align: center;
-      padding: 2rem 0;
-      margin-top: 50px;
+      padding: 2.5rem 0;
+      margin-top: 60px;
     }
 
     /* Responsive Design */
@@ -450,20 +449,20 @@
         padding: 20px 25px;
       }
 
-      .timeline-container {
-        max-width: 900px;
-      }
-
       .timeline-container::before {
         left: 25%;
       }
 
+      .timeline-item::after {
+        left: calc(25% - 9px);
+      }
+
       .timeline-info {
-        width: 25%;
+        width: 22%;
       }
 
       .experience-card {
-        width: 75%;
+        width: 76%;
         padding: 35px 40px;
       }
     }
@@ -478,11 +477,11 @@
       }
 
       .page-header {
-        padding: 30px 20px;
+        padding: 40px 25px;
       }
 
       .page-header h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
       }
 
       .experience-container {
@@ -490,40 +489,40 @@
       }
 
       .timeline-container::before {
-        left: 30px;
+        left: 40px;
       }
 
       .timeline-item {
         flex-direction: column;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
       }
 
       .timeline-info {
         width: 100%;
         text-align: left;
-        padding: 0 0 15px 60px;
-        margin-bottom: 15px;
-        border-bottom: 2px solid #f8f9fa;
+        padding: 0 0 20px 80px;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #ff6600;
+        border-radius: 0 0 10px 0;
       }
 
-      .timeline-item::before {
-        left: 20px;
-        right: auto;
-        top: 10px;
+      .timeline-item::after {
+        left: 30px;
+        top: 15px;
       }
 
       .experience-card {
         width: 100%;
-        padding: 25px 30px;
+        padding: 30px 25px;
         margin-left: 0;
       }
 
-      .skill-tags {
-        justify-content: flex-start;
+      .job-title {
+        font-size: 1.4rem;
       }
 
       .contact-info {
-        padding: 25px 30px;
+        padding: 30px 25px;
       }
 
       .recommendations {
@@ -535,7 +534,8 @@
       }
 
       .recommendation-text {
-        padding-left: 40px;
+        padding-left: 45px;
+        font-size: 1rem;
       }
     }
 
@@ -544,30 +544,25 @@
         padding: 15px 10px;
       }
 
-      .timeline-item {
-        padding-left: 50px;
-        padding-right: 10px;
+      .timeline-info {
+        padding-left: 60px;
       }
 
       .experience-card {
-        padding: 20px 25px;
+        padding: 25px 20px;
       }
 
       .job-title {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
       }
 
-      .contact-info {
-        padding: 20px 25px;
+      .skill-tags {
+        gap: 8px;
       }
 
-      .recommendation-card {
-        padding: 20px 25px;
-      }
-
-      .recommendation-text {
-        padding-left: 35px;
-        font-size: 1rem;
+      .skill-tag {
+        padding: 6px 12px;
+        font-size: 0.85rem;
       }
     }
   </style>
@@ -609,24 +604,32 @@
 
   <!-- Main Container -->
   <div class="experience-container">
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1>Professional Experience</h1>
+      <div class="subtitle">Journey through impactful roles and achievements in technology, engineering, and research</div>
+    </div>
+
     <!-- Timeline -->
     <div class="timeline-container">
       <!-- Current Role -->
       <div class="timeline-item">
+        <div class="timeline-info">
+          <div class="timeline-date">September 2024 - Present</div>
+          <div class="timeline-location">Clemson, South Carolina</div>
+        </div>
         <div class="experience-card">
           <div class="job-title">Graduate Research Assistant – Adaptive Systems Laboratory</div>
           <div class="company-name">Clemson University</div>
-          <div class="job-duration">September 2024 - Present</div>
-          <div class="job-location">Clemson, South Carolina</div>
           <div class="job-description">
             <ul>
-              <li>• Interviewed <strong>15+ clinicians</strong> at <strong>Prisma Health</strong> and mapped <strong>6 hospital workflows</strong>, identifying key bottlenecks that delayed care delivery by <span class="metric">12%</span></li>
-              <li>• Implemented <strong>Python + R</strong> for anonymized <strong>EHR data analysis</strong> under IRB-compliant protocols, enabling secure workflow insight extraction</li>
-              <li>• Redesigned <strong>EHR interfaces and task flows</strong> using prototyping and <strong>Figma</strong>, reducing average clinician cognitive load by <span class="metric">30%</span> (NASA-TLX scale)</li>
-              <li>• Validated changes through <strong>heuristic evaluations</strong>, <strong>A/B testing (n=20)</strong>, and cognitive walkthroughs, supporting early-stage clinical deployment</li>
+              <li>Interviewed <strong>15+ clinicians</strong> at <strong>Prisma Health</strong> and mapped <strong>6 hospital workflows</strong>, identifying key bottlenecks that delayed care delivery by <span class="metric">12%</span></li>
+              <li>Implemented <strong>Python + R</strong> for anonymized <strong>EHR data analysis</strong> under IRB-compliant protocols, enabling secure workflow insight extraction</li>
+              <li>Redesigned <strong>EHR interfaces and task flows</strong> using prototyping and <strong>Figma</strong>, reducing average clinician cognitive load by <span class="metric">30%</span> (NASA-TLX scale)</li>
+              <li>Validated changes through <strong>heuristic evaluations</strong>, <strong>A/B testing (n=20)</strong>, and cognitive walkthroughs, supporting early-stage clinical deployment</li>
             </ul>
             <div class="achievement">
-              🏆 Reduced clinician cognitive load by 30% and identified 12% care delivery delays through systematic workflow analysis
+              Reduced clinician cognitive load by 30% and identified 12% care delivery delays through systematic workflow analysis
             </div>
           </div>
           <div class="skills-used">
@@ -647,19 +650,21 @@
 
       <!-- TRITORC Role -->
       <div class="timeline-item">
+        <div class="timeline-info">
+          <div class="timeline-date">January 2024 - June 2024</div>
+          <div class="timeline-location">Mumbai, India</div>
+        </div>
         <div class="experience-card">
           <div class="job-title">Manufacturing and Quality Engineer</div>
           <div class="company-name">Tritorc Equipments Pvt Ltd</div>
-          <div class="job-duration">January 2024 - June 2024</div>
-          <div class="job-location">Mumbai, India</div>
           <div class="job-description">
             <ul>
-              <li>• Reduced process variability by <span class="metric">20%</span> by implementing <strong>Lean tools (5S, Kaizen)</strong> across assembly and <strong>CNC machining workflows</strong></li>
-              <li>• Conducted <strong>time-motion studies</strong> and created <strong>process maps</strong> for field services, increasing efficiency by <span class="metric">15%</span> across 3 service lines</li>
-              <li>• Developed and enforced <strong>ISO 9001</strong> and <strong>OSHA-compliant SOPs</strong> and maintenance plans, reducing downtime by <span class="metric">12%</span> and boosting audit readiness</li>
+              <li>Reduced process variability by <span class="metric">20%</span> by implementing <strong>Lean tools (5S, Kaizen)</strong> across assembly and <strong>CNC machining workflows</strong></li>
+              <li>Conducted <strong>time-motion studies</strong> and created <strong>process maps</strong> for field services, increasing efficiency by <span class="metric">15%</span> across 3 service lines</li>
+              <li>Developed and enforced <strong>ISO 9001</strong> and <strong>OSHA-compliant SOPs</strong> and maintenance plans, reducing downtime by <span class="metric">12%</span> and boosting audit readiness</li>
             </ul>
             <div class="achievement">
-              🏆 Achieved 20% reduction in process variability and 15% efficiency improvement through Lean implementation
+              Achieved 20% reduction in process variability and 15% efficiency improvement through Lean implementation
             </div>
           </div>
           <div class="skills-used">
@@ -680,21 +685,23 @@
 
       <!-- Brainheaters Role -->
       <div class="timeline-item">
+        <div class="timeline-info">
+          <div class="timeline-date">May 2023 - November 2023</div>
+          <div class="timeline-location">Mumbai, India</div>
+        </div>
         <div class="experience-card">
           <div class="job-title">UX Intern</div>
           <div class="company-name">Brainheaters</div>
-          <div class="job-duration">May 2023 - November 2023</div>
-          <div class="job-location">Mumbai, India</div>
           <div class="job-description">
             <ul>
-              <li>• Improved task completion accuracy by <span class="metric">22%</span> by conducting <strong>usability testing with 25+ users</strong> and proposing <strong>Figma-based UI enhancements</strong></li>
-              <li>• Streamlined user workflows using <strong>Human-Centered Design (HCD)</strong>, reducing average navigation time on the educational platform by <span class="metric">18%</span></li>
-              <li>• Designed and deployed a <strong>new beta app interface</strong>, improving user onboarding speed by <span class="metric">35%</span> based on pain points from prior app analytics</li>
-              <li>• Led <strong>5 focus groups</strong> across 4 engineering branches and conducted <strong>structured user interviews</strong> to identify cognitive and interaction barriers</li>
-              <li>• Delivered <strong>high-fidelity wireframes and prototypes</strong> to communicate design solutions to developers and accelerate handoff cycles by <span class="metric">20%</span></li>
+              <li>Improved task completion accuracy by <span class="metric">22%</span> by conducting <strong>usability testing with 25+ users</strong> and proposing <strong>Figma-based UI enhancements</strong></li>
+              <li>Streamlined user workflows using <strong>Human-Centered Design (HCD)</strong>, reducing average navigation time on the educational platform by <span class="metric">18%</span></li>
+              <li>Designed and deployed a <strong>new beta app interface</strong>, improving user onboarding speed by <span class="metric">35%</span> based on pain points from prior app analytics</li>
+              <li>Led <strong>5 focus groups</strong> across 4 engineering branches and conducted <strong>structured user interviews</strong> to identify cognitive and interaction barriers</li>
+              <li>Delivered <strong>high-fidelity wireframes and prototypes</strong> to communicate design solutions to developers and accelerate handoff cycles by <span class="metric">20%</span></li>
             </ul>
             <div class="achievement">
-              🏆 Achieved 35% improvement in user onboarding speed and 22% increase in task completion accuracy
+              Achieved 35% improvement in user onboarding speed and 22% increase in task completion accuracy
             </div>
           </div>
           <div class="skills-used">
@@ -715,21 +722,23 @@
 
       <!-- DevTown Role -->
       <div class="timeline-item">
+        <div class="timeline-info">
+          <div class="timeline-date">October 2021 - March 2022</div>
+          <div class="timeline-location">Mumbai, India (Remote)</div>
+        </div>
         <div class="experience-card">
           <div class="job-title">Data Scientist Intern</div>
           <div class="company-name">Devtown</div>
-          <div class="job-duration">October 2021 - March 2022</div>
-          <div class="job-location">Mumbai, India (Remote)</div>
           <div class="job-description">
             <ul>
-              <li>• Preprocessed and transformed <strong>raw datasets</strong> using <strong>Python and Pandas</strong>, enabling structured analysis and model readiness</li>
-              <li>• Built <strong>interactive dashboards and visualizations</strong> with Python (<strong>Matplotlib, Seaborn</strong>) and <strong>SQL queries</strong>, improving data interpretability by <span class="metric">30%</span></li>
-              <li>• Developed <strong>predictive models</strong> in Excel and Python for real-time datasets, including <strong>Breast Cancer Diagnosis</strong> and <strong>Loan Application Risk Assessment</strong></li>
-              <li>• Improved model accuracy by <span class="metric">15%</span> on classification tasks through <strong>hyperparameter tuning</strong> and balanced sampling techniques</li>
-              <li>• Collaborated remotely in an <strong>agile setting</strong> to deliver end-to-end analytical solutions under weekly sprint reviews</li>
+              <li>Preprocessed and transformed <strong>raw datasets</strong> using <strong>Python and Pandas</strong>, enabling structured analysis and model readiness</li>
+              <li>Built <strong>interactive dashboards and visualizations</strong> with Python (<strong>Matplotlib, Seaborn</strong>) and <strong>SQL queries</strong>, improving data interpretability by <span class="metric">30%</span></li>
+              <li>Developed <strong>predictive models</strong> in Excel and Python for real-time datasets, including <strong>Breast Cancer Diagnosis</strong> and <strong>Loan Application Risk Assessment</strong></li>
+              <li>Improved model accuracy by <span class="metric">15%</span> on classification tasks through <strong>hyperparameter tuning</strong> and balanced sampling techniques</li>
+              <li>Collaborated remotely in an <strong>agile setting</strong> to deliver end-to-end analytical solutions under weekly sprint reviews</li>
             </ul>
             <div class="achievement">
-              🏆 Achieved 15% improvement in model accuracy and 30% better data interpretability through advanced analytics
+              Achieved 15% improvement in model accuracy and 30% better data interpretability through advanced analytics
             </div>
           </div>
           <div class="skills-used">
@@ -750,11 +759,13 @@
 
       <!-- Torrid Racing Role -->
       <div class="timeline-item">
+        <div class="timeline-info">
+          <div class="timeline-date">September 2021 - August 2022</div>
+          <div class="timeline-location">Mumbai, India</div>
+        </div>
         <div class="experience-card">
           <div class="job-title">Suspension and Steering Lead</div>
           <div class="company-name">Torrid Racing (SAE Associated)</div>
-          <div class="job-duration">September 2021 - August 2022</div>
-          <div class="job-location">Mumbai, India</div>
           <div class="job-description">
             <ul>
               <li>Led the design and development of an efficient steering system for an All-Terrain Vehicle (ATV)</li>
@@ -763,22 +774,7 @@
               <li>Applied engineering principles to solve complex mechanical design challenges</li>
             </ul>
             <div class="achievement">
-              🏆 Team secured Overall AIR 5 and AIR 2 in Endurance race at MEGA ATV 2021 competition
-            </div>
-          </div>
-          <div class="skills-used">
-            <div class="skills-label">Key Skills:</div>
-            <div class="skill-tags">
-              <span class="skill-tag">SolidWorks</span>
-              <span class="skill-tag">ANSYS FEA</span>
-              <span class="skill-tag">CAD Modeling</span>
-              <span class="skill-tag">Team Leadership</span>
-              <span class="skill-tag">Project Management</span>
-              <span class="skill-tag">Mechanical Design</span>
-            </div>
-          </div>
-        </div>
-      </div>2 in Endurance race at MEGA ATV 2021 competition
+              Team secured Overall AIR 5 and AIR 2 in Endurance race at MEGA ATV 2021 competition
             </div>
           </div>
           <div class="skills-used">
@@ -838,32 +834,4 @@
           His user-centric design approach brought a fresh perspective to our UX strategy. Sahil consistently delivered innovative solutions that improved our product's usability and user satisfaction.
         </div>
         <div class="recommendation-author">Design Leadership</div>
-        <div class="recommendation-role">Brainheaters</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Sahil Sawant. All rights reserved.</p>
-  </footer>
-
-  <!-- JavaScript for Mobile Navigation -->
-  <script>
-    function toggleMobileNav() {
-      const mobileNav = document.getElementById('mobileNav');
-      const hamburger = document.getElementById('hamburger');
-      
-      if (mobileNav.style.display === 'block') {
-        mobileNav.style.display = 'none';
-        hamburger.classList.remove('active');
-      } else {
-        mobileNav.style.display = 'block';
-        hamburger.classList.add('active');
-      }
-    }
-
-    document.getElementById('hamburger').addEventListener('click', toggleMobileNav);
-  </script>
-</body>
-</html>
+        <div class
