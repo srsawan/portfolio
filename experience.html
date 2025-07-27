@@ -296,8 +296,8 @@
 
     .experience-image {
       flex-shrink: 0;
-      width: 250px;
-      height: 200px;
+      width: 200px;
+      height: 150px;
       border-radius: 12px;
       overflow: hidden;
       border: 3px solid #f0f0f0;
@@ -428,25 +428,27 @@
       font-size: 1.1rem;
     }
 
+    /* Shortened and left-aligned job period */
     .job-period {
       background: #ff6600;
       background: -webkit-linear-gradient(45deg, #ff6600, #e55a00);
       background: -o-linear-gradient(45deg, #ff6600, #e55a00);
       background: linear-gradient(45deg, #ff6600, #e55a00);
       color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
+      padding: 0.4rem 0.8rem;
+      border-radius: 15px;
       font-weight: bold;
-      font-size: clamp(0.8rem, 2.2vw, 1rem);
+      font-size: clamp(0.75rem, 2vw, 0.9rem);
       white-space: nowrap;
-      text-align: center;
-      min-width: max-content;
+      text-align: left;
+      width: fit-content;
       -webkit-box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
       box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
       transition: all 0.3s ease;
       position: relative;
       z-index: 2;
-      margin-left: 1rem;
+      margin-top: 0.5rem;
+      align-self: flex-start;
     }
 
     .job-period:hover {
@@ -605,6 +607,7 @@
       font-weight: 700;
       color: #16a085;
     }
+    
     .section-divider {
       height: 3px;
       background: linear-gradient(90deg, transparent, #ff6600, transparent);
@@ -711,6 +714,11 @@
       .experience-card {
         padding: 2.5rem 2rem;
       }
+      
+      .experience-image {
+        width: 180px;
+        height: 135px;
+      }
     }
 
     @media screen and (max-width: 768px) {
@@ -776,6 +784,18 @@
       .experience-card {
         padding: 2rem 1.5rem;
         margin-bottom: 1.5rem;
+        flex-direction: column;
+      }
+
+      .experience-image {
+        width: 100%;
+        height: 200px;
+        order: 2;
+        margin-top: 1rem;
+      }
+
+      .experience-content {
+        order: 1;
       }
 
       .experience-header {
@@ -859,9 +879,9 @@
       }
 
       .job-period {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
-        border-radius: 20px;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        border-radius: 15px;
       }
 
       .achievements li {
@@ -960,6 +980,7 @@
       <p>A journey through industrial systems improvement, UX research, and data-driven solutions</p>
     </header>
 
+    <section class="experience-section">
       <!-- Graduate Research Assistant -->
       <div class="experience-item">
         <div class="company-logo-container">
@@ -974,36 +995,28 @@
                 <h3>Graduate Research Assistant</h3>
                 <h4>Clemson University - Adaptive Systems Laboratory</h4>
                 <div class="location">Clemson, South Carolina</div>
-                <div class="job-period">Sept 2024 – Present</div>
+                <div class="job-period">Sep 2024 – Present</div>
               </div>
             </header>
-          <ul class="achievements" role="list">
-            <li>Interviewed <strong>15+</strong> clinicians at <strong>Prisma Health</strong> and mapped <strong>6</strong> hospital workflows, identifying key bottlenecks that delayed care delivery by <strong>12%</strong></li>
-            <li>Implemented <strong>Python + R</strong> for anonymized <strong>EHR data analysis</strong> under <strong>IRB-compliant protocols</strong>, enabling secure workflow insight extraction</li>
-            <li>Redesigned <strong>EHR interfaces</strong> and task flows using prototyping and <strong>Figma</strong>, reducing average clinician cognitive load by <strong>30%</strong> (<strong>NASA-TLX scale</strong>)</li>
-            <li>Validated changes through <strong>heuristic evaluations</strong>, <strong>A/B testing</strong> (n=<strong>20</strong>), and <strong>cognitive walkthroughs</strong>, supporting early-stage clinical deployment</li>
-          </ul>
-          <div class="skills-used">
-            <h5>Key Technologies & Methods:</h5>
-            <div class="skill-tags" role="list" aria-label="Technologies and methods used">
-              <span class="skill-tag" role="listitem">Python</span>
-              <span class="skill-tag" role="listitem">R</span>
-              <span class="skill-tag" role="listitem">Figma</span>
-              <span class="skill-tag" role="listitem">UX Research</span>
-              <span class="skill-tag" role="listitem">A/B Testing</span>
-              <span class="skill-tag" role="listitem">Heuristic Evaluation</span>
-              <span class="skill-tag" role="listitem">NASA-TLX</span>
-              <span class="skill-tag" role="listitem">IRB Compliance</span>
+            <ul class="achievements" role="list">
+              <li>Interviewed <strong>15+</strong> clinicians at <strong>Prisma Health</strong> and mapped <strong>6</strong> hospital workflows, identifying key bottlenecks that delayed care delivery by <strong>12%</strong></li>
+              <li>Implemented <strong>Python + R</strong> for anonymized <strong>EHR data analysis</strong> under <strong>IRB-compliant protocols</strong>, enabling secure workflow insight extraction</li>
+              <li>Redesigned <strong>EHR interfaces</strong> and task flows using prototyping and <strong>Figma</strong>, reducing average clinician cognitive load by <strong>30%</strong> (<strong>NASA-TLX scale</strong>)</li>
+              <li>Validated changes through <strong>heuristic evaluations</strong>, <strong>A/B testing</strong> (n=<strong>20</strong>), and <strong>cognitive walkthroughs</strong>, supporting early-stage clinical deployment</li>
+            </ul>
+            <div class="skills-used">
+              <h5>Key Technologies & Methods:</h5>
+              <div class="skill-tags" role="list" aria-label="Technologies and methods used">
+                <span class="skill-tag" role="listitem">Python</span>
+                <span class="skill-tag" role="listitem">R</span>
+                <span class="skill-tag" role="listitem">Figma</span>
+                <span class="skill-tag" role="listitem">UX Research</span>
+                <span class="skill-tag" role="listitem">A/B Testing</span>
+                <span class="skill-tag" role="listitem">Heuristic Evaluation</span>
+                <span class="skill-tag" role="listitem">NASA-TLX</span>
+                <span class="skill-tag" role="listitem">IRB Compliance</span>
+              </div>
             </div>
-          </div>
-          <div class="experience-image">
-            <img src="images/devtown1.png" alt="Devtown Data Science Experience" onerror="this.style.display='none'">
-          </div>
-          <div class="experience-image">
-            <img src="images/brainheaters1.png" alt="Brainheaters UX Experience" onerror="this.style.display='none'">
-          </div>
-          <div class="experience-image">
-            <img src="images/tritorc1.png" alt="Tritorc Manufacturing Experience" onerror="this.style.display='none'">
           </div>
           <div class="experience-image">
             <img src="images/clemson1.png" alt="Clemson University Research Experience" onerror="this.style.display='none'">
@@ -1026,26 +1039,30 @@
                 <h3>Manufacturing and Quality Engineer</h3>
                 <h4>Tritorc Equipments Pvt Ltd</h4>
                 <div class="location">Mumbai, India</div>
-                <div class="job-period">Jan 2024 – June 2024</div>
+                <div class="job-period">Jan – Jun 2024</div>
               </div>
             </header>
-          <ul class="achievements" role="list">
-            <li>Reduced process variability by <strong>20%</strong> by implementing <strong>Lean tools</strong> (<strong>5S, Kaizen</strong>) across assembly and <strong>CNC machining workflows</strong></li>
-            <li>Conducted <strong>time-motion studies</strong> and created <strong>process maps</strong> for field services, increasing efficiency by <strong>15%</strong> across <strong>3</strong> service lines</li>
-            <li>Developed and enforced <strong>ISO 9001-</strong> and <strong>OSHA-compliant</strong> SOPs and maintenance plans, reducing downtime by <strong>12%</strong> and boosting audit readiness</li>
-          </ul>
-          <div class="skills-used">
-            <h5>Key Technologies & Methods:</h5>
-            <div class="skill-tags" role="list" aria-label="Technologies and methods used">
-              <span class="skill-tag" role="listitem">Lean Manufacturing</span>
-              <span class="skill-tag" role="listitem">5S</span>
-              <span class="skill-tag" role="listitem">Kaizen</span>
-              <span class="skill-tag" role="listitem">ISO 9001</span>
-              <span class="skill-tag" role="listitem">OSHA</span>
-              <span class="skill-tag" role="listitem">Time-Motion Studies</span>
-              <span class="skill-tag" role="listitem">Process Mapping</span>
-              <span class="skill-tag" role="listitem">CNC Machining</span>
+            <ul class="achievements" role="list">
+              <li>Reduced process variability by <strong>20%</strong> by implementing <strong>Lean tools</strong> (<strong>5S, Kaizen</strong>) across assembly and <strong>CNC machining workflows</strong></li>
+              <li>Conducted <strong>time-motion studies</strong> and created <strong>process maps</strong> for field services, increasing efficiency by <strong>15%</strong> across <strong>3</strong> service lines</li>
+              <li>Developed and enforced <strong>ISO 9001-</strong> and <strong>OSHA-compliant</strong> SOPs and maintenance plans, reducing downtime by <strong>12%</strong> and boosting audit readiness</li>
+            </ul>
+            <div class="skills-used">
+              <h5>Key Technologies & Methods:</h5>
+              <div class="skill-tags" role="list" aria-label="Technologies and methods used">
+                <span class="skill-tag" role="listitem">Lean Manufacturing</span>
+                <span class="skill-tag" role="listitem">5S</span>
+                <span class="skill-tag" role="listitem">Kaizen</span>
+                <span class="skill-tag" role="listitem">ISO 9001</span>
+                <span class="skill-tag" role="listitem">OSHA</span>
+                <span class="skill-tag" role="listitem">Time-Motion Studies</span>
+                <span class="skill-tag" role="listitem">Process Mapping</span>
+                <span class="skill-tag" role="listitem">CNC Machining</span>
+              </div>
             </div>
+          </div>
+          <div class="experience-image">
+            <img src="images/Tritorc1.png" alt="Tritorc Manufacturing Experience" onerror="this.style.display='none'">
           </div>
         </article>
       </div>
@@ -1065,28 +1082,32 @@
                 <h3>UX Intern</h3>
                 <h4>Brainheaters</h4>
                 <div class="location">Mumbai, India</div>
-                <div class="job-period">May 2023 – Nov 2023</div>
+                <div class="job-period">May – Nov 2023</div>
               </div>
             </header>
-          <ul class="achievements" role="list">
-            <li>Improved task completion accuracy by <strong>22%</strong> by conducting <strong>usability testing</strong> with <strong>25+</strong> users and proposing <strong>Figma-based</strong> UI enhancements</li>
-            <li>Streamlined user workflows using <strong>Human-Centered Design (HCD)</strong>, reducing average navigation time on the educational platform by <strong>18%</strong></li>
-            <li>Designed and deployed a new <strong>beta app interface</strong>, improving user onboarding speed by <strong>35%</strong> based on pain points from prior app analytics</li>
-            <li>Led <strong>5</strong> focus groups across <strong>4</strong> engineering branches and conducted structured <strong>user interviews</strong> to identify cognitive and interaction barriers</li>
-            <li>Delivered <strong>high-fidelity wireframes</strong> and prototypes to communicate design solutions to developers and accelerate handoff cycles by <strong>20%</strong></li>
-          </ul>
-          <div class="skills-used">
-            <h5>Key Technologies & Methods:</h5>
-            <div class="skill-tags" role="list" aria-label="Technologies and methods used">
-              <span class="skill-tag" role="listitem">Figma</span>
-              <span class="skill-tag" role="listitem">Usability Testing</span>
-              <span class="skill-tag" role="listitem">Human-Centered Design</span>
-              <span class="skill-tag" role="listitem">Wireframing</span>
-              <span class="skill-tag" role="listitem">Prototyping</span>
-              <span class="skill-tag" role="listitem">Focus Groups</span>
-              <span class="skill-tag" role="listitem">User Interviews</span>
-              <span class="skill-tag" role="listitem">App Analytics</span>
+            <ul class="achievements" role="list">
+              <li>Improved task completion accuracy by <strong>22%</strong> by conducting <strong>usability testing</strong> with <strong>25+</strong> users and proposing <strong>Figma-based</strong> UI enhancements</li>
+              <li>Streamlined user workflows using <strong>Human-Centered Design (HCD)</strong>, reducing average navigation time on the educational platform by <strong>18%</strong></li>
+              <li>Designed and deployed a new <strong>beta app interface</strong>, improving user onboarding speed by <strong>35%</strong> based on pain points from prior app analytics</li>
+              <li>Led <strong>5</strong> focus groups across <strong>4</strong> engineering branches and conducted structured <strong>user interviews</strong> to identify cognitive and interaction barriers</li>
+              <li>Delivered <strong>high-fidelity wireframes</strong> and prototypes to communicate design solutions to developers and accelerate handoff cycles by <strong>20%</strong></li>
+            </ul>
+            <div class="skills-used">
+              <h5>Key Technologies & Methods:</h5>
+              <div class="skill-tags" role="list" aria-label="Technologies and methods used">
+                <span class="skill-tag" role="listitem">Figma</span>
+                <span class="skill-tag" role="listitem">Usability Testing</span>
+                <span class="skill-tag" role="listitem">Human-Centered Design</span>
+                <span class="skill-tag" role="listitem">Wireframing</span>
+                <span class="skill-tag" role="listitem">Prototyping</span>
+                <span class="skill-tag" role="listitem">Focus Groups</span>
+                <span class="skill-tag" role="listitem">User Interviews</span>
+                <span class="skill-tag" role="listitem">App Analytics</span>
+              </div>
             </div>
+          </div>
+          <div class="experience-image">
+            <img src="images/brainheaters1.png" alt="Brainheaters UX Experience" onerror="this.style.display='none'">
           </div>
         </article>
       </div>
@@ -1106,37 +1127,32 @@
                 <h3>Data Scientist Intern</h3>
                 <h4>Devtown</h4>
                 <div class="location">Mumbai, India</div>
-                <div class="job-period">Oct 2021 – March 2022</div>
+                <div class="job-period">Oct 2021 – Mar 2022</div>
               </div>
             </header>
-          <div class="bg-decoration"></div>
-          <header class="experience-header">
-            <div class="job-info">
-              <h3>Data Scientist Intern</h3>
-              <h4>Devtown</h4>
-              <div class="location">Mumbai, India</div>
+            <ul class="achievements" role="list">
+              <li>Preprocessed and transformed raw datasets using <strong>Python and Pandas</strong>, enabling structured analysis and <strong>model readiness</strong></li>
+              <li>Built <strong>interactive dashboards</strong> and visualizations with <strong>Python (Matplotlib, Seaborn)</strong> and <strong>SQL queries</strong>, improving data interpretability by <strong>30%</strong></li>
+              <li>Developed <strong>predictive models</strong> in <strong>Excel and Python</strong> for real-time datasets, including <strong>Breast Cancer Diagnosis</strong> and <strong>Loan Application Risk Assessment</strong></li>
+              <li>Improved model accuracy by <strong>15%</strong> on classification tasks through <strong>hyperparameter tuning</strong> and <strong>balanced sampling techniques</strong></li>
+              <li>Collaborated remotely in an <strong>agile setting</strong> to deliver end-to-end analytical solutions under weekly sprint reviews</li>
+            </ul>
+            <div class="skills-used">
+              <h5>Key Technologies & Methods:</h5>
+              <div class="skill-tags" role="list" aria-label="Technologies and methods used">
+                <span class="skill-tag" role="listitem">Python</span>
+                <span class="skill-tag" role="listitem">Pandas</span>
+                <span class="skill-tag" role="listitem">Matplotlib</span>
+                <span class="skill-tag" role="listitem">Seaborn</span>
+                <span class="skill-tag" role="listitem">SQL</span>
+                <span class="skill-tag" role="listitem">Excel</span>
+                <span class="skill-tag" role="listitem">Machine Learning</span>
+                <span class="skill-tag" role="listitem">Agile Methodology</span>
+              </div>
             </div>
-            <div class="job-period">Oct 2021 – March 2022</div>
-          </header>
-          <ul class="achievements" role="list">
-            <li>Preprocessed and transformed raw datasets using <strong>Python and Pandas</strong>, enabling structured analysis and <strong>model readiness</strong></li>
-            <li>Built <strong>interactive dashboards</strong> and visualizations with <strong>Python (Matplotlib, Seaborn)</strong> and <strong>SQL queries</strong>, improving data interpretability by <strong>30%</strong></li>
-            <li>Developed <strong>predictive models</strong> in <strong>Excel and Python</strong> for real-time datasets, including <strong>Breast Cancer Diagnosis</strong> and <strong>Loan Application Risk Assessment</strong></li>
-            <li>Improved model accuracy by <strong>15%</strong> on classification tasks through <strong>hyperparameter tuning</strong> and <strong>balanced sampling techniques</strong></li>
-            <li>Collaborated remotely in an <strong>agile setting</strong> to deliver end-to-end analytical solutions under weekly sprint reviews</li>
-          </ul>
-          <div class="skills-used">
-            <h5>Key Technologies & Methods:</h5>
-            <div class="skill-tags" role="list" aria-label="Technologies and methods used">
-              <span class="skill-tag" role="listitem">Python</span>
-              <span class="skill-tag" role="listitem">Pandas</span>
-              <span class="skill-tag" role="listitem">Matplotlib</span>
-              <span class="skill-tag" role="listitem">Seaborn</span>
-              <span class="skill-tag" role="listitem">SQL</span>
-              <span class="skill-tag" role="listitem">Excel</span>
-              <span class="skill-tag" role="listitem">Machine Learning</span>
-              <span class="skill-tag" role="listitem">Agile Methodology</span>
-            </div>
+          </div>
+          <div class="experience-image">
+            <img src="images/devtown1.png" alt="Devtown Data Science Experience" onerror="this.style.display='none'">
           </div>
         </article>
       </div>
@@ -1251,6 +1267,18 @@
         setTimeout(setVH, 100);
       });
 
+      // Image loading optimization
+      var images = document.querySelectorAll('.external-company-logo, .experience-image img');
+      images.forEach(function(img) {
+        if (img.complete) {
+          img.classList.add('loaded');
+        } else {
+          img.addEventListener('load', function() {
+            this.classList.add('loaded');
+          });
+        }
+      });
+
       // Error handling for older browsers
       window.addEventListener('error', function(e) {
         console.warn('Compatibility fallback activated:', e.message);
@@ -1281,6 +1309,18 @@
     .animate-in {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* Loading state for images */
+    .external-company-logo,
+    .experience-image img {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .external-company-logo.loaded,
+    .experience-image img.loaded {
+      opacity: 1;
     }
 
     /* Fallback for very old browsers */
@@ -1316,74 +1356,6 @@
     .no-flexbox .experience-card {
       overflow: hidden;
     }
-
-    /* CSS Grid fallback */
-    @supports not (display: grid) {
-      .experience-section {
-        width: 100%;
-      }
-    }
-
-    /* Flexbox fallback */
-    @supports not (display: flex) {
-      nav .menu li {
-        display: inline-block;
-        margin-right: 1rem;
-      }
-      
-      .experience-header {
-        overflow: hidden;
-      }
-      
-      .job-info {
-        float: left;
-        width: 70%;
-      }
-      
-      .job-period {
-        float: right;
-        width: 25%;
-      }
-    }
-
-    /* Enhanced interactions for better UX */
-    .experience-card {
-      will-change: transform;
-    }
-
-    .skill-tag {
-      will-change: transform;
-    }
-
-    .company-logo-container {
-      will-change: transform;
-    }
-
-    /* Loading state for images */
-    .external-company-logo {
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .external-company-logo.loaded {
-      opacity: 1;
-    }
   </style>
-
-  <script>
-    // Image loading optimization
-    document.addEventListener('DOMContentLoaded', function() {
-      var images = document.querySelectorAll('.external-company-logo');
-      images.forEach(function(img) {
-        if (img.complete) {
-          img.classList.add('loaded');
-        } else {
-          img.addEventListener('load', function() {
-            this.classList.add('loaded');
-          });
-        }
-      });
-    });
-  </script>
 </body>
 </html>
