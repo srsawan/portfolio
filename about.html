@@ -272,6 +272,7 @@
       flex: 1;
       min-width: 400px;
       border-bottom: 1px solid #eee;
+      position: relative;
     }
 
     .content-section:hover {
@@ -319,6 +320,7 @@
       border-bottom: 1px solid #eee;
       -webkit-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      position: relative;
     }
 
     /* Skills Grid - Enhanced for Full Width */
@@ -429,11 +431,13 @@
     }
 
     .cert-list li::before {
-      content: "🏆";
+      content: "✓";
       position: absolute;
       left: 1rem;
       top: 1.5rem;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
+      color: #ff6600;
+      font-weight: bold;
     }
 
     /* Publications */
@@ -714,6 +718,262 @@
     }
 
     /* Accessibility Improvements */
+    .interactive-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .interactive-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .interactive-card:hover::before {
+      left: 100%;
+    }
+
+    /* Floating Action Indicators */
+    .floating-indicator {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 12px;
+      height: 12px;
+      background: #ff6600;
+      border-radius: 50%;
+      opacity: 0;
+      transform: scale(0);
+      transition: all 0.3s ease;
+    }
+
+    .content-section:hover .floating-indicator,
+    .full-width-section:hover .floating-indicator {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Enhanced Visual Hierarchy */
+    .section-number {
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      background: #ff6600;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+    }
+
+    /* Progress Indicators */
+    .progress-bar {
+      height: 4px;
+      background: #f0f0f0;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ff6600, #ff8533);
+      border-radius: 2px;
+      width: 0;
+      transition: width 1s ease-in-out;
+    }
+
+    /* Enhanced Skill Tags with Proficiency */
+    .skill-tag {
+      background: white;
+      color: #555;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .skill-tag::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: #ff6600;
+      width: 0;
+      transition: width 0.3s ease;
+    }
+
+    .skill-tag:hover::before {
+      width: 100%;
+    }
+
+    .skill-tag:hover {
+      background: #fff;
+      color: #ff6600;
+      border-color: #ff6600;
+      -webkit-transform: translateY(-3px);
+      -ms-transform: translateY(-3px);
+      transform: translateY(-3px);
+      -webkit-box-shadow: 0 6px 20px rgba(255, 102, 0, 0.25);
+      box-shadow: 0 6px 20px rgba(255, 102, 0, 0.25);
+    }
+
+    /* Interactive Contact Info */
+    .contact-item {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 1.1rem;
+      color: #666;
+      padding: 0.8rem 1.2rem;
+      border-radius: 25px;
+      background: rgba(255, 102, 0, 0.05);
+      border: 1px solid rgba(255, 102, 0, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .contact-item:hover {
+      background: rgba(255, 102, 0, 0.1);
+      border-color: rgba(255, 102, 0, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255, 102, 0, 0.2);
+    }
+
+    /* Enhanced Publications with Read More */
+    .publication-item {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      border-left: 5px solid #ff6600;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .publication-item::after {
+      content: '→';
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      color: #ff6600;
+      font-size: 1.5rem;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.3s ease;
+    }
+
+    .publication-item:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .publication-item:hover {
+      background: #fff;
+      -webkit-transform: translateX(8px) translateY(-2px);
+      -ms-transform: translateX(8px) translateY(-2px);
+      transform: translateX(8px) translateY(-2px);
+      -webkit-box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Certification List Enhancement */
+    .cert-list li {
+      position: relative;
+      padding-left: 3rem;
+      padding: 1.5rem 1.5rem 1.5rem 3rem;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #555;
+      background: #f8f9fa;
+      border-radius: 12px;
+      border-left: 4px solid #ff6600;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .cert-list li::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.05), transparent);
+      transition: right 0.5s ease;
+    }
+
+    .cert-list li:hover::after {
+      right: 100%;
+    }
+
+    .cert-list li:hover {
+      -webkit-transform: translateX(15px);
+      -ms-transform: translateX(15px);
+      transform: translateX(15px);
+      background: #fff;
+      -webkit-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      border-left-width: 6px;
+    }
+
+    /* Animated Background Elements */
+    .bg-decoration {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(255, 102, 0, 0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(50%, -50%);
+    }
+
+    /* Section Dividers */
+    .section-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ff6600, transparent);
+      margin: 2rem 0;
+      opacity: 0.3;
+    }
+
+    /* Enhanced Typography */
+    .highlight-text {
+      background: linear-gradient(120deg, rgba(255, 102, 0, 0.1) 0%, rgba(255, 102, 0, 0.1) 100%);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 600;
+    }
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -756,7 +1016,7 @@
     <!-- Hero Section -->
     <section class="about-hero">
       <div class="profile-photo">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Sahil Sawant - Industrial Engineering Graduate Student">
+        <img src="images/sahilphoto.png" alt="Sahil Sawant - Industrial Engineering Graduate Student">
       </div>
       <div class="hero-content">
         <h1>Sahil Sawant</h1>
@@ -784,21 +1044,25 @@
     <!-- Content Grid -->
     <div class="content-grid">
       <!-- Journey & Background -->
-      <section class="content-section">
+      <section class="content-section interactive-card">
+        <div class="floating-indicator"></div>
+        <div class="bg-decoration"></div>
         <h2>My Journey</h2>
         <p>
-          My engineering journey began in the high-octane world of motorsport through SAE Baja, where I learned firsthand how critical supply chain reliability is to operational success. Managing part flows and dealing with late deliveries taught me valuable lessons about the ripple effects of inefficiencies.
+          My engineering journey began in the <span class="highlight-text">high-octane world of motorsport</span> through SAE Baja, where I learned firsthand how critical supply chain reliability is to operational success. Managing part flows and dealing with late deliveries taught me valuable lessons about the ripple effects of inefficiencies.
         </p>
         <p>
-          Since then, I've transitioned from the racetrack to the shop floor, leading Lean and Six Sigma projects that reduce downtime and variability. Whether I'm optimizing a CNC workflow, analyzing inventory data, or redesigning documentation systems, I approach every challenge with curiosity, structure, and a strong sense of ownership.
+          Since then, I've transitioned from the racetrack to the shop floor, leading <span class="highlight-text">Lean and Six Sigma projects</span> that reduce downtime and variability. Whether I'm optimizing a CNC workflow, analyzing inventory data, or redesigning documentation systems, I approach every challenge with curiosity, structure, and a strong sense of ownership.
         </p>
         <p>
-          My diverse experience spans manufacturing, healthcare UX research, and data analytics, giving me a unique perspective on how engineering principles apply across different industries. I thrive in roles where theoretical knowledge meets practical execution.
+          My diverse experience spans manufacturing, healthcare UX research, and data analytics, giving me a unique perspective on how engineering principles apply across different industries. I thrive in roles where <span class="highlight-text">theoretical knowledge meets practical execution</span>.
         </p>
       </section>
 
       <!-- Skills & Expertise -->
-      <section class="content-section">
+      <section class="content-section interactive-card">
+        <div class="floating-indicator"></div>
+        <div class="bg-decoration"></div>
         <h2>Core Competencies</h2>
         <div class="skills-grid">
           <div class="skill-category">
@@ -839,8 +1103,11 @@
     </div>
 
     <!-- Certifications - Full Width Section -->
-    <section class="full-width-section">
+    <section class="full-width-section interactive-card">
+      <div class="floating-indicator"></div>
+      <div class="bg-decoration"></div>
       <h2>Certifications & Recognition</h2>
+      <div class="section-divider"></div>
       <ul class="cert-list">
         <li><strong>Six Sigma Green Belt Certified</strong> - Advanced Define and Measure Phases</li>
         <li><strong>CECAS Academic Excellence Graduate Scholarship</strong> - Clemson University (2024-2025)</li>
@@ -852,8 +1119,11 @@
     </section>
 
     <!-- Publications - Full Width Section -->
-    <section class="full-width-section">
+    <section class="full-width-section interactive-card">
+      <div class="floating-indicator"></div>
+      <div class="bg-decoration"></div>
       <h2>Research & Publications</h2>
+      <div class="section-divider"></div>
       <div class="publication-item">
         <h4>Usability Testing of Healthcare Devices: A Review of Current UX Methods</h4>
         <p>Comprehensive analysis of user experience methodologies for medical device evaluation</p>
@@ -877,16 +1147,19 @@
     </section>
 
     <!-- Current Focus - Full Width Section -->
-    <section class="full-width-section">
+    <section class="full-width-section interactive-card">
+      <div class="floating-indicator"></div>
+      <div class="bg-decoration"></div>
       <h2>Current Focus & Goals</h2>
+      <div class="section-divider"></div>
       <p>
-        I'm currently conducting human factors research at Clemson University's APEX Lab, focusing on Electronic Health Record (EHR) workflow optimization at Prisma Health. My work involves analyzing clinician workload patterns, redesigning user interfaces, and validating improvements through rigorous testing methods.
+        I'm currently conducting <span class="highlight-text">human factors research</span> at Clemson University's APEX Lab, focusing on Electronic Health Record (EHR) workflow optimization at Prisma Health. My work involves analyzing clinician workload patterns, redesigning user interfaces, and validating improvements through rigorous testing methods.
       </p>
       <p>
-        <strong>Career Objective:</strong> Seeking full-time or internship opportunities in quality engineering, operations management, or supply chain optimization roles where I can contribute to meaningful improvements while continuing to learn from experienced teams.
+        <strong>Career Objective:</strong> Seeking full-time or internship opportunities in <span class="highlight-text">quality engineering, operations management, or supply chain optimization</span> roles where I can contribute to meaningful improvements while continuing to learn from experienced teams.
       </p>
       <p>
-        I'm particularly interested in positions that combine analytical problem-solving with hands-on implementation, where I can apply Lean Six Sigma principles to drive operational excellence and sustainable process improvements.
+        I'm particularly interested in positions that combine analytical problem-solving with hands-on implementation, where I can apply <span class="highlight-text">Lean Six Sigma principles</span> to drive operational excellence and sustainable process improvements.
       </p>
     </section>
   </main>
