@@ -31,10 +31,33 @@
       overflow-x: hidden;
       line-height: 1.6;
       color: #333;
-      background-color: #f5f5f5;
+      background: #ffffff;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+    }
+
+    /* Animated background particles */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: #ffffff;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 102, 0, 0.05);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
     }
 
     /* Sticky Navigation */
@@ -44,23 +67,20 @@
       left: 0;
       right: 0;
       width: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      background: -webkit-linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
-      background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(20px);
       padding: 1rem 2rem;
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
       justify-content: space-between;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
       align-items: center;
       z-index: 9999;
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(0, 0, 0, 0.98);
+      padding: 0.8rem 2rem;
     }
 
     nav .logo {
@@ -68,22 +88,21 @@
       font-weight: bold;
       color: white;
       text-decoration: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
       user-select: none;
+      transition: all 0.3s ease;
+    }
+
+    nav .logo:hover {
+      color: #ff6600;
+      transform: scale(1.05);
     }
 
     nav .menu {
       list-style: none;
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
       gap: 1.25rem;
       margin: 0;
       padding: 0;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
       align-items: center;
     }
 
@@ -96,12 +115,27 @@
       text-decoration: none;
       font-weight: bold;
       padding: 0.5rem 0.75rem;
-      border-radius: 4px;
-      -webkit-transition: all 0.3s ease-in-out;
-      -o-transition: all 0.3s ease-in-out;
-      transition: all 0.3s ease-in-out;
+      border-radius: 8px;
+      transition: all 0.3s ease;
       display: block;
       white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav .menu li a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    nav .menu li a:hover::before {
+      left: 100%;
     }
 
     nav .menu li a:hover,
@@ -109,163 +143,215 @@
       color: #ff6600;
       background-color: rgba(255, 102, 0, 0.1);
       outline: none;
+      transform: translateY(-2px);
     }
 
     nav .menu li a.active {
       color: #ff6600;
       background-color: rgba(255, 102, 0, 0.15);
+      box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
     }
 
     /* Main Content */
     .main-content {
       flex: 1;
       padding-top: 100px;
-      background: #f5f5f5;
-      background: -webkit-linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-      background: -o-linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-      background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+      position: relative;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 2rem 1rem;
       width: 100%;
     }
 
-    .page-header {
+    /* Hero Section */
+    .hero-section {
       text-align: center;
-      margin-bottom: 3rem;
-      padding: 0 1rem;
+      margin-bottom: 4rem;
+      padding: 3rem 1rem;
+      background: rgba(255, 102, 0, 0.02);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 102, 0, 0.1);
+      position: relative;
+      overflow: hidden;
     }
 
-    .page-header h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 800;
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(255, 102, 0, 0.03), transparent);
+      animation: rotate 10s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .hero-section h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
       color: #333;
       margin-bottom: 1rem;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
       line-height: 1.2;
+      background: linear-gradient(45deg, #ff6600, #ff9900, #ffcc00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3s ease-in-out infinite;
     }
 
-    .page-header p {
-      font-size: clamp(1rem, 3vw, 1.3rem);
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .hero-section p {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
       color: #666;
       line-height: 1.6;
-      max-width: 600px;
-      margin: 0 auto;
+      max-width: 700px;
+      margin: 0 auto 2rem;
     }
 
-    /* Skills Overview */
-    .skills-overview {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      gap: 1rem;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
+    /* Interactive Skills Dashboard */
+    .skills-dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
       margin-bottom: 4rem;
-      padding: 2rem;
-      background: white;
+    }
+
+    .dashboard-card {
+      background: rgba(255, 255, 255, 0.98);
       border-radius: 15px;
-      -webkit-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      border-left: 5px solid #ff6600;
-    }
-
-    .overview-item {
+      padding: 2rem;
       text-align: center;
-      -webkit-box-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      min-width: 120px;
-      max-width: 200px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid rgba(255, 102, 0, 0.1);
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     }
 
-    .overview-number {
-      font-size: 2.5rem;
+    .dashboard-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.1), transparent);
+      transition: left 0.6s;
+    }
+
+    .dashboard-card:hover::before {
+      left: 100%;
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(255, 102, 0, 0.3);
+      border-color: #ff6600;
+    }
+
+    .dashboard-number {
+      font-size: 3rem;
       font-weight: 900;
       color: #ff6600;
       display: block;
       line-height: 1;
       margin-bottom: 0.5rem;
+      transition: all 0.3s ease;
     }
 
-    .overview-label {
+    .dashboard-card:hover .dashboard-number {
+      transform: scale(1.2);
+      text-shadow: 0 0 20px rgba(255, 102, 0, 0.5);
+    }
+
+    .dashboard-label {
       font-size: 1rem;
       color: #666;
       font-weight: 600;
     }
 
-    /* Skills Categories */
-    .skills-categories {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+    /* Advanced Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 2rem;
-      margin-bottom: 3rem;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
+      margin-bottom: 4rem;
     }
 
     .skill-category {
-      -webkit-box-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      min-width: 300px;
-      max-width: 500px;
-      background: white;
-      border-radius: 15px;
-      padding: 2rem;
-      -webkit-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      border-left: 5px solid #ff6600;
-      -webkit-transition: all 0.3s ease;
-      -o-transition: all 0.3s ease;
-      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 20px;
+      padding: 2.5rem;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid rgba(255, 102, 0, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .skill-category::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ff6600, #ff9900, #ffcc00);
+      transform: scaleX(0);
+      transition: transform 0.6s ease;
+    }
+
+    .skill-category:hover::after {
+      transform: scaleX(1);
     }
 
     .skill-category:hover {
-      -webkit-transform: translateY(-5px);
-      -ms-transform: translateY(-5px);
-      transform: translateY(-5px);
-      -webkit-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      border-color: #ff6600;
     }
 
     .category-header {
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .category-icon {
-      font-size: 2rem;
-      width: 60px;
-      height: 60px;
-      background: #ff6600;
+      font-size: 2.5rem;
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #ff6600, #ff9900);
       color: white;
-      border-radius: 12px;
-      display: -webkit-box;
-      display: -ms-flexbox;
+      border-radius: 15px;
       display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
       align-items: center;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
       justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(255, 102, 0, 0.3);
+    }
+
+    .skill-category:hover .category-icon {
+      transform: rotateY(180deg) scale(1.1);
+      box-shadow: 0 12px 30px rgba(255, 102, 0, 0.5);
     }
 
     .category-title {
@@ -282,17 +368,38 @@
     }
 
     .skill-item {
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
       justify-content: space-between;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
       align-items: center;
-      padding: 0.8rem 0;
+      padding: 1rem 0;
       border-bottom: 1px solid #f0f0f0;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .skill-item::before {
+      content: '';
+      position: absolute;
+      left: -2.5rem;
+      top: 50%;
+      width: 4px;
+      height: 0;
+      background: #ff6600;
+      transition: height 0.3s ease;
+      transform: translateY(-50%);
+    }
+
+    .skill-item:hover::before {
+      height: 60%;
+    }
+
+    .skill-item:hover {
+      padding-left: 1rem;
+      background: rgba(255, 102, 0, 0.05);
+      border-radius: 8px;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      padding-right: 1rem;
     }
 
     .skill-item:last-child {
@@ -300,207 +407,343 @@
     }
 
     .skill-name {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: #333;
       font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .skill-item:hover .skill-name {
+      color: #ff6600;
+      transform: translateX(10px);
     }
 
     .skill-level {
       font-size: 0.9rem;
       color: #666;
-      padding: 0.3rem 0.8rem;
-      background: #f8f9fa;
-      border-radius: 15px;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
       border: 1px solid #e9ecef;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-level::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      transition: left 0.6s ease;
+    }
+
+    .skill-level:hover::before {
+      left: 100%;
     }
 
     .skill-level.expert {
-      background: #d4edda;
+      background: linear-gradient(135deg, #d4edda, #c3e6cb);
       color: #155724;
       border-color: #c3e6cb;
     }
 
+    .skill-level.expert::before {
+      background: linear-gradient(90deg, transparent, rgba(21, 87, 36, 0.2), transparent);
+    }
+
     .skill-level.advanced {
-      background: #d1ecf1;
+      background: linear-gradient(135deg, #d1ecf1, #bee5eb);
       color: #0c5460;
       border-color: #bee5eb;
     }
 
+    .skill-level.advanced::before {
+      background: linear-gradient(90deg, transparent, rgba(12, 84, 96, 0.2), transparent);
+    }
+
     .skill-level.intermediate {
-      background: #fff3cd;
+      background: linear-gradient(135deg, #fff3cd, #ffeaa7);
       color: #856404;
       border-color: #ffeaa7;
     }
 
-    /* Certifications */
+    .skill-level.intermediate::before {
+      background: linear-gradient(90deg, transparent, rgba(133, 100, 4, 0.2), transparent);
+    }
+
+    /* Interactive Progress Bars */
+    .progress-container {
+      margin-top: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+
+    .skill-category:hover .progress-container {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: #f0f0f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ff6600, #ff9900);
+      border-radius: 4px;
+      transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      width: 0;
+    }
+
+    /* Certifications Section */
     .certifications-section {
-      background: white;
-      border-radius: 15px;
-      padding: 2.5rem;
-      -webkit-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      border-left: 5px solid #ff6600;
-      margin-bottom: 3rem;
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-bottom: 4rem;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid rgba(255, 102, 0, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .certifications-section::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ff6600, #ff9900, #ffcc00, #ff6600);
+      background-size: 400%;
+      border-radius: 22px;
+      z-index: -1;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
     .certifications-section h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: #333;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
       font-weight: 700;
       text-align: center;
+      position: relative;
+    }
+
+    .certifications-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, #ff6600, #ff9900);
+      border-radius: 2px;
     }
 
     .certifications-grid {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
     }
 
     .certification-item {
-      -webkit-box-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      min-width: 250px;
-      max-width: 300px;
-      padding: 1.5rem;
-      background: #f8f9fa;
-      border-radius: 10px;
+      padding: 2rem;
+      background: rgba(248, 249, 250, 0.8);
+      border-radius: 15px;
       border: 1px solid #e9ecef;
       text-align: center;
-      -webkit-transition: all 0.3s ease;
-      -o-transition: all 0.3s ease;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .certification-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #ff6600, #ff9900);
+      transform: scaleX(0);
+      transition: transform 0.6s ease;
+    }
+
+    .certification-item:hover::before {
+      transform: scaleX(1);
     }
 
     .certification-item:hover {
       background: rgba(255, 102, 0, 0.05);
       border-color: #ff6600;
-      -webkit-transform: translateY(-3px);
-      -ms-transform: translateY(-3px);
-      transform: translateY(-3px);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(255, 102, 0, 0.2);
     }
 
     .certification-item h3 {
-      font-size: 1.1rem;
-      color: #333;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    .certification-item p {
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    /* Tools & Technologies */
-    .tools-section {
-      background: white;
-      border-radius: 15px;
-      padding: 2.5rem;
-      -webkit-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      border-left: 5px solid #ff6600;
-      margin-bottom: 2rem;
-    }
-
-    .tools-section h2 {
-      font-size: 2rem;
-      color: #333;
-      margin-bottom: 2rem;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    .tools-categories {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      gap: 2rem;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-    }
-
-    .tools-category {
-      -webkit-box-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      min-width: 250px;
-      max-width: 300px;
-    }
-
-    .tools-category h3 {
       font-size: 1.2rem;
       color: #333;
       margin-bottom: 1rem;
       font-weight: 600;
-      border-bottom: 2px solid #ff6600;
+      transition: color 0.3s ease;
+    }
+
+    .certification-item:hover h3 {
+      color: #ff6600;
+    }
+
+    .certification-item p {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* Advanced Tools Section */
+    .tools-section {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-bottom: 3rem;
+      position: relative;
+      border: 2px solid rgba(255, 102, 0, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .tools-section h2 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 3rem;
+      font-weight: 700;
+      text-align: center;
+      position: relative;
+    }
+
+    .tools-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, #ff6600, #ff9900);
+      border-radius: 2px;
+    }
+
+    .tools-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .tools-category {
+      position: relative;
+    }
+
+    .tools-category h3 {
+      font-size: 1.3rem;
+      color: #333;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      border-bottom: 3px solid #ff6600;
       padding-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .tools-category h3::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ff9900, #ffcc00);
+      transition: width 0.6s ease;
+    }
+
+    .tools-category:hover h3::after {
+      width: 100%;
     }
 
     .tools-list {
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.8rem;
     }
 
     .tool-tag {
-      background: #f8f9fa;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
       color: #555;
-      padding: 0.4rem 0.8rem;
-      border-radius: 15px;
-      font-size: 0.85rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
       font-weight: 600;
       border: 1px solid #e9ecef;
-      -webkit-transition: all 0.3s ease;
-      -o-transition: all 0.3s ease;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tool-tag::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #ff6600, #ff9900);
+      transition: left 0.6s ease;
+      z-index: -1;
+    }
+
+    .tool-tag:hover::before {
+      left: 0;
     }
 
     .tool-tag:hover {
-      background: #ff6600;
       color: white;
       border-color: #ff6600;
-      -webkit-transform: translateY(-1px);
-      -ms-transform: translateY(-1px);
-      transform: translateY(-1px);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(255, 102, 0, 0.3);
     }
 
     /* Footer */
     footer {
       text-align: center;
-      background-color: #222;
-      background: -webkit-linear-gradient(#222, #1a1a1a);
-      background: -o-linear-gradient(#222, #1a1a1a);
-      background: linear-gradient(#222, #1a1a1a);
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(20px);
       color: white;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
       font-size: clamp(0.9rem, 2vw, 1rem);
       margin-top: auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     /* Mobile Responsive Styles */
     @media screen and (max-width: 768px) {
       nav {
         padding: 1rem;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
         flex-direction: column;
         gap: 1rem;
-        background: rgba(0, 0, 0, 0.95);
+        background: rgba(0, 0, 0, 0.98);
       }
 
       nav .logo {
@@ -508,10 +751,7 @@
       }
 
       nav .menu {
-        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
         justify-content: center;
         gap: 0.75rem;
         width: 100%;
@@ -530,67 +770,44 @@
         padding: 1.5rem 1rem;
       }
 
-      .skills-categories {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
+      .skills-grid {
+        grid-template-columns: 1fr;
       }
 
       .skill-category {
-        min-width: auto;
-        padding: 1.5rem;
+        padding: 2rem 1.5rem;
       }
 
-      .skills-overview {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        text-align: center;
-        gap: 0.5rem;
+      .hero-section {
+        padding: 2rem 1rem;
+      }
+
+      .skills-dashboard {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .dashboard-card {
         padding: 1.5rem 1rem;
       }
 
-      .overview-item {
-        min-width: auto;
-        max-width: none;
-        -webkit-box-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
+      .dashboard-number {
+        font-size: 2.5rem;
       }
 
-      .certifications-grid {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-      }
-
-      .certification-item {
-        min-width: auto;
-      }
-
+      .certifications-grid,
       .tools-categories {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-      }
-
-      .tools-category {
-        min-width: auto;
+        grid-template-columns: 1fr;
       }
     }
 
     @media screen and (max-width: 480px) {
-      nav .menu li a {
-        font-size: 0.8rem;
-        padding: 0.3rem 0.5rem;
-      }
-
       .main-content {
         padding-top: 160px;
+      }
+
+      .skills-dashboard {
+        grid-template-columns: 1fr;
       }
 
       .container {
@@ -600,39 +817,34 @@
       .skill-category,
       .certifications-section,
       .tools-section {
-        padding: 1.5rem 1rem;
+        padding: 2rem 1rem;
       }
 
       .category-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
       }
 
-      .overview-number {
+      .dashboard-number {
         font-size: 2rem;
       }
     }
 
-    /* Print Styles */
-    @media print {
-      nav,
-      footer {
-        display: none;
+    /* Advanced animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
       }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-      .main-content {
-        padding-top: 0;
-      }
-
-      .skill-category,
-      .certifications-section,
-      .tools-section {
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        border: 1px solid #ddd;
-        page-break-inside: avoid;
-      }
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease forwards;
     }
 
     /* Accessibility Improvements */
@@ -640,26 +852,38 @@
       *,
       *::before,
       *::after {
-        -webkit-animation-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
-        -webkit-animation-iteration-count: 1 !important;
         animation-iteration-count: 1 !important;
-        -webkit-transition-duration: 0.01ms !important;
-        -o-transition-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
       }
     }
 
     .skill-category:focus-visible,
-    nav .menu li a:focus-visible {
-      outline: 2px solid #ff6600;
+    nav .menu li a:focus-visible,
+    .tool-tag:focus-visible {
+      outline: 3px solid #ff6600;
       outline-offset: 2px;
+    }
+
+    /* Loading skeleton animation */
+    .skeleton {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
   </style>
 </head>
 <body>
+  <!-- Animated Background -->
+  <div class="bg-animation" id="bgAnimation"></div>
+
   <!-- Navigation -->
-  <nav role="navigation" aria-label="Main navigation">
+  <nav role="navigation" aria-label="Main navigation" id="mainNav">
     <div class="logo">Sahil Sawant</div>
     <ul class="menu">
       <li><a href="index.html" aria-label="Go to home page">Home</a></li>
@@ -676,149 +900,255 @@
   <!-- Main Content -->
   <main class="main-content" role="main">
     <div class="container">
-      <!-- Page Header -->
-      <header class="page-header">
-        <h1>Technical Skills</h1>
-        <p>Comprehensive overview of technical competencies, tools, and methodologies developed through academic research and industry experience</p>
-      </header>
+      <!-- Hero Section -->
+      <section class="hero-section fade-in-up">
+        <h1>Technical Excellence</h1>
+        <p>Comprehensive showcase of technical competencies, tools, and methodologies developed through years of academic research and industry experience in quality engineering, data analytics, and UX research</p>
+      </section>
 
-      <!-- Skills Overview -->
-      <section class="skills-overview" aria-label="Skills overview statistics">
-        <div class="overview-item">
-          <span class="overview-number">25+</span>
-          <div class="overview-label">Technical Tools</div>
+      <!-- Interactive Skills Dashboard -->
+      <section class="skills-dashboard" aria-label="Skills overview statistics">
+        <div class="dashboard-card" data-count="30">
+          <span class="dashboard-number">30+</span>
+          <div class="dashboard-label">Technical Tools</div>
         </div>
-        <div class="overview-item">
-          <span class="overview-number">6</span>
-          <div class="overview-label">Core Domains</div>
+        <div class="dashboard-card" data-count="6">
+          <span class="dashboard-number">6</span>
+          <div class="dashboard-label">Core Domains</div>
         </div>
-        <div class="overview-item">
-          <span class="overview-number">5+</span>
-          <div class="overview-label">Years Experience</div>
+        <div class="dashboard-card" data-count="5">
+          <span class="dashboard-number">5+</span>
+          <div class="dashboard-label">Years Experience</div>
         </div>
-        <div class="overview-item">
-          <span class="overview-number">95%</span>
-          <div class="overview-label">Project Success Rate</div>
+        <div class="dashboard-card" data-count="95">
+          <span class="dashboard-number">95%</span>
+          <div class="dashboard-label">Project Success Rate</div>
         </div>
       </section>
 
-      <!-- Core Skills Categories -->
-      <section class="skills-categories">
+      <!-- Advanced Skills Grid -->
+      <section class="skills-grid">
         
         <!-- Data & Analytics -->
-        <div class="skill-category">
+        <div class="skill-category" tabindex="0">
           <div class="category-header">
             <div class="category-icon">📊</div>
             <h2 class="category-title">Data & Analytics</h2>
           </div>
           <ul class="skills-list">
-            <li class="skill-item">
+            <li class="skill-item" data-progress="95">
               <span class="skill-name">Python</span>
               <span class="skill-level expert">Expert</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item" data-progress="88">
               <span class="skill-name">R Analytics</span>
               <span class="skill-level advanced">Advanced</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item" data-progress="75">
               <span class="skill-name">SQL</span>
               <span class="skill-level intermediate">Intermediate</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item" data-progress="98">
               <span class="skill-name">Excel</span>
               <span class="skill-level expert">Expert</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item" data-progress="90">
               <span class="skill-name">Power BI</span>
               <span class="skill-level advanced">Advanced</span>
             </li>
+            <li class="skill-item" data-progress="85">
+              <span class="skill-name">Tableau</span>
+              <span class="skill-level advanced">Advanced</span>
+            </li>
           </ul>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
         </div>
 
         <!-- Quality & Operations -->
-        <div class="skill-category">
+        <div class="skill-category" tabindex="0">
           <div class="category-header">
             <div class="category-icon">⚙️</div>
             <h2 class="category-title">Quality & Operations</h2>
           </div>
           <ul class="skills-list">
-            <li class="skill-item">
+            <li class="skill-item" data-progress="95">
               <span class="skill-name">Six Sigma</span>
               <span class="skill-level expert">Expert</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item" data-progress="92">
               <span class="skill-name">Lean Manufacturing</span>
               <span class="skill-level expert">Expert</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item" data-progress="98">
               <span class="skill-name">Minitab</span>
               <span class="skill-level expert">Expert</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item" data-progress="85">
               <span class="skill-name">ISO 9001</span>
               <span class="skill-level advanced">Advanced</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item" data-progress="88">
               <span class="skill-name">FMEA</span>
               <span class="skill-level advanced">Advanced</span>
             </li>
+            <li class="skill-item" data-progress="90">
+              <span class="skill-name">Statistical Process Control</span>
+              <span class="skill-level advanced">Advanced</span>
+            </li>
           </ul>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
         </div>
 
         <!-- Design & Engineering -->
-        <div class="skill-category">
+        <div class="skill-category" tabindex="0">
           <div class="category-header">
             <div class="category-icon">🔧</div>
             <h2 class="category-title">Design & Engineering</h2>
           </div>
           <ul class="skills-list">
-            <li class="skill-item">
+            <li class="skill-item" data-progress="96">
               <span class="skill-name">SolidWorks</span>
               <span class="skill-level expert">Expert</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item" data-progress="82">
               <span class="skill-name">ANSYS</span>
               <span class="skill-level advanced">Advanced</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item" data-progress="85">
               <span class="skill-name">AutoCAD</span>
               <span class="skill-level advanced">Advanced</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item" data-progress="88">
               <span class="skill-name">CAD/CAM</span>
               <span class="skill-level advanced">Advanced</span>
             </li>
+            <li class="skill-item" data-progress="80">
+              <span class="skill-name">Finite Element Analysis</span>
+              <span class="skill-level advanced">Advanced</span>
+            </li>
           </ul>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
         </div>
 
         <!-- UX Research -->
-        <div class="skill-category">
+        <div class="skill-category" tabindex="0">
           <div class="category-header">
             <div class="category-icon">🎨</div>
             <h2 class="category-title">UX Research & Design</h2>
           </div>
           <ul class="skills-list">
-            <li class="skill-item">
+            <li class="skill-item" data-progress="88">
               <span class="skill-name">Figma</span>
               <span class="skill-level advanced">Advanced</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item" data-progress="92">
               <span class="skill-name">User Research</span>
               <span class="skill-level advanced">Advanced</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item" data-progress="90">
               <span class="skill-name">Usability Testing</span>
               <span class="skill-level advanced">Advanced</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item" data-progress="75">
               <span class="skill-name">A/B Testing</span>
               <span class="skill-level intermediate">Intermediate</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item" data-progress="95">
               <span class="skill-name">Human Factors</span>
               <span class="skill-level expert">Expert</span>
             </li>
+            <li class="skill-item" data-progress="85">
+              <span class="skill-name">Design Thinking</span>
+              <span class="skill-level advanced">Advanced</span>
+            </li>
           </ul>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Management -->
+        <div class="skill-category" tabindex="0">
+          <div class="category-header">
+            <div class="category-icon">📋</div>
+            <h2 class="category-title">Project Management</h2>
+          </div>
+          <ul class="skills-list">
+            <li class="skill-item" data-progress="90">
+              <span class="skill-name">Agile/Scrum</span>
+              <span class="skill-level advanced">Advanced</span>
+            </li>
+            <li class="skill-item" data-progress="85">
+              <span class="skill-name">Jira</span>
+              <span class="skill-level advanced">Advanced</span>
+            </li>
+            <li class="skill-item" data-progress="88">
+              <span class="skill-name">MS Project</span>
+              <span class="skill-level advanced">Advanced</span>
+            </li>
+            <li class="skill-item" data-progress="92">
+              <span class="skill-name">Risk Management</span>
+              <span class="skill-level advanced">Advanced</span>
+            </li>
+            <li class="skill-item" data-progress="95">
+              <span class="skill-name">Process Improvement</span>
+              <span class="skill-level expert">Expert</span>
+            </li>
+          </ul>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Machine Learning & AI -->
+        <div class="skill-category" tabindex="0">
+          <div class="category-header">
+            <div class="category-icon">🤖</div>
+            <h2 class="category-title">Machine Learning & AI</h2>
+          </div>
+          <ul class="skills-list">
+            <li class="skill-item" data-progress="82">
+              <span class="skill-name">Scikit-learn</span>
+              <span class="skill-level advanced">Advanced</span>
+            </li>
+            <li class="skill-item" data-progress="78">
+              <span class="skill-name">TensorFlow</span>
+              <span class="skill-level intermediate">Intermediate</span>
+            </li>
+            <li class="skill-item" data-progress="85">
+              <span class="skill-name">Data Mining</span>
+              <span class="skill-level advanced">Advanced</span>
+            </li>
+            <li class="skill-item" data-progress="88">
+              <span class="skill-name">Predictive Analytics</span>
+              <span class="skill-level advanced">Advanced</span>
+            </li>
+            <li class="skill-item" data-progress="80">
+              <span class="skill-name">Computer Vision</span>
+              <span class="skill-level advanced">Advanced</span>
+            </li>
+          </ul>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
         </div>
 
       </section>
@@ -829,28 +1159,32 @@
         <div class="certifications-grid">
           <div class="certification-item">
             <h3>Six Sigma Green Belt</h3>
-            <p>Certified in Advanced Define and Measure Phases</p>
+            <p>Certified in Advanced Define and Measure Phases with proven project delivery expertise</p>
           </div>
           <div class="certification-item">
             <h3>Data Visualization using Python</h3>
-            <p>Professional Certification in Data Analytics</p>
+            <p>Professional Certification in Advanced Data Analytics and Visualization Techniques</p>
           </div>
           <div class="certification-item">
             <h3>Emergency Disaster Recovery Professional</h3>
-            <p>EDRP Certification</p>
+            <p>EDRP Certification with Crisis Management and Business Continuity Planning</p>
           </div>
           <div class="certification-item">
             <h3>Computer Vision Training</h3>
-            <p>Specialized Technical Certification</p>
+            <p>Specialized Technical Certification in Image Processing and AI Applications</p>
           </div>
           <div class="certification-item">
             <h3>Data Wrangling using Python</h3>
-            <p>Advanced Analytics Certification</p>
+            <p>Advanced Analytics Certification in Data Preprocessing and ETL Processes</p>
+          </div>
+          <div class="certification-item">
+            <h3>Lean Six Sigma Methodology</h3>
+            <p>Comprehensive Training in Process Optimization and Waste Reduction Strategies</p>
           </div>
         </div>
       </section>
 
-      <!-- Tools & Technologies -->
+      <!-- Advanced Tools & Technologies -->
       <section class="tools-section">
         <h2>Tools & Technologies</h2>
         <div class="tools-categories">
@@ -864,6 +1198,8 @@
               <span class="tool-tag">Control Charts</span>
               <span class="tool-tag">DOE</span>
               <span class="tool-tag">Hypothesis Testing</span>
+              <span class="tool-tag">Regression Analysis</span>
+              <span class="tool-tag">ANOVA</span>
             </div>
           </div>
 
@@ -876,6 +1212,8 @@
               <span class="tool-tag">Pandas</span>
               <span class="tool-tag">NumPy</span>
               <span class="tool-tag">Matplotlib</span>
+              <span class="tool-tag">Seaborn</span>
+              <span class="tool-tag">Jupyter</span>
             </div>
           </div>
 
@@ -888,6 +1226,8 @@
               <span class="tool-tag">Root Cause Analysis</span>
               <span class="tool-tag">FMEA</span>
               <span class="tool-tag">SPC</span>
+              <span class="tool-tag">Poka-Yoke</span>
+              <span class="tool-tag">Value Stream Mapping</span>
             </div>
           </div>
 
@@ -900,6 +1240,36 @@
               <span class="tool-tag">Figma</span>
               <span class="tool-tag">3D Modeling</span>
               <span class="tool-tag">FEA</span>
+              <span class="tool-tag">CFD</span>
+              <span class="tool-tag">Prototyping</span>
+            </div>
+          </div>
+
+          <div class="tools-category">
+            <h3>Business Intelligence</h3>
+            <div class="tools-list">
+              <span class="tool-tag">Power BI</span>
+              <span class="tool-tag">Tableau</span>
+              <span class="tool-tag">Excel</span>
+              <span class="tool-tag">QlikView</span>
+              <span class="tool-tag">Dashboards</span>
+              <span class="tool-tag">KPI Tracking</span>
+              <span class="tool-tag">Data Modeling</span>
+              <span class="tool-tag">ETL</span>
+            </div>
+          </div>
+
+          <div class="tools-category">
+            <h3>Project Management</h3>
+            <div class="tools-list">
+              <span class="tool-tag">Jira</span>
+              <span class="tool-tag">MS Project</span>
+              <span class="tool-tag">Trello</span>
+              <span class="tool-tag">Asana</span>
+              <span class="tool-tag">Confluence</span>
+              <span class="tool-tag">Slack</span>
+              <span class="tool-tag">Teams</span>
+              <span class="tool-tag">Gantt Charts</span>
             </div>
           </div>
 
@@ -910,24 +1280,49 @@
 
   <!-- Footer -->
   <footer role="contentinfo">
-    <p>&copy; 2025 Sahil Sawant. All rights reserved.</p>
+    <p>&copy; 2025 Sahil Sawant. All rights reserved. | Designed with passion for excellence</p>
   </footer>
 
   <script>
-    // Simple animations and interactions
     (function() {
       'use strict';
       
-      // Simple counter animation for overview numbers
+      // Create animated background particles
+      function createBackgroundAnimation() {
+        const bgAnimation = document.getElementById('bgAnimation');
+        const particleCount = 15;
+        
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          
+          const size = Math.random() * 4 + 2;
+          const posX = Math.random() * 100;
+          const posY = Math.random() * 100;
+          const duration = Math.random() * 3 + 4;
+          const delay = Math.random() * 2;
+          
+          particle.style.width = size + 'px';
+          particle.style.height = size + 'px';
+          particle.style.left = posX + '%';
+          particle.style.top = posY + '%';
+          particle.style.animationDuration = duration + 's';
+          particle.style.animationDelay = delay + 's';
+          
+          bgAnimation.appendChild(particle);
+        }
+      }
+
+      // Enhanced counter animation
       function animateCounters() {
-        const counters = document.querySelectorAll('.overview-number');
+        const counters = document.querySelectorAll('.dashboard-number');
         
         counters.forEach(counter => {
           const target = parseInt(counter.textContent.replace(/\D/g, ''));
           const hasPlus = counter.textContent.includes('+');
           const hasPercent = counter.textContent.includes('%');
           let current = 0;
-          const increment = target / 30; // Faster animation
+          const increment = target / 60;
           
           function updateCounter() {
             if (current < target) {
@@ -940,79 +1335,319 @@
             }
           }
           
-          // Start animation when element comes into view
           const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
               if (entry.isIntersecting) {
-                updateCounter();
+                setTimeout(updateCounter, Math.random() * 500);
                 observer.unobserve(entry.target);
               }
             });
-          });
+          }, { threshold: 0.5 });
           
           observer.observe(counter);
         });
       }
 
-      // Simple hover effects for skill categories
+      // Progress bar animations
+      function animateProgressBars() {
+        const skillCategories = document.querySelectorAll('.skill-category');
+        
+        skillCategories.forEach(category => {
+          const skillItems = category.querySelectorAll('.skill-item');
+          const progressBar = category.querySelector('.progress-fill');
+          
+          // Calculate average progress
+          let totalProgress = 0;
+          skillItems.forEach(item => {
+            totalProgress += parseInt(item.dataset.progress || 0);
+          });
+          const avgProgress = totalProgress / skillItems.length;
+          
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                setTimeout(() => {
+                  if (progressBar) {
+                    progressBar.style.width = avgProgress + '%';
+                  }
+                }, 200);
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.3 });
+          
+          observer.observe(category);
+        });
+      }
+
+      // Enhanced hover effects for skill categories
       function initializeSkillCategories() {
         const categories = document.querySelectorAll('.skill-category');
         
         categories.forEach(category => {
           category.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
+            this.style.transform = 'translateY(-8px)';
+            
+            // Animate skill items individually
+            const skillItems = this.querySelectorAll('.skill-item');
+            skillItems.forEach((item, index) => {
+              setTimeout(() => {
+                item.style.transform = 'translateX(5px)';
+                item.style.background = 'rgba(255, 102, 0, 0.03)';
+              }, index * 50);
+            });
           });
           
           category.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
+            
+            const skillItems = this.querySelectorAll('.skill-item');
+            skillItems.forEach(item => {
+              item.style.transform = 'translateX(0)';
+              item.style.background = 'transparent';
+            });
+          });
+
+          // Keyboard accessibility
+          category.addEventListener('focus', function() {
+            this.style.transform = 'translateY(-8px)';
+            this.style.boxShadow = '0 25px 50px rgba(255, 102, 0, 0.2)';
+          });
+
+          category.addEventListener('blur', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.1)';
           });
         });
       }
 
-      // Simple hover effects for tool tags
+      // Advanced tool tag interactions
       function initializeToolTags() {
         const toolTags = document.querySelectorAll('.tool-tag');
         
-        toolTags.forEach(tag => {
+        toolTags.forEach((tag, index) => {
           tag.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-1px)';
-            this.style.background = '#ff6600';
-            this.style.color = 'white';
+            this.style.transform = 'translateY(-3px) scale(1.05)';
+            this.style.zIndex = '10';
+            
+            // Create ripple effect
+            const ripple = document.createElement('div');
+            ripple.style.position = 'absolute';
+            ripple.style.borderRadius = '50%';
+            ripple.style.background = 'rgba(255, 102, 0, 0.3)';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple 0.6s linear';
+            ripple.style.left = '50%';
+            ripple.style.top = '50%';
+            ripple.style.width = '100px';
+            ripple.style.height = '100px';
+            ripple.style.marginLeft = '-50px';
+            ripple.style.marginTop = '-50px';
+            ripple.style.pointerEvents = 'none';
+            
+            this.style.position = 'relative';
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+              if (ripple.parentNode) {
+                ripple.parentNode.removeChild(ripple);
+              }
+            }, 600);
           });
           
           tag.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.background = '#f8f9fa';
-            this.style.color = '#555';
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.zIndex = '1';
+          });
+
+          // Staggered entrance animation
+          tag.style.opacity = '0';
+          tag.style.transform = 'translateY(20px)';
+          
+          setTimeout(() => {
+            tag.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            tag.style.opacity = '1';
+            tag.style.transform = 'translateY(0)';
+          }, index * 50);
+        });
+      }
+
+      // Certification card interactions
+      function initializeCertifications() {
+        const certItems = document.querySelectorAll('.certification-item');
+        
+        certItems.forEach((item, index) => {
+          item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+            
+            // Add glow effect
+            this.style.boxShadow = '0 15px 35px rgba(255, 102, 0, 0.2), 0 0 20px rgba(255, 102, 0, 0.1)';
+          });
+          
+          item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+          });
+
+          // Staggered entrance animation
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(30px)';
+          
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                setTimeout(() => {
+                  item.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                  item.style.opacity = '1';
+                  item.style.transform = 'translateY(0)';
+                }, index * 100);
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1 });
+          
+          observer.observe(item);
+        });
+      }
+
+      // Navbar scroll effect
+      function initializeNavbar() {
+        const nav = document.getElementById('mainNav');
+        let lastScrollY = window.scrollY;
+        
+        window.addEventListener('scroll', () => {
+          const currentScrollY = window.scrollY;
+          
+          if (currentScrollY > 100) {
+            nav.classList.add('scrolled');
+          } else {
+            nav.classList.remove('scrolled');
+          }
+          
+          // Hide/show navbar on scroll
+          if (currentScrollY > lastScrollY && currentScrollY > 200) {
+            nav.style.transform = 'translateY(-100%)';
+          } else {
+            nav.style.transform = 'translateY(0)';
+          }
+          
+          lastScrollY = currentScrollY;
+        });
+      }
+
+      // Dashboard card interactions
+      function initializeDashboardCards() {
+        const cards = document.querySelectorAll('.dashboard-card');
+        
+        cards.forEach((card, index) => {
+          card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.05)';
+            
+            // Add pulse animation to number
+            const number = this.querySelector('.dashboard-number');
+            number.style.animation = 'pulse 0.6s ease-in-out';
+          });
+          
+          card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            
+            const number = this.querySelector('.dashboard-number');
+            number.style.animation = 'none';
+          });
+
+          // Staggered entrance
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(30px)';
+          
+          setTimeout(() => {
+            card.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, index * 150);
+        });
+      }
+
+      // Add CSS animations
+      function addCustomAnimations() {
+        const style = document.createElement('style');
+        style.textContent = `
+          @keyframes ripple {
+            to { transform: scale(4); opacity: 0; }
+          }
+          
+          @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+          }
+          
+          @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+          }
+          
+          @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+
+      // Smooth scroll for internal links
+      function initializeSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
           });
         });
       }
 
-      // Simple hover effects for certification items
-      function initializeCertifications() {
-        const certItems = document.querySelectorAll('.certification-item');
-        
-        certItems.forEach(item => {
-          item.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-3px)';
-            this.style.background = 'rgba(255, 102, 0, 0.05)';
-            this.style.borderColor = '#ff6600';
+      // Performance optimization - lazy load animations
+      function initializeLazyAnimations() {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('fade-in-up');
+              observer.unobserve(entry.target);
+            }
           });
-          
-          item.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.background = '#f8f9fa';
-            this.style.borderColor = '#e9ecef';
-          });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-category, .certification-item, .tools-category').forEach(el => {
+          observer.observe(el);
         });
       }
 
       // Initialize all functions
       function initialize() {
+        createBackgroundAnimation();
+        addCustomAnimations();
         animateCounters();
+        animateProgressBars();
         initializeSkillCategories();
         initializeToolTags();
         initializeCertifications();
+        initializeNavbar();
+        initializeDashboardCards();
+        initializeSmoothScroll();
+        initializeLazyAnimations();
+        
+        // Add loading complete class
+        setTimeout(() => {
+          document.body.classList.add('loaded');
+        }, 500);
       }
 
       // Wait for DOM to be ready
