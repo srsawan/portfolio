@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
   <meta name="format-detection" content="telephone=no" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="stylesheet" href="css/styles.css" />
   <style>
     /* CSS Reset for better cross-browser compatibility */
     *, *::before, *::after {
@@ -45,7 +44,7 @@
       background: rgba(0, 0, 0, 0.9);
       background: -webkit-linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
       background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
-      padding: 1rem 2rem;
+      padding: 1rem 3rem;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -114,7 +113,7 @@
       background-color: rgba(255, 102, 0, 0.15);
     }
 
-    /* Main Content */
+    /* Main Content - Full Width */
     .main-content {
       padding-top: 100px;
       min-height: 100vh;
@@ -122,21 +121,22 @@
       background: -webkit-linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
       background: -o-linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
       background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
       width: 100%;
+      padding-left: 0;
+      padding-right: 0;
     }
 
-    /* Hero Section */
+    /* Remove container max-width constraint */
+    .container {
+      width: 100%;
+      padding: 2rem 3rem;
+    }
+
+    /* Hero Section - Full Width */
     .about-hero {
       background: white;
-      border-radius: 15px;
-      padding: 3rem 2rem;
-      margin-bottom: 3rem;
+      padding: 4rem 3rem;
+      margin-bottom: 0;
       -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       display: -webkit-box;
@@ -145,25 +145,28 @@
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      gap: 3rem;
+      gap: 4rem;
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+      width: 100%;
+      border-bottom: 4px solid #ff6600;
     }
 
     .profile-photo {
       -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
       flex-shrink: 0;
-      width: 250px;
-      height: 250px;
+      width: 280px;
+      height: 280px;
       border-radius: 50%;
       overflow: hidden;
-      border: 5px solid #ff6600;
+      border: 6px solid #ff6600;
       -webkit-box-shadow: 0 8px 25px rgba(255, 102, 0, 0.3);
       box-shadow: 0 8px 25px rgba(255, 102, 0, 0.3);
       -webkit-transition: all 0.3s ease;
       -o-transition: all 0.3s ease;
       transition: all 0.3s ease;
+      margin-left: 2rem;
     }
 
     .profile-photo:hover {
@@ -187,11 +190,12 @@
       -webkit-box-flex: 1;
       -ms-flex: 1;
       flex: 1;
-      min-width: 300px;
+      min-width: 400px;
+      padding-right: 2rem;
     }
 
     .hero-content h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-size: clamp(3rem, 6vw, 4.5rem);
       font-weight: 800;
       color: #333;
       margin-bottom: 1rem;
@@ -199,7 +203,7 @@
     }
 
     .hero-content .title {
-      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      font-size: clamp(1.4rem, 3.5vw, 1.8rem);
       color: #ff6600;
       font-weight: 600;
       margin-bottom: 1.5rem;
@@ -207,7 +211,7 @@
     }
 
     .hero-content .summary {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-size: clamp(1.1rem, 2.8vw, 1.3rem);
       color: #555;
       line-height: 1.7;
       margin-bottom: 2rem;
@@ -219,7 +223,7 @@
       display: flex;
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 2rem;
       margin-bottom: 2rem;
     }
 
@@ -230,54 +234,56 @@
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 1rem;
+      gap: 0.7rem;
+      font-size: 1.1rem;
       color: #666;
     }
 
     .contact-item .icon {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       color: #ff6600;
       font-weight: bold;
+      font-size: 1.2rem;
     }
 
-    /* Content Sections */
+    /* Content Grid - Full Width */
     .content-grid {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      gap: 2rem;
+      gap: 0;
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+      width: 100%;
     }
 
     .content-section {
       background: white;
-      border-radius: 12px;
-      padding: 2.5rem;
+      padding: 3rem;
       -webkit-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
       -webkit-transition: all 0.3s ease;
       -o-transition: all 0.3s ease;
       transition: all 0.3s ease;
-      border-left: 5px solid #ff6600;
+      border-left: 6px solid #ff6600;
       -webkit-box-flex: 1;
       -ms-flex: 1;
       flex: 1;
-      min-width: 300px;
+      min-width: 400px;
+      border-bottom: 1px solid #eee;
     }
 
     .content-section:hover {
-      -webkit-transform: translateY(-5px);
-      -ms-transform: translateY(-5px);
-      transform: translateY(-5px);
+      -webkit-transform: translateY(-3px);
+      -ms-transform: translateY(-3px);
+      transform: translateY(-3px);
       -webkit-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     }
 
     .content-section h2 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-size: clamp(1.8rem, 4.5vw, 2.5rem);
       color: #333;
       margin-bottom: 1.5rem;
       font-weight: 700;
@@ -290,37 +296,50 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 50px;
-      height: 3px;
+      width: 60px;
+      height: 4px;
       background: #ff6600;
       border-radius: 2px;
     }
 
     .content-section p {
-      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+      font-size: clamp(1rem, 2.8vw, 1.2rem);
       line-height: 1.7;
       color: #555;
       margin-bottom: 1.5rem;
     }
 
-    /* Skills Grid */
+    /* Full Width Sections */
+    .full-width-section {
+      background: white;
+      padding: 4rem 3rem;
+      margin: 2rem 0;
+      width: 100%;
+      border-left: 6px solid #ff6600;
+      border-bottom: 1px solid #eee;
+      -webkit-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Skills Grid - Enhanced for Full Width */
     .skills-grid {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 2rem;
+      width: 100%;
     }
 
     .skill-category {
       background: #f8f9fa;
-      border-radius: 10px;
-      padding: 1.5rem;
+      border-radius: 12px;
+      padding: 2rem;
       -webkit-box-flex: 1;
       -ms-flex: 1;
       flex: 1;
-      min-width: 250px;
+      min-width: 300px;
       border: 2px solid #e9ecef;
       -webkit-transition: all 0.3s ease;
       -o-transition: all 0.3s ease;
@@ -329,15 +348,17 @@
 
     .skill-category:hover {
       border-color: #ff6600;
-      -webkit-transform: translateY(-2px);
-      -ms-transform: translateY(-2px);
-      transform: translateY(-2px);
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+      -webkit-box-shadow: 0 10px 25px rgba(255, 102, 0, 0.2);
+      box-shadow: 0 10px 25px rgba(255, 102, 0, 0.2);
     }
 
     .skill-category h3 {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       color: #ff6600;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       font-weight: 600;
     }
 
@@ -347,82 +368,104 @@
       display: flex;
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.7rem;
     }
 
     .skill-tag {
       background: white;
       color: #555;
-      padding: 0.4rem 0.8rem;
-      border-radius: 15px;
-      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 1rem;
       border: 1px solid #ddd;
       -webkit-transition: all 0.3s ease;
       -o-transition: all 0.3s ease;
       transition: all 0.3s ease;
       white-space: nowrap;
+      font-weight: 500;
     }
 
     .skill-tag:hover {
       background: #ff6600;
       color: white;
       border-color: #ff6600;
-      -webkit-transform: translateY(-1px);
-      -ms-transform: translateY(-1px);
-      transform: translateY(-1px);
+      -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+      transform: translateY(-2px);
+      -webkit-box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+      box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
     }
 
     /* Certifications */
     .cert-list {
       list-style: none;
       padding: 0;
+      display: grid;
+      gap: 1.5rem;
     }
 
     .cert-list li {
       position: relative;
-      padding-left: 2rem;
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
+      padding-left: 3rem;
+      padding: 1.5rem 1.5rem 1.5rem 3rem;
+      font-size: 1.2rem;
       line-height: 1.6;
       color: #555;
-    }
-
-    .cert-list li::before {
-      content: "🏆";
-      position: absolute;
-      left: 0;
-      top: 0;
-      font-size: 1.2rem;
-    }
-
-    /* Publications */
-    .publication-item {
       background: #f8f9fa;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
+      border-radius: 10px;
       border-left: 4px solid #ff6600;
       -webkit-transition: all 0.3s ease;
       -o-transition: all 0.3s ease;
       transition: all 0.3s ease;
     }
 
+    .cert-list li:hover {
+      -webkit-transform: translateX(10px);
+      -ms-transform: translateX(10px);
+      transform: translateX(10px);
+      background: #fff;
+      -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .cert-list li::before {
+      content: "🏆";
+      position: absolute;
+      left: 1rem;
+      top: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    /* Publications */
+    .publication-item {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      border-left: 5px solid #ff6600;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+    }
+
     .publication-item:hover {
-      background: #f0f0f0;
-      -webkit-transform: translateX(5px);
-      -ms-transform: translateX(5px);
-      transform: translateX(5px);
+      background: #fff;
+      -webkit-transform: translateX(10px);
+      -ms-transform: translateX(10px);
+      transform: translateX(10px);
+      -webkit-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
     .publication-item h4 {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       color: #333;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
       font-weight: 600;
     }
 
     .publication-item p {
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       color: #666;
       margin: 0;
     }
@@ -435,9 +478,10 @@
       background: -o-linear-gradient(#222, #1a1a1a);
       background: linear-gradient(#222, #1a1a1a);
       color: white;
-      padding: 2rem 1rem;
-      font-size: clamp(0.9rem, 2vw, 1rem);
-      margin-top: 2rem;
+      padding: 3rem 1rem;
+      font-size: clamp(1rem, 2.2vw, 1.1rem);
+      margin-top: 0;
+      width: 100%;
     }
 
     /* Animations */
@@ -468,7 +512,8 @@
     }
 
     .about-hero,
-    .content-section {
+    .content-section,
+    .full-width-section {
       -webkit-animation: fadeInUp 0.6s ease-out;
       animation: fadeInUp 0.6s ease-out;
       -webkit-animation-fill-mode: both;
@@ -485,6 +530,28 @@
     }
 
     /* Mobile Responsive Styles */
+    @media screen and (max-width: 1024px) {
+      nav {
+        padding: 1rem 2rem;
+      }
+      
+      .container {
+        padding: 2rem;
+      }
+      
+      .about-hero {
+        padding: 3rem 2rem;
+      }
+      
+      .full-width-section {
+        padding: 3rem 2rem;
+      }
+      
+      .content-section {
+        padding: 2.5rem 2rem;
+      }
+    }
+
     @media screen and (max-width: 768px) {
       nav {
         padding: 1rem;
@@ -539,10 +606,12 @@
         height: 200px;
         -ms-flex-item-align: center;
         align-self: center;
+        margin-left: 0;
       }
 
       .hero-content {
         min-width: auto;
+        padding-right: 0;
       }
 
       .content-grid {
@@ -555,6 +624,10 @@
       .content-section {
         padding: 2rem 1.5rem;
         min-width: auto;
+      }
+
+      .full-width-section {
+        padding: 2rem 1.5rem;
       }
 
       .contact-info {
@@ -608,6 +681,10 @@
       }
 
       .content-section {
+        padding: 1.5rem 1rem;
+      }
+      
+      .full-width-section {
         padding: 1.5rem 1rem;
       }
 
@@ -676,144 +753,142 @@
 
   <!-- Main Content -->
   <main class="main-content" role="main">
-    <div class="container">
-      <!-- Hero Section -->
-      <section class="about-hero">
-        <div class="profile-photo">
-          <img src="sahilphoto.jpg" alt="Sahil Sawant - Industrial Engineering Graduate Student" onerror="this.style.display='none'">
-        </div>
-        <div class="hero-content">
-          <h1>Sahil Sawant</h1>
-          <div class="title">Industrial Engineering Graduate Student | Six Sigma Green Belt | Quality & Operations Specialist</div>
-          <p class="summary">
-            Actively seeking internship/co-op opportunities for Fall 2025. Graduate Research Assistant at Clemson University's APEX Lab with hands-on experience in manufacturing, quality systems, and supply chain analytics. Passionate about optimizing workflows, reducing variability, and implementing data-driven solutions.
-          </p>
-          <div class="contact-info">
-            <div class="contact-item">
-              <span class="icon">📍</span>
-              <span>Clemson, South Carolina</span>
-            </div>
-            <div class="contact-item">
-              <span class="icon">📧</span>
-              <span>srsawan@clemson.edu</span>
-            </div>
-            <div class="contact-item">
-              <span class="icon">📱</span>
-              <span>(864) 722-7604</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Content Grid -->
-      <div class="content-grid">
-        <!-- Journey & Background -->
-        <section class="content-section">
-          <h2>My Journey</h2>
-          <p>
-            My engineering journey began in the high-octane world of motorsport through SAE Baja, where I learned firsthand how critical supply chain reliability is to operational success. Managing part flows and dealing with late deliveries taught me valuable lessons about the ripple effects of inefficiencies.
-          </p>
-          <p>
-            Since then, I've transitioned from the racetrack to the shop floor, leading Lean and Six Sigma projects that reduce downtime and variability. Whether I'm optimizing a CNC workflow, analyzing inventory data, or redesigning documentation systems, I approach every challenge with curiosity, structure, and a strong sense of ownership.
-          </p>
-          <p>
-            My diverse experience spans manufacturing, healthcare UX research, and data analytics, giving me a unique perspective on how engineering principles apply across different industries. I thrive in roles where theoretical knowledge meets practical execution.
-          </p>
-        </section>
-
-        <!-- Skills & Expertise -->
-        <section class="content-section">
-          <h2>Core Competencies</h2>
-          <div class="skills-grid">
-            <div class="skill-category">
-              <h3>Quality & Operations</h3>
-              <div class="skill-tags">
-                <span class="skill-tag">Lean Six Sigma</span>
-                <span class="skill-tag">ISO 9001</span>
-                <span class="skill-tag">OSHA Compliance</span>
-                <span class="skill-tag">Root Cause Analysis</span>
-                <span class="skill-tag">PFMEA</span>
-                <span class="skill-tag">SPC</span>
-              </div>
-            </div>
-            <div class="skill-category">
-              <h3>Data & Analytics</h3>
-              <div class="skill-tags">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">R</span>
-                <span class="skill-tag">Minitab</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">Excel</span>
-                <span class="skill-tag">SEM Modeling</span>
-              </div>
-            </div>
-            <div class="skill-category">
-              <h3>Design & Engineering</h3>
-              <div class="skill-tags">
-                <span class="skill-tag">SolidWorks</span>
-                <span class="skill-tag">ANSYS</span>
-                <span class="skill-tag">CAD/CAM</span>
-                <span class="skill-tag">Figma</span>
-                <span class="skill-tag">UX Research</span>
-                <span class="skill-tag">Prototyping</span>
-              </div>
-            </div>
-          </div>
-        </section>
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <div class="profile-photo">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Sahil Sawant - Industrial Engineering Graduate Student">
       </div>
+      <div class="hero-content">
+        <h1>Sahil Sawant</h1>
+        <div class="title">Industrial Engineering Graduate Student | Six Sigma Green Belt | Quality & Operations Specialist</div>
+        <p class="summary">
+          Actively seeking internship/co-op opportunities for Fall 2025. Graduate Research Assistant at Clemson University's APEX Lab with hands-on experience in manufacturing, quality systems, and supply chain analytics. Passionate about optimizing workflows, reducing variability, and implementing data-driven solutions.
+        </p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="icon">📍</span>
+            <span>Clemson, South Carolina</span>
+          </div>
+          <div class="contact-item">
+            <span class="icon">📧</span>
+            <span>srsawan@clemson.edu</span>
+          </div>
+          <div class="contact-item">
+            <span class="icon">📱</span>
+            <span>(864) 722-7604</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <!-- Certifications -->
+    <!-- Content Grid -->
+    <div class="content-grid">
+      <!-- Journey & Background -->
       <section class="content-section">
-        <h2>Certifications & Recognition</h2>
-        <ul class="cert-list">
-          <li><strong>Six Sigma Green Belt Certified</strong> - Advanced Define and Measure Phases</li>
-          <li><strong>CECAS Academic Excellence Graduate Scholarship</strong> - Clemson University (2024-2025)</li>
-          <li><strong>Data Visualization using Python</strong> - Professional Certification</li>
-          <li><strong>Emergency Disaster Recovery Professional (EDRP)</strong></li>
-          <li><strong>Computer Vision Training</strong> - Specialized Technical Certification</li>
-          <li><strong>Data Wrangling using Python</strong> - Advanced Analytics</li>
-        </ul>
+        <h2>My Journey</h2>
+        <p>
+          My engineering journey began in the high-octane world of motorsport through SAE Baja, where I learned firsthand how critical supply chain reliability is to operational success. Managing part flows and dealing with late deliveries taught me valuable lessons about the ripple effects of inefficiencies.
+        </p>
+        <p>
+          Since then, I've transitioned from the racetrack to the shop floor, leading Lean and Six Sigma projects that reduce downtime and variability. Whether I'm optimizing a CNC workflow, analyzing inventory data, or redesigning documentation systems, I approach every challenge with curiosity, structure, and a strong sense of ownership.
+        </p>
+        <p>
+          My diverse experience spans manufacturing, healthcare UX research, and data analytics, giving me a unique perspective on how engineering principles apply across different industries. I thrive in roles where theoretical knowledge meets practical execution.
+        </p>
       </section>
 
-      <!-- Publications -->
+      <!-- Skills & Expertise -->
       <section class="content-section">
-        <h2>Research & Publications</h2>
-        <div class="publication-item">
-          <h4>Usability Testing of Healthcare Devices: A Review of Current UX Methods</h4>
-          <p>Comprehensive analysis of user experience methodologies for medical device evaluation</p>
+        <h2>Core Competencies</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Quality & Operations</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Lean Six Sigma</span>
+              <span class="skill-tag">ISO 9001</span>
+              <span class="skill-tag">OSHA Compliance</span>
+              <span class="skill-tag">Root Cause Analysis</span>
+              <span class="skill-tag">PFMEA</span>
+              <span class="skill-tag">SPC</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Data & Analytics</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">R</span>
+              <span class="skill-tag">Minitab</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Excel</span>
+              <span class="skill-tag">SEM Modeling</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Design & Engineering</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">SolidWorks</span>
+              <span class="skill-tag">ANSYS</span>
+              <span class="skill-tag">CAD/CAM</span>
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">UX Research</span>
+              <span class="skill-tag">Prototyping</span>
+            </div>
+          </div>
         </div>
-        <div class="publication-item">
-          <h4>Case Study: Creating User Personas for Google's UX Design Certificate</h4>
-          <p>Applied research in user-centered design methodology and persona development</p>
-        </div>
-        <div class="publication-item">
-          <h4>The Impact and Potential of Quick Response (QR) Codes in Healthcare</h4>
-          <p>Comprehensive review of QR code implementation in medical settings</p>
-        </div>
-        <div class="publication-item">
-          <h4>Evaluation of YouTube Videos as Information Source on Omicron Prevention</h4>
-          <p>Content quality analysis of health information dissemination through social media</p>
-        </div>
-        <div class="publication-item">
-          <h4>Fabrication of Electromagnetic Damper</h4>
-          <p>Engineering research on advanced damping systems for mechanical applications</p>
-        </div>
-      </section>
-
-      <!-- Current Focus -->
-      <section class="content-section">
-        <h2>Current Focus & Goals</h2>
-        <p>
-          I'm currently conducting human factors research at Clemson University's APEX Lab, focusing on Electronic Health Record (EHR) workflow optimization at Prisma Health. My work involves analyzing clinician workload patterns, redesigning user interfaces, and validating improvements through rigorous testing methods.
-        </p>
-        <p>
-          <strong>Career Objective:</strong> Seeking full-time or internship opportunities in quality engineering, operations management, or supply chain optimization roles where I can contribute to meaningful improvements while continuing to learn from experienced teams.
-        </p>
-        <p>
-          I'm particularly interested in positions that combine analytical problem-solving with hands-on implementation, where I can apply Lean Six Sigma principles to drive operational excellence and sustainable process improvements.
-        </p>
       </section>
     </div>
+
+    <!-- Certifications - Full Width Section -->
+    <section class="full-width-section">
+      <h2>Certifications & Recognition</h2>
+      <ul class="cert-list">
+        <li><strong>Six Sigma Green Belt Certified</strong> - Advanced Define and Measure Phases</li>
+        <li><strong>CECAS Academic Excellence Graduate Scholarship</strong> - Clemson University (2024-2025)</li>
+        <li><strong>Data Visualization using Python</strong> - Professional Certification</li>
+        <li><strong>Emergency Disaster Recovery Professional (EDRP)</strong></li>
+        <li><strong>Computer Vision Training</strong> - Specialized Technical Certification</li>
+        <li><strong>Data Wrangling using Python</strong> - Advanced Analytics</li>
+      </ul>
+    </section>
+
+    <!-- Publications - Full Width Section -->
+    <section class="full-width-section">
+      <h2>Research & Publications</h2>
+      <div class="publication-item">
+        <h4>Usability Testing of Healthcare Devices: A Review of Current UX Methods</h4>
+        <p>Comprehensive analysis of user experience methodologies for medical device evaluation</p>
+      </div>
+      <div class="publication-item">
+        <h4>Case Study: Creating User Personas for Google's UX Design Certificate</h4>
+        <p>Applied research in user-centered design methodology and persona development</p>
+      </div>
+      <div class="publication-item">
+        <h4>The Impact and Potential of Quick Response (QR) Codes in Healthcare</h4>
+        <p>Comprehensive review of QR code implementation in medical settings</p>
+      </div>
+      <div class="publication-item">
+        <h4>Evaluation of YouTube Videos as Information Source on Omicron Prevention</h4>
+        <p>Content quality analysis of health information dissemination through social media</p>
+      </div>
+      <div class="publication-item">
+        <h4>Fabrication of Electromagnetic Damper</h4>
+        <p>Engineering research on advanced damping systems for mechanical applications</p>
+      </div>
+    </section>
+
+    <!-- Current Focus - Full Width Section -->
+    <section class="full-width-section">
+      <h2>Current Focus & Goals</h2>
+      <p>
+        I'm currently conducting human factors research at Clemson University's APEX Lab, focusing on Electronic Health Record (EHR) workflow optimization at Prisma Health. My work involves analyzing clinician workload patterns, redesigning user interfaces, and validating improvements through rigorous testing methods.
+      </p>
+      <p>
+        <strong>Career Objective:</strong> Seeking full-time or internship opportunities in quality engineering, operations management, or supply chain optimization roles where I can contribute to meaningful improvements while continuing to learn from experienced teams.
+      </p>
+      <p>
+        I'm particularly interested in positions that combine analytical problem-solving with hands-on implementation, where I can apply Lean Six Sigma principles to drive operational excellence and sustainable process improvements.
+      </p>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -843,7 +918,7 @@
       // Initialize Intersection Observer if supported
       if ('IntersectionObserver' in window) {
         var observer = new IntersectionObserver(handleIntersection, observerOptions);
-        var sections = document.querySelectorAll('.content-section, .about-hero');
+        var sections = document.querySelectorAll('.content-section, .about-hero, .full-width-section');
         
         sections.forEach(function(section) {
           observer.observe(section);
