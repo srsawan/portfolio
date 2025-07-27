@@ -426,14 +426,15 @@
       margin: 0 0 2rem 0;
       position: relative;
       z-index: 2;
+      display: grid;
+      gap: 1rem;
     }
 
     .achievements li {
       position: relative;
       padding-left: 2.5rem;
-      margin-bottom: 1.5rem;
       font-size: clamp(1rem, 2.8vw, 1.2rem);
-      line-height: 1.7;
+      line-height: 1.6;
       color: #444;
       word-wrap: break-word;
       overflow-wrap: break-word;
@@ -454,18 +455,18 @@
     }
 
     .achievements li::before {
-      content: "→";
+      content: "•";
       position: absolute;
       left: 1rem;
       top: 1rem;
       color: #ff6600;
       font-weight: bold;
-      font-size: 1.2em;
+      font-size: 1.5em;
       transition: all 0.3s ease;
     }
 
     .achievements li:hover::before {
-      transform: translateX(3px);
+      transform: scale(1.2);
     }
 
     /* Enhanced Skills Section */
@@ -554,6 +555,37 @@
     }
 
     /* Section Dividers */
+    .highlight-number {
+      background: linear-gradient(120deg, rgba(255, 102, 0, 0.2) 0%, rgba(255, 102, 0, 0.1) 100%);
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+      font-weight: 700;
+      color: #e55a00;
+    }
+
+    .highlight-text {
+      background: linear-gradient(120deg, rgba(255, 102, 0, 0.15) 0%, rgba(255, 102, 0, 0.1) 100%);
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .tech-highlight {
+      background: linear-gradient(120deg, rgba(102, 204, 255, 0.15) 0%, rgba(102, 204, 255, 0.1) 100%);
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+      font-weight: 600;
+      color: #2980b9;
+    }
+
+    .metric-highlight {
+      background: linear-gradient(120deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.1) 100%);
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+      font-weight: 700;
+      color: #16a085;
+    }
     .section-divider {
       height: 3px;
       background: linear-gradient(90deg, transparent, #ff6600, transparent);
@@ -753,7 +785,6 @@
 
       .achievements li {
         padding-left: 2rem;
-        margin-bottom: 1rem;
         padding: 0.8rem 0.8rem 0.8rem 2rem;
       }
 
@@ -928,10 +959,10 @@
             <div class="job-period">Sept 2024 – Present</div>
           </header>
           <ul class="achievements" role="list">
-            <li>Interviewed 15+ clinicians at Prisma Health and mapped 6 hospital workflows, identifying key bottlenecks that delayed care delivery by 12%</li>
-            <li>Implemented Python + R for anonymized EHR data analysis under IRB-compliant protocols, enabling secure workflow insight extraction</li>
-            <li>Redesigned EHR interfaces and task flows using prototyping and Figma, reducing average clinician cognitive load by 30% (NASA-TLX scale)</li>
-            <li>Validated changes through heuristic evaluations, A/B testing (n=20), and cognitive walkthroughs, supporting early-stage clinical deployment</li>
+            <li>Interviewed <span class="highlight-number">15+</span> clinicians at <span class="highlight-text">Prisma Health</span> and mapped <span class="highlight-number">6</span> hospital workflows, identifying key bottlenecks that delayed care delivery by <span class="metric-highlight">12%</span></li>
+            <li>Implemented <span class="tech-highlight">Python + R</span> for anonymized <span class="highlight-text">EHR data analysis</span> under <span class="highlight-text">IRB-compliant protocols</span>, enabling secure workflow insight extraction</li>
+            <li>Redesigned <span class="highlight-text">EHR interfaces</span> and task flows using prototyping and <span class="tech-highlight">Figma</span>, reducing average clinician cognitive load by <span class="metric-highlight">30%</span> (<span class="tech-highlight">NASA-TLX scale</span>)</li>
+            <li>Validated changes through <span class="highlight-text">heuristic evaluations</span>, <span class="tech-highlight">A/B testing</span> (n=<span class="highlight-number">20</span>), and <span class="highlight-text">cognitive walkthroughs</span>, supporting early-stage clinical deployment</li>
           </ul>
           <div class="skills-used">
             <h5>Key Technologies & Methods:</h5>
@@ -967,9 +998,9 @@
             <div class="job-period">Jan 2024 – June 2024</div>
           </header>
           <ul class="achievements" role="list">
-            <li>Reduced process variability by 20% by implementing Lean tools (5S, Kaizen) across assembly and CNC machining workflows</li>
-            <li>Conducted time-motion studies and created process maps for field services, increasing efficiency by 15% across 3 service lines</li>
-            <li>Developed and enforced ISO 9001- and OSHA-compliant SOPs and maintenance plans, reducing downtime by 12% and boosting audit readiness</li>
+            <li>Reduced process variability by <span class="metric-highlight">20%</span> by implementing <span class="highlight-text">Lean tools</span> (<span class="tech-highlight">5S, Kaizen</span>) across assembly and <span class="highlight-text">CNC machining workflows</span></li>
+            <li>Conducted <span class="highlight-text">time-motion studies</span> and created <span class="highlight-text">process maps</span> for field services, increasing efficiency by <span class="metric-highlight">15%</span> across <span class="highlight-number">3</span> service lines</li>
+            <li>Developed and enforced <span class="highlight-text">ISO 9001-</span> and <span class="highlight-text">OSHA-compliant</span> SOPs and maintenance plans, reducing downtime by <span class="metric-highlight">12%</span> and boosting audit readiness</li>
           </ul>
           <div class="skills-used">
             <h5>Key Technologies & Methods:</h5>
@@ -1005,11 +1036,11 @@
             <div class="job-period">May 2023 – Nov 2023</div>
           </header>
           <ul class="achievements" role="list">
-            <li>Improved task completion accuracy by 22% by conducting usability testing with 25+ users and proposing Figma-based UI enhancements</li>
-            <li>Streamlined user workflows using Human-Centered Design (HCD), reducing average navigation time on the educational platform by 18%</li>
-            <li>Designed and deployed a new beta app interface, improving user onboarding speed by 35% based on pain points from prior app analytics</li>
-            <li>Led 5 focus groups across 4 engineering branches and conducted structured user interviews to identify cognitive and interaction barriers</li>
-            <li>Delivered high-fidelity wireframes and prototypes to communicate design solutions to developers and accelerate handoff cycles by 20%</li>
+            <li>Improved task completion accuracy by <span class="metric-highlight">22%</span> by conducting <span class="highlight-text">usability testing</span> with <span class="highlight-number">25+</span> users and proposing <span class="tech-highlight">Figma-based</span> UI enhancements</li>
+            <li>Streamlined user workflows using <span class="highlight-text">Human-Centered Design (HCD)</span>, reducing average navigation time on the educational platform by <span class="metric-highlight">18%</span></li>
+            <li>Designed and deployed a new <span class="highlight-text">beta app interface</span>, improving user onboarding speed by <span class="metric-highlight">35%</span> based on pain points from prior app analytics</li>
+            <li>Led <span class="highlight-number">5</span> focus groups across <span class="highlight-number">4</span> engineering branches and conducted structured <span class="highlight-text">user interviews</span> to identify cognitive and interaction barriers</li>
+            <li>Delivered <span class="highlight-text">high-fidelity wireframes</span> and prototypes to communicate design solutions to developers and accelerate handoff cycles by <span class="metric-highlight">20%</span></li>
           </ul>
           <div class="skills-used">
             <h5>Key Technologies & Methods:</h5>
@@ -1045,11 +1076,11 @@
             <div class="job-period">Oct 2021 – March 2022</div>
           </header>
           <ul class="achievements" role="list">
-            <li>Preprocessed and transformed raw datasets using Python and Pandas, enabling structured analysis and model readiness</li>
-            <li>Built interactive dashboards and visualizations with Python (Matplotlib, Seaborn) and SQL queries, improving data interpretability by 30%</li>
-            <li>Developed predictive models in Excel and Python for real-time datasets, including Breast Cancer Diagnosis and Loan Application Risk Assessment</li>
-            <li>Improved model accuracy by 15% on classification tasks through hyperparameter tuning and balanced sampling techniques</li>
-            <li>Collaborated remotely in an agile setting to deliver end-to-end analytical solutions under weekly sprint reviews</li>
+            <li>Preprocessed and transformed raw datasets using <span class="tech-highlight">Python and Pandas</span>, enabling structured analysis and <span class="highlight-text">model readiness</span></li>
+            <li>Built <span class="highlight-text">interactive dashboards</span> and visualizations with <span class="tech-highlight">Python (Matplotlib, Seaborn)</span> and <span class="tech-highlight">SQL queries</span>, improving data interpretability by <span class="metric-highlight">30%</span></li>
+            <li>Developed <span class="highlight-text">predictive models</span> in <span class="tech-highlight">Excel and Python</span> for real-time datasets, including <span class="highlight-text">Breast Cancer Diagnosis</span> and <span class="highlight-text">Loan Application Risk Assessment</span></li>
+            <li>Improved model accuracy by <span class="metric-highlight">15%</span> on classification tasks through <span class="highlight-text">hyperparameter tuning</span> and <span class="highlight-text">balanced sampling techniques</span></li>
+            <li>Collaborated remotely in an <span class="highlight-text">agile setting</span> to deliver end-to-end analytical solutions under weekly sprint reviews</li>
           </ul>
           <div class="skills-used">
             <h5>Key Technologies & Methods:</h5>
