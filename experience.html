@@ -286,6 +286,40 @@
       -ms-flex: 1;
       flex: 1;
       cursor: pointer;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .experience-content {
+      flex: 1;
+    }
+
+    .experience-image {
+      flex-shrink: 0;
+      width: 250px;
+      height: 200px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid #f0f0f0;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .experience-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.3s ease;
+    }
+
+    .experience-image:hover {
+      border-color: #ff6600;
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(255, 102, 0, 0.2);
+    }
+
+    .experience-image:hover img {
+      transform: scale(1.05);
     }
 
     .experience-card::after {
@@ -337,16 +371,16 @@
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
       -webkit-box-align: start;
       -ms-flex-align: start;
       align-items: flex-start;
       margin-bottom: 2rem;
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 1rem;
       position: relative;
       z-index: 2;
     }
@@ -362,7 +396,7 @@
       font-size: clamp(1.5rem, 4.5vw, 2.2rem);
       font-weight: bold;
       color: #333;
-      margin: 0 0 0.8rem 0;
+      margin: 0 0 0.3rem 0;
       line-height: 1.3;
       word-wrap: break-word;
       overflow-wrap: break-word;
@@ -372,7 +406,7 @@
       font-size: clamp(1.2rem, 3.5vw, 1.6rem);
       color: #ff6600;
       font-weight: 600;
-      margin: 0 0 0.5rem 0;
+      margin: 0 0 0.3rem 0;
       line-height: 1.4;
       word-wrap: break-word;
       overflow-wrap: break-word;
@@ -386,6 +420,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      margin: 0 0 0.5rem 0;
     }
 
     .job-info .location::before {
@@ -399,10 +434,10 @@
       background: -o-linear-gradient(45deg, #ff6600, #e55a00);
       background: linear-gradient(45deg, #ff6600, #e55a00);
       color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 25px;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
       font-weight: bold;
-      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      font-size: clamp(0.8rem, 2.2vw, 1rem);
       white-space: nowrap;
       text-align: center;
       min-width: max-content;
@@ -411,6 +446,7 @@
       transition: all 0.3s ease;
       position: relative;
       z-index: 2;
+      margin-left: 1rem;
     }
 
     .job-period:hover {
@@ -427,12 +463,10 @@
       position: relative;
       z-index: 2;
       display: grid;
-      gap: 1rem;
+      gap: 0.5rem;
     }
 
     .achievements li {
-      position: relative;
-      padding-left: 2.5rem;
       font-size: clamp(1rem, 2.8vw, 1.2rem);
       line-height: 1.6;
       color: #444;
@@ -442,7 +476,7 @@
       -webkit-hyphens: auto;
       -ms-hyphens: auto;
       background: rgba(248, 249, 250, 0.7);
-      padding: 1rem 1rem 1rem 2.5rem;
+      padding: 0.8rem 1rem;
       border-radius: 10px;
       border-left: 3px solid #ff6600;
       transition: all 0.3s ease;
@@ -452,21 +486,6 @@
       background: rgba(255, 102, 0, 0.05);
       transform: translateX(8px);
       border-left-width: 5px;
-    }
-
-    .achievements li::before {
-      content: "•";
-      position: absolute;
-      left: 1rem;
-      top: 1rem;
-      color: #ff6600;
-      font-weight: bold;
-      font-size: 1.5em;
-      transition: all 0.3s ease;
-    }
-
-    .achievements li:hover::before {
-      transform: scale(1.2);
     }
 
     /* Enhanced Skills Section */
@@ -847,7 +866,6 @@
 
       .achievements li {
         padding-left: 1.5rem;
-        margin-bottom: 0.8rem;
         padding: 0.6rem 0.6rem 0.6rem 1.5rem;
       }
 
@@ -948,21 +966,22 @@
           <img src="images/CECAS-logo.png" alt="Clemson CECAS Logo" class="external-company-logo" onerror="this.style.display='none'">
         </div>
         <article class="experience-card" tabindex="0">
-          <div class="floating-indicator"></div>
-          <div class="bg-decoration"></div>
-          <header class="experience-header">
-            <div class="job-info">
-              <h3>Graduate Research Assistant</h3>
-              <h4>Clemson University - Adaptive Systems Laboratory</h4>
-              <div class="location">Clemson, South Carolina</div>
-            </div>
-            <div class="job-period">Sept 2024 – Present</div>
-          </header>
+          <div class="experience-content">
+            <div class="floating-indicator"></div>
+            <div class="bg-decoration"></div>
+            <header class="experience-header">
+              <div class="job-info">
+                <h3>Graduate Research Assistant</h3>
+                <h4>Clemson University - Adaptive Systems Laboratory</h4>
+                <div class="location">Clemson, South Carolina</div>
+                <div class="job-period">Sept 2024 – Present</div>
+              </div>
+            </header>
           <ul class="achievements" role="list">
-            <li>Interviewed <span class="highlight-number">15+</span> clinicians at <span class="highlight-text">Prisma Health</span> and mapped <span class="highlight-number">6</span> hospital workflows, identifying key bottlenecks that delayed care delivery by <span class="metric-highlight">12%</span></li>
-            <li>Implemented <span class="tech-highlight">Python + R</span> for anonymized <span class="highlight-text">EHR data analysis</span> under <span class="highlight-text">IRB-compliant protocols</span>, enabling secure workflow insight extraction</li>
-            <li>Redesigned <span class="highlight-text">EHR interfaces</span> and task flows using prototyping and <span class="tech-highlight">Figma</span>, reducing average clinician cognitive load by <span class="metric-highlight">30%</span> (<span class="tech-highlight">NASA-TLX scale</span>)</li>
-            <li>Validated changes through <span class="highlight-text">heuristic evaluations</span>, <span class="tech-highlight">A/B testing</span> (n=<span class="highlight-number">20</span>), and <span class="highlight-text">cognitive walkthroughs</span>, supporting early-stage clinical deployment</li>
+            <li>Interviewed <strong>15+</strong> clinicians at <strong>Prisma Health</strong> and mapped <strong>6</strong> hospital workflows, identifying key bottlenecks that delayed care delivery by <strong>12%</strong></li>
+            <li>Implemented <strong>Python + R</strong> for anonymized <strong>EHR data analysis</strong> under <strong>IRB-compliant protocols</strong>, enabling secure workflow insight extraction</li>
+            <li>Redesigned <strong>EHR interfaces</strong> and task flows using prototyping and <strong>Figma</strong>, reducing average clinician cognitive load by <strong>30%</strong> (<strong>NASA-TLX scale</strong>)</li>
+            <li>Validated changes through <strong>heuristic evaluations</strong>, <strong>A/B testing</strong> (n=<strong>20</strong>), and <strong>cognitive walkthroughs</strong>, supporting early-stage clinical deployment</li>
           </ul>
           <div class="skills-used">
             <h5>Key Technologies & Methods:</h5>
@@ -977,6 +996,18 @@
               <span class="skill-tag" role="listitem">IRB Compliance</span>
             </div>
           </div>
+          <div class="experience-image">
+            <img src="images/devtown1.png" alt="Devtown Data Science Experience" onerror="this.style.display='none'">
+          </div>
+          <div class="experience-image">
+            <img src="images/brainheaters1.png" alt="Brainheaters UX Experience" onerror="this.style.display='none'">
+          </div>
+          <div class="experience-image">
+            <img src="images/tritorc1.png" alt="Tritorc Manufacturing Experience" onerror="this.style.display='none'">
+          </div>
+          <div class="experience-image">
+            <img src="images/clemson1.png" alt="Clemson University Research Experience" onerror="this.style.display='none'">
+          </div>
         </article>
       </div>
       <div class="section-divider"></div>
@@ -987,20 +1018,21 @@
           <img src="images/tritorc.png" alt="Tritorc Logo" class="external-company-logo" onerror="this.style.display='none'">
         </div>
         <article class="experience-card" tabindex="0">
-          <div class="floating-indicator"></div>
-          <div class="bg-decoration"></div>
-          <header class="experience-header">
-            <div class="job-info">
-              <h3>Manufacturing and Quality Engineer</h3>
-              <h4>Tritorc Equipments Pvt Ltd</h4>
-              <div class="location">Mumbai, India</div>
-            </div>
-            <div class="job-period">Jan 2024 – June 2024</div>
-          </header>
+          <div class="experience-content">
+            <div class="floating-indicator"></div>
+            <div class="bg-decoration"></div>
+            <header class="experience-header">
+              <div class="job-info">
+                <h3>Manufacturing and Quality Engineer</h3>
+                <h4>Tritorc Equipments Pvt Ltd</h4>
+                <div class="location">Mumbai, India</div>
+                <div class="job-period">Jan 2024 – June 2024</div>
+              </div>
+            </header>
           <ul class="achievements" role="list">
-            <li>Reduced process variability by <span class="metric-highlight">20%</span> by implementing <span class="highlight-text">Lean tools</span> (<span class="tech-highlight">5S, Kaizen</span>) across assembly and <span class="highlight-text">CNC machining workflows</span></li>
-            <li>Conducted <span class="highlight-text">time-motion studies</span> and created <span class="highlight-text">process maps</span> for field services, increasing efficiency by <span class="metric-highlight">15%</span> across <span class="highlight-number">3</span> service lines</li>
-            <li>Developed and enforced <span class="highlight-text">ISO 9001-</span> and <span class="highlight-text">OSHA-compliant</span> SOPs and maintenance plans, reducing downtime by <span class="metric-highlight">12%</span> and boosting audit readiness</li>
+            <li>Reduced process variability by <strong>20%</strong> by implementing <strong>Lean tools</strong> (<strong>5S, Kaizen</strong>) across assembly and <strong>CNC machining workflows</strong></li>
+            <li>Conducted <strong>time-motion studies</strong> and created <strong>process maps</strong> for field services, increasing efficiency by <strong>15%</strong> across <strong>3</strong> service lines</li>
+            <li>Developed and enforced <strong>ISO 9001-</strong> and <strong>OSHA-compliant</strong> SOPs and maintenance plans, reducing downtime by <strong>12%</strong> and boosting audit readiness</li>
           </ul>
           <div class="skills-used">
             <h5>Key Technologies & Methods:</h5>
@@ -1025,22 +1057,23 @@
           <img src="images/brainheaters_logo.png" alt="Brainheaters Logo" class="external-company-logo" onerror="this.style.display='none'">
         </div>
         <article class="experience-card" tabindex="0">
-          <div class="floating-indicator"></div>
-          <div class="bg-decoration"></div>
-          <header class="experience-header">
-            <div class="job-info">
-              <h3>UX Intern</h3>
-              <h4>Brainheaters</h4>
-              <div class="location">Mumbai, India</div>
-            </div>
-            <div class="job-period">May 2023 – Nov 2023</div>
-          </header>
+          <div class="experience-content">
+            <div class="floating-indicator"></div>
+            <div class="bg-decoration"></div>
+            <header class="experience-header">
+              <div class="job-info">
+                <h3>UX Intern</h3>
+                <h4>Brainheaters</h4>
+                <div class="location">Mumbai, India</div>
+                <div class="job-period">May 2023 – Nov 2023</div>
+              </div>
+            </header>
           <ul class="achievements" role="list">
-            <li>Improved task completion accuracy by <span class="metric-highlight">22%</span> by conducting <span class="highlight-text">usability testing</span> with <span class="highlight-number">25+</span> users and proposing <span class="tech-highlight">Figma-based</span> UI enhancements</li>
-            <li>Streamlined user workflows using <span class="highlight-text">Human-Centered Design (HCD)</span>, reducing average navigation time on the educational platform by <span class="metric-highlight">18%</span></li>
-            <li>Designed and deployed a new <span class="highlight-text">beta app interface</span>, improving user onboarding speed by <span class="metric-highlight">35%</span> based on pain points from prior app analytics</li>
-            <li>Led <span class="highlight-number">5</span> focus groups across <span class="highlight-number">4</span> engineering branches and conducted structured <span class="highlight-text">user interviews</span> to identify cognitive and interaction barriers</li>
-            <li>Delivered <span class="highlight-text">high-fidelity wireframes</span> and prototypes to communicate design solutions to developers and accelerate handoff cycles by <span class="metric-highlight">20%</span></li>
+            <li>Improved task completion accuracy by <strong>22%</strong> by conducting <strong>usability testing</strong> with <strong>25+</strong> users and proposing <strong>Figma-based</strong> UI enhancements</li>
+            <li>Streamlined user workflows using <strong>Human-Centered Design (HCD)</strong>, reducing average navigation time on the educational platform by <strong>18%</strong></li>
+            <li>Designed and deployed a new <strong>beta app interface</strong>, improving user onboarding speed by <strong>35%</strong> based on pain points from prior app analytics</li>
+            <li>Led <strong>5</strong> focus groups across <strong>4</strong> engineering branches and conducted structured <strong>user interviews</strong> to identify cognitive and interaction barriers</li>
+            <li>Delivered <strong>high-fidelity wireframes</strong> and prototypes to communicate design solutions to developers and accelerate handoff cycles by <strong>20%</strong></li>
           </ul>
           <div class="skills-used">
             <h5>Key Technologies & Methods:</h5>
@@ -1065,7 +1098,17 @@
           <img src="images/images.png" alt="Devtown Logo" class="external-company-logo" onerror="this.style.display='none'">
         </div>
         <article class="experience-card" tabindex="0">
-          <div class="floating-indicator"></div>
+          <div class="experience-content">
+            <div class="floating-indicator"></div>
+            <div class="bg-decoration"></div>
+            <header class="experience-header">
+              <div class="job-info">
+                <h3>Data Scientist Intern</h3>
+                <h4>Devtown</h4>
+                <div class="location">Mumbai, India</div>
+                <div class="job-period">Oct 2021 – March 2022</div>
+              </div>
+            </header>
           <div class="bg-decoration"></div>
           <header class="experience-header">
             <div class="job-info">
@@ -1076,11 +1119,11 @@
             <div class="job-period">Oct 2021 – March 2022</div>
           </header>
           <ul class="achievements" role="list">
-            <li>Preprocessed and transformed raw datasets using <span class="tech-highlight">Python and Pandas</span>, enabling structured analysis and <span class="highlight-text">model readiness</span></li>
-            <li>Built <span class="highlight-text">interactive dashboards</span> and visualizations with <span class="tech-highlight">Python (Matplotlib, Seaborn)</span> and <span class="tech-highlight">SQL queries</span>, improving data interpretability by <span class="metric-highlight">30%</span></li>
-            <li>Developed <span class="highlight-text">predictive models</span> in <span class="tech-highlight">Excel and Python</span> for real-time datasets, including <span class="highlight-text">Breast Cancer Diagnosis</span> and <span class="highlight-text">Loan Application Risk Assessment</span></li>
-            <li>Improved model accuracy by <span class="metric-highlight">15%</span> on classification tasks through <span class="highlight-text">hyperparameter tuning</span> and <span class="highlight-text">balanced sampling techniques</span></li>
-            <li>Collaborated remotely in an <span class="highlight-text">agile setting</span> to deliver end-to-end analytical solutions under weekly sprint reviews</li>
+            <li>Preprocessed and transformed raw datasets using <strong>Python and Pandas</strong>, enabling structured analysis and <strong>model readiness</strong></li>
+            <li>Built <strong>interactive dashboards</strong> and visualizations with <strong>Python (Matplotlib, Seaborn)</strong> and <strong>SQL queries</strong>, improving data interpretability by <strong>30%</strong></li>
+            <li>Developed <strong>predictive models</strong> in <strong>Excel and Python</strong> for real-time datasets, including <strong>Breast Cancer Diagnosis</strong> and <strong>Loan Application Risk Assessment</strong></li>
+            <li>Improved model accuracy by <strong>15%</strong> on classification tasks through <strong>hyperparameter tuning</strong> and <strong>balanced sampling techniques</strong></li>
+            <li>Collaborated remotely in an <strong>agile setting</strong> to deliver end-to-end analytical solutions under weekly sprint reviews</li>
           </ul>
           <div class="skills-used">
             <h5>Key Technologies & Methods:</h5>
