@@ -958,6 +958,75 @@
         border: 2px solid #666;
       }
     }
+
+    /* Additional styles for enhanced compatibility */
+    .reduce-motion * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    .touch-device .experience-card:hover,
+    .touch-device .skill-tag:hover,
+    .touch-device nav .menu li a:hover {
+      transform: none;
+    }
+
+    .touch-hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Loading state for images */
+    .external-company-logo,
+    .experience-image img {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .external-company-logo.loaded,
+    .experience-image img.loaded {
+      opacity: 1;
+    }
+
+    /* Fallback for very old browsers */
+    .no-flexbox .experience-header {
+      display: block;
+    }
+
+    .no-flexbox .job-period {
+      float: right;
+      margin-bottom: 1rem;
+    }
+
+    .no-flexbox .skill-tags {
+      display: block;
+    }
+
+    .no-flexbox .skill-tag {
+      display: inline-block;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .no-flexbox .experience-item {
+      display: block;
+    }
+
+    .no-flexbox .company-logo-container {
+      float: left;
+      margin-right: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .no-flexbox .experience-card {
+      overflow: hidden;
+    }
   </style>
 </head>
 <body>
@@ -1072,10 +1141,10 @@
       </div>
       <div class="section-divider"></div>
 
-      <!-- UX Intern -->
+      <!-- Operations Trainee -->
       <div class="experience-item">
         <div class="company-logo-container">
-          <img src="images/brainheaters_logo.png" alt="Brainheaters Logo" class="external-company-logo" onerror="this.style.display='none'">
+          <img src="images/dhl_logo.png" alt="DHL Logo" class="external-company-logo" onerror="this.style.display='none'">
         </div>
         <article class="experience-card" tabindex="0">
           <div class="experience-content">
@@ -1083,35 +1152,35 @@
             <div class="bg-decoration"></div>
             <header class="experience-header">
               <div class="job-info">
-                <h3>UX Intern</h3>
-                <h4>Brainheaters</h4>
+                <h3>Operations Trainee</h3>
+                <h4>DHL India - Global Forwarding India</h4>
                 <div class="location">Mumbai, India</div>
-                <div class="job-period">May – Nov 2023</div>
+                <div class="job-period">Jan – Dec 2023</div>
               </div>
             </header>
             <ul class="achievements" role="list">
-              <li>Improved task completion accuracy by <strong>22%</strong> by conducting <strong>usability testing</strong> with <strong>25+</strong> users and proposing <strong>Figma-based</strong> UI enhancements</li>
-              <li>Streamlined user workflows using <strong>Human-Centered Design (HCD)</strong>, reducing average navigation time on the educational platform by <strong>18%</strong></li>
-              <li>Designed and deployed a new <strong>beta app interface</strong>, improving user onboarding speed by <strong>35%</strong> based on pain points from prior app analytics</li>
-              <li>Led <strong>5</strong> focus groups across <strong>4</strong> engineering branches and conducted structured <strong>user interviews</strong> to identify cognitive and interaction barriers</li>
-              <li>Delivered <strong>high-fidelity wireframes</strong> and prototypes to communicate design solutions to developers and accelerate handoff cycles by <strong>20%</strong></li>
+              <li>Lowered transportation costs by <strong>12%</strong> by consolidating inbound loads and supporting rate analysis with <strong>3PL carriers</strong></li>
+              <li>Achieved <strong>98%</strong> inventory accuracy via <strong>cycle counts</strong>, <strong>slotting optimization</strong>, and <strong>ERP-driven audits</strong></li>
+              <li>Enhanced on-time delivery by <strong>14%</strong> by coordinating schedules across carriers, warehouses, and customer accounts</li>
+              <li>Contributed to <strong>cross-dock redesign</strong>, enabling layout shifts that cut pallet handling time by <strong>10%</strong></li>
+              <li>Produced <strong>Tableau dashboards</strong> on freight costs and carrier performance, accelerating <strong>KPI reporting</strong> and operational insights</li>
             </ul>
             <div class="skills-used">
               <h5>Key Technologies & Methods:</h5>
               <div class="skill-tags" role="list" aria-label="Technologies and methods used">
-                <span class="skill-tag" role="listitem">Figma</span>
-                <span class="skill-tag" role="listitem">Usability Testing</span>
-                <span class="skill-tag" role="listitem">Human-Centered Design</span>
-                <span class="skill-tag" role="listitem">Wireframing</span>
-                <span class="skill-tag" role="listitem">Prototyping</span>
-                <span class="skill-tag" role="listitem">Focus Groups</span>
-                <span class="skill-tag" role="listitem">User Interviews</span>
-                <span class="skill-tag" role="listitem">App Analytics</span>
+                <span class="skill-tag" role="listitem">3PL Management</span>
+                <span class="skill-tag" role="listitem">ERP Systems</span>
+                <span class="skill-tag" role="listitem">Tableau</span>
+                <span class="skill-tag" role="listitem">Inventory Management</span>
+                <span class="skill-tag" role="listitem">Supply Chain Optimization</span>
+                <span class="skill-tag" role="listitem">Cross-Dock Operations</span>
+                <span class="skill-tag" role="listitem">KPI Reporting</span>
+                <span class="skill-tag" role="listitem">Logistics Coordination</span>
               </div>
             </div>
           </div>
           <div class="experience-image">
-            <img src="images/brainheaters1.png" alt="Brainheaters UX Experience" onerror="this.style.display='none'">
+            <img src="images/dhl1.png" alt="DHL Operations Experience" onerror="this.style.display='none'">
           </div>
         </article>
       </div>
@@ -1290,76 +1359,5 @@
 
     })();
   </script>
-
-  <style>
-    /* Additional styles for enhanced compatibility */
-    .reduce-motion * {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-
-    .touch-device .experience-card:hover,
-    .touch-device .skill-tag:hover,
-    .touch-device nav .menu li a:hover {
-      transform: none;
-    }
-
-    .touch-hover {
-      transform: translateY(-3px) !important;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2) !important;
-    }
-
-    .animate-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Loading state for images */
-    .external-company-logo,
-    .experience-image img {
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .external-company-logo.loaded,
-    .experience-image img.loaded {
-      opacity: 1;
-    }
-
-    /* Fallback for very old browsers */
-    .no-flexbox .experience-header {
-      display: block;
-    }
-
-    .no-flexbox .job-period {
-      float: right;
-      margin-bottom: 1rem;
-    }
-
-    .no-flexbox .skill-tags {
-      display: block;
-    }
-
-    .no-flexbox .skill-tag {
-      display: inline-block;
-      margin-right: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .no-flexbox .experience-item {
-      display: block;
-    }
-
-    .no-flexbox .company-logo-container {
-      float: left;
-      margin-right: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .no-flexbox .experience-card {
-      overflow: hidden;
-    }
-  </style>
 </body>
 </html>
