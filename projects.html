@@ -6,23 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
   <meta name="format-detection" content="telephone=no" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="stylesheet" href="css/styles.css" />
   <style>
-    /* CSS Reset for better cross-browser compatibility */
+    /* CSS Reset */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    /* Global Font with extensive fallbacks */
+    /* Global Font */
     * {
-      font-family: Tahoma, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-family: Tahoma, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Prevent horizontal scroll */
     html {
       overflow-x: hidden;
       scroll-behavior: smooth;
@@ -32,65 +30,25 @@
       overflow-x: hidden;
       line-height: 1.6;
       color: #333;
-      background: #0a0a0a;
-      background: -webkit-radial-gradient(circle at 20% 50%, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #0a0a0a 100%);
-      background: radial-gradient(circle at 20% 50%, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #0a0a0a 100%);
-      min-height: 100vh;
+      background-color: #f5f5f5;
     }
 
-    /* Animated background particles */
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .particle {
-      position: absolute;
-      background: rgba(255, 102, 0, 0.6);
-      border-radius: 50%;
-      -webkit-animation: float 6s ease-in-out infinite;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @-webkit-keyframes float {
-      0%, 100% { -webkit-transform: translateY(0px); transform: translateY(0px); }
-      50% { -webkit-transform: translateY(-20px); transform: translateY(-20px); }
-    }
-
-    @keyframes float {
-      0%, 100% { -webkit-transform: translateY(0px); transform: translateY(0px); }
-      50% { -webkit-transform: translateY(-20px); transform: translateY(-20px); }
-    }
-
-    /* Sticky Navigation */
+    /* Sticky Navigation - Matching other pages */
     nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       width: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      background: -webkit-linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.9));
-      background: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.9));
+      background: rgba(0, 0, 0, 0.9);
+      background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
       padding: 1rem 2rem;
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
       justify-content: space-between;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
       align-items: center;
       z-index: 9999;
-      -webkit-backdrop-filter: blur(20px);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 102, 0, 0.3);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     nav .logo {
@@ -98,612 +56,301 @@
       font-weight: bold;
       color: white;
       text-decoration: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
       user-select: none;
     }
 
     nav .menu {
       list-style: none;
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
       gap: 1.25rem;
       margin: 0;
       padding: 0;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
       align-items: center;
     }
 
     nav .menu li a {
-      color: rgba(255, 255, 255, 0.9);
+      color: white;
       text-decoration: none;
       font-weight: bold;
       padding: 0.5rem 0.75rem;
-      border-radius: 8px;
-      -webkit-transition: all 0.3s ease-in-out;
-      -o-transition: all 0.3s ease-in-out;
+      border-radius: 4px;
       transition: all 0.3s ease-in-out;
       display: block;
       white-space: nowrap;
-      position: relative;
     }
 
     nav .menu li a:hover,
     nav .menu li a:focus {
       color: #ff6600;
       background-color: rgba(255, 102, 0, 0.1);
-      -webkit-transform: translateY(-2px);
-      -ms-transform: translateY(-2px);
-      transform: translateY(-2px);
       outline: none;
     }
 
     nav .menu li a.active {
       color: #ff6600;
-      background-color: rgba(255, 102, 0, 0.2);
-      -webkit-box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
-      box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+      background-color: rgba(255, 102, 0, 0.15);
     }
 
     /* Main Content */
     .main-content {
       padding-top: 100px;
       min-height: 100vh;
-      position: relative;
-      z-index: 2;
+      background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
     }
 
     .container {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 2rem 1rem;
-      width: 100%;
+      padding: 2rem 3rem;
     }
 
-    /* Hero Section */
-    .page-hero {
+    /* Page Header */
+    .page-header {
       text-align: center;
       margin-bottom: 4rem;
-      padding: 3rem 1rem;
-      position: relative;
+      padding: 4rem 3rem;
+      background: white;
+      border-bottom: 4px solid #ff6600;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
-    .page-hero h1 {
-      font-size: clamp(3rem, 8vw, 5rem);
-      font-weight: 900;
-      background: -webkit-linear-gradient(45deg, #ff6600, #ffaa44, #ff6600);
-      background: -o-linear-gradient(45deg, #ff6600, #ffaa44, #ff6600);
-      background: linear-gradient(45deg, #ff6600, #ffaa44, #ff6600);
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-fill-color: transparent;
-      -webkit-animation: gradientShift 4s ease-in-out infinite;
-      animation: gradientShift 4s ease-in-out infinite;
+    .page-header h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      color: #333;
       margin-bottom: 1rem;
-      line-height: 1.1;
-      text-shadow: 0 0 30px rgba(255, 102, 0, 0.5);
     }
 
-    @-webkit-keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    .page-hero p {
-      font-size: clamp(1.2rem, 3vw, 1.6rem);
-      color: rgba(255, 255, 255, 0.8);
+    .page-header p {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      color: #666;
       line-height: 1.6;
       max-width: 800px;
-      margin: 0 auto 2rem;
+      margin: 0 auto;
     }
 
-    /* Filter Controls */
-    .filter-controls {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 3rem;
-      padding: 0 1rem;
-    }
-
-    .filter-btn {
-      background: rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.9);
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      padding: 0.8rem 1.5rem;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.95rem;
-      -webkit-transition: all 0.3s ease;
-      -o-transition: all 0.3s ease;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-    }
-
-    .filter-btn:hover {
-      background: rgba(255, 102, 0, 0.2);
-      border-color: #ff6600;
-      color: #ff6600;
-      -webkit-transform: translateY(-3px);
-      -ms-transform: translateY(-3px);
-      transform: translateY(-3px);
-      -webkit-box-shadow: 0 10px 25px rgba(255, 102, 0, 0.3);
-      box-shadow: 0 10px 25px rgba(255, 102, 0, 0.3);
-    }
-
-    .filter-btn.active {
-      background: #ff6600;
-      background: -webkit-linear-gradient(45deg, #ff6600, #e55a00);
-      background: -o-linear-gradient(45deg, #ff6600, #e55a00);
-      background: linear-gradient(45deg, #ff6600, #e55a00);
-      border-color: #ff6600;
-      color: white;
-      -webkit-box-shadow: 0 0 30px rgba(255, 102, 0, 0.5);
-      box-shadow: 0 0 30px rgba(255, 102, 0, 0.5);
-    }
-
-    /* Projects Grid */
-    .projects-grid {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      gap: 2rem;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      margin-bottom: 3rem;
-    }
-
+    /* Project Card */
     .project-card {
-      background: rgba(255, 255, 255, 0.05);
-      background: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
-      background: -o-linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 2rem;
-      width: 400px;
-      max-width: 100%;
-      -webkit-backdrop-filter: blur(20px);
-      backdrop-filter: blur(20px);
-      -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      -o-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      position: relative;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 3rem;
       overflow: hidden;
-      cursor: pointer;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: -webkit-linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.1), transparent);
-      background: -o-linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.1), transparent);
-      background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.1), transparent);
-      -webkit-transition: left 0.5s;
-      -o-transition: left 0.5s;
-      transition: left 0.5s;
-    }
-
-    .project-card:hover::before {
-      left: 100%;
+      transition: all 0.3s ease;
     }
 
     .project-card:hover {
-      -webkit-transform: translateY(-15px) scale(1.02);
-      -ms-transform: translateY(-15px) scale(1.02);
-      transform: translateY(-15px) scale(1.02);
-      border-color: rgba(255, 102, 0, 0.5);
-      -webkit-box-shadow: 0 25px 50px rgba(255, 102, 0, 0.2), 0 0 50px rgba(255, 102, 0, 0.1);
-      box-shadow: 0 25px 50px rgba(255, 102, 0, 0.2), 0 0 50px rgba(255, 102, 0, 0.1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
     }
 
-    .project-icon {
-      width: 80px;
-      height: 80px;
-      background: -webkit-linear-gradient(45deg, #ff6600, #ffaa44);
-      background: -o-linear-gradient(45deg, #ff6600, #ffaa44);
-      background: linear-gradient(45deg, #ff6600, #ffaa44);
-      border-radius: 20px;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
+    .project-header {
+      background: linear-gradient(135deg, #ff6600 0%, #e05500 100%);
+      color: white;
+      padding: 2rem 2.5rem;
+    }
+
+    .project-header h2 {
       font-size: 2rem;
-      margin-bottom: 1.5rem;
-      -webkit-transition: all 0.3s ease;
-      -o-transition: all 0.3s ease;
-      transition: all 0.3s ease;
-      -webkit-box-shadow: 0 10px 30px rgba(255, 102, 0, 0.3);
-      box-shadow: 0 10px 30px rgba(255, 102, 0, 0.3);
-    }
-
-    .project-card:hover .project-icon {
-      -webkit-transform: rotateY(180deg) scale(1.1);
-      transform: rotateY(180deg) scale(1.1);
-      -webkit-box-shadow: 0 15px 40px rgba(255, 102, 0, 0.4);
-      box-shadow: 0 15px 40px rgba(255, 102, 0, 0.4);
-    }
-
-    .project-title {
-      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
       font-weight: 700;
-      color: white;
-      margin-bottom: 1rem;
-      line-height: 1.3;
     }
 
-    .project-description {
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .project-tags {
-      display: -webkit-box;
-      display: -ms-flexbox;
+    .project-meta {
       display: flex;
-      -ms-flex-wrap: wrap;
+      gap: 2rem;
       flex-wrap: wrap;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .project-meta-item {
+      display: flex;
+      align-items: center;
       gap: 0.5rem;
-      margin-bottom: 1.5rem;
     }
 
-    .project-tag {
-      background: rgba(255, 102, 0, 0.2);
-      color: #ffaa44;
-      padding: 0.3rem 0.8rem;
-      border-radius: 15px;
-      font-size: 0.8rem;
+    .project-meta-item strong {
       font-weight: 600;
-      border: 1px solid rgba(255, 102, 0, 0.3);
-      -webkit-transition: all 0.3s ease;
-      -o-transition: all 0.3s ease;
-      transition: all 0.3s ease;
     }
 
-    .project-tag:hover {
-      background: #ff6600;
-      color: white;
-      -webkit-transform: scale(1.05);
-      -ms-transform: scale(1.05);
-      transform: scale(1.05);
+    .project-content {
+      padding: 2.5rem;
     }
 
-    .project-metrics {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+    .project-section {
+      margin-bottom: 2rem;
     }
 
-    .metric {
+    .project-section h3 {
+      font-size: 1.4rem;
+      color: #ff6600;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #ff6600;
+      padding-bottom: 0.5rem;
+    }
+
+    .project-section p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .project-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .project-section ul li {
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .project-section ul li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #ff6600;
+      font-weight: bold;
+    }
+
+    /* Visual Content */
+    .project-visual {
+      margin: 2rem 0;
       text-align: center;
-      -webkit-box-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      min-width: 80px;
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
     }
 
-    .metric-value {
-      font-size: 1.8rem;
-      font-weight: 900;
+    .project-visual img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-visual figcaption {
+      margin-top: 1rem;
+      font-style: italic;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    /* Results/Impact Box */
+    .impact-box {
+      background: linear-gradient(135deg, #fff3e6 0%, #ffe6cc 100%);
+      border-left: 4px solid #ff6600;
+      padding: 1.5rem;
+      border-radius: 4px;
+      margin: 1.5rem 0;
+    }
+
+    .impact-box h4 {
+      color: #ff6600;
+      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+    }
+
+    .impact-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .impact-stat {
+      text-align: center;
+      padding: 1rem;
+      background: white;
+      border-radius: 4px;
+    }
+
+    .impact-stat-number {
+      font-size: 2rem;
+      font-weight: bold;
       color: #ff6600;
       display: block;
-      line-height: 1;
     }
 
-    .metric-label {
-      font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.6);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 0.2rem;
-    }
-
-    .project-links {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .project-link {
-      background: rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.9);
-      text-decoration: none;
-      padding: 0.6rem 1rem;
-      border-radius: 12px;
+    .impact-stat-label {
       font-size: 0.9rem;
-      font-weight: 600;
-      -webkit-transition: all 0.3s ease;
-      -o-transition: all 0.3s ease;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      -webkit-box-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      text-align: center;
+      color: #666;
+      margin-top: 0.5rem;
     }
 
-    .project-link:hover {
-      background: #ff6600;
-      color: white;
-      border-color: #ff6600;
-      -webkit-transform: translateY(-2px);
-      -ms-transform: translateY(-2px);
-      transform: translateY(-2px);
-      -webkit-box-shadow: 0 8px 20px rgba(255, 102, 0, 0.3);
-      box-shadow: 0 8px 20px rgba(255, 102, 0, 0.3);
+    /* Tags */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
     }
 
-    /* Project Categories */
-    .project-card[data-category="hidden"] {
-      display: none;
-    }
-
-    .project-card[data-category="sixsigma"] {
-      border-color: rgba(0, 150, 255, 0.3);
-    }
-
-    .project-card[data-category="ux"] {
-      border-color: rgba(150, 0, 255, 0.3);
-    }
-
-    .project-card[data-category="motorsport"] {
-      border-color: rgba(255, 0, 150, 0.3);
+    .tag {
+      background: #f0f0f0;
+      color: #333;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid #ddd;
     }
 
     /* Footer */
     footer {
       text-align: center;
-      background: rgba(0, 0, 0, 0.8);
-      color: rgba(255, 255, 255, 0.8);
-      padding: 2rem 1rem;
-      font-size: clamp(0.9rem, 2vw, 1rem);
-      margin-top: 2rem;
-      border-top: 1px solid rgba(255, 102, 0, 0.3);
+      background-color: #222;
+      color: white;
+      padding: 2rem 0;
+      margin-top: 4rem;
     }
 
-    /* Animations */
-    @-webkit-keyframes fadeInUp {
-      from {
-        opacity: 0;
-        -webkit-transform: translateY(50px);
-        transform: translateY(50px);
-      }
-      to {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        -webkit-transform: translateY(50px);
-        transform: translateY(50px);
-      }
-      to {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-      }
-    }
-
-    .project-card {
-      -webkit-animation: fadeInUp 0.6s ease-out;
-      animation: fadeInUp 0.6s ease-out;
-      -webkit-animation-fill-mode: both;
-      animation-fill-mode: both;
-    }
-
-    /* Staggered animation delays */
-    .project-card:nth-child(1) { -webkit-animation-delay: 0.1s; animation-delay: 0.1s; }
-    .project-card:nth-child(2) { -webkit-animation-delay: 0.2s; animation-delay: 0.2s; }
-    .project-card:nth-child(3) { -webkit-animation-delay: 0.3s; animation-delay: 0.3s; }
-    .project-card:nth-child(4) { -webkit-animation-delay: 0.4s; animation-delay: 0.4s; }
-    .project-card:nth-child(5) { -webkit-animation-delay: 0.5s; animation-delay: 0.5s; }
-    .project-card:nth-child(6) { -webkit-animation-delay: 0.6s; animation-delay: 0.6s; }
-
-    /* Mobile Responsive Styles */
+    /* Mobile Responsive */
     @media screen and (max-width: 768px) {
       nav {
         padding: 1rem;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
         flex-direction: column;
         gap: 1rem;
-        background: rgba(0, 0, 0, 0.98);
-      }
-
-      nav .logo {
-        font-size: 1.4rem;
       }
 
       nav .menu {
-        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
         justify-content: center;
         gap: 0.75rem;
-        width: 100%;
-      }
-
-      nav .menu li a {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.6rem;
-      }
-
-      .main-content {
-        padding-top: 140px;
       }
 
       .container {
-        padding: 1.5rem 0.5rem;
-      }
-
-      .page-hero {
-        padding: 2rem 0.5rem;
-        margin-bottom: 2rem;
-      }
-
-      .filter-controls {
-        gap: 0.5rem;
-        margin-bottom: 2rem;
-      }
-
-      .filter-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.85rem;
-      }
-
-      .projects-grid {
-        gap: 1.5rem;
-      }
-
-      .project-card {
-        width: 100%;
-        max-width: 400px;
-        padding: 1.5rem;
-        margin: 0 auto;
-      }
-
-      .project-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
-      }
-
-      .project-title {
-        font-size: 1.3rem;
-      }
-
-      .project-links {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-      }
-    }
-
-    @media screen and (max-width: 480px) {
-      nav .menu li a {
-        font-size: 0.8rem;
-        padding: 0.3rem 0.5rem;
-      }
-
-      .main-content {
-        padding-top: 160px;
-      }
-
-      .project-card {
         padding: 1rem;
       }
 
-      .project-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
+      .page-header {
+        padding: 2rem 1rem;
       }
 
-      .filter-btn {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.8rem;
-      }
-    }
-
-    /* Accessibility and Performance */
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        -webkit-animation-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        -webkit-animation-iteration-count: 1 !important;
-        animation-iteration-count: 1 !important;
-        -webkit-transition-duration: 0.01ms !important;
-        -o-transition-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-
-    @media (prefers-contrast: high) {
-      .project-card {
-        border: 2px solid #fff;
-      }
-      
-      .filter-btn {
-        border: 2px solid #fff;
-      }
-    }
-
-    /* Print Styles */
-    @media print {
-      nav, footer, .particles {
-        display: none;
+      .project-header {
+        padding: 1.5rem;
       }
 
-      body {
-        background: white;
-        color: black;
+      .project-content {
+        padding: 1.5rem;
       }
 
-      .main-content {
-        padding-top: 0;
+      .project-meta {
+        flex-direction: column;
+        gap: 0.75rem;
       }
 
-      .project-card {
-        border: 1px solid #333;
-        background: white;
-        color: black;
-        page-break-inside: avoid;
+      .impact-stats {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Animated Background Particles -->
-  <div class="particles" id="particles"></div>
-
   <!-- Navigation -->
   <nav role="navigation" aria-label="Main navigation">
     <div class="logo">Sahil Sawant</div>
@@ -720,234 +367,550 @@
   </nav>
 
   <!-- Main Content -->
-  <main class="main-content" role="main">
+  <main class="main-content">
     <div class="container">
-      <!-- Hero Section -->
-      <section class="page-hero">
-        <h1>Innovation Portfolio</h1>
-        <p>Transforming challenges into solutions through engineering excellence, data-driven insights, and human-centered design</p>
-      </section>
+      <!-- Page Header -->
+      <header class="page-header">
+        <h1>Projects & Case Studies</h1>
+        <p>
+          Real-world applications of industrial engineering principles across manufacturing operations, 
+          process optimization, and human factors engineering
+        </p>
+      </header>
 
-      <!-- Filter Controls -->
-      <section class="filter-controls" aria-label="Project filters">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="sixsigma">Six Sigma & Quality</button>
-        <button class="filter-btn" data-filter="ux">UX Research & Design</button>
-        <button class="filter-btn" data-filter="motorsport">Motorsport Engineering</button>
-      </section>
+      <!-- PROJECT 1: Assembly Line Optimization -->
+      <article class="project-card">
+        <header class="project-header">
+          <h2>Assembly Line Layout Optimization & Process Improvement</h2>
+          <div class="project-meta">
+            <div class="project-meta-item">
+              <strong>Organization:</strong> Tritorc Manufacturing
+            </div>
+            <div class="project-meta-item">
+              <strong>Duration:</strong> 6 months
+            </div>
+            <div class="project-meta-item">
+              <strong>Role:</strong> Manufacturing Engineer Intern
+            </div>
+          </div>
+        </header>
 
-      <!-- Projects Grid -->
-      <section class="projects-grid" aria-label="Projects showcase">
-        
-        <!-- Six Sigma Capstone Project -->
-        <article class="project-card" data-category="sixsigma" tabindex="0">
-          <div class="project-icon">⚙️</div>
-          <h3 class="project-title">Six Sigma Green Belt Capstone: Machine Downtime Reduction</h3>
-          <p class="project-description">
-            Comprehensive DMAIC methodology implementation to reduce manufacturing downtime by 54% and increase machine availability from 90% to 97% through preventive maintenance optimization.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Six Sigma</span>
-            <span class="project-tag">DMAIC</span>
-            <span class="project-tag">Statistical Analysis</span>
-            <span class="project-tag">Root Cause Analysis</span>
-            <span class="project-tag">SPC</span>
+        <div class="project-content">
+          <div class="project-section">
+            <h3>Project Overview</h3>
+            <p>
+              Led comprehensive analysis and redesign of assembly line operations for automotive component manufacturing. 
+              The project focused on improving production efficiency, reducing waste, and optimizing material flow through 
+              detailed time studies, layout modifications, and lean manufacturing implementation.
+            </p>
           </div>
-          <div class="project-metrics">
-            <div class="metric">
-              <span class="metric-value">54%</span>
-              <span class="metric-label">Downtime Reduction</span>
-            </div>
-            <div class="metric">
-              <span class="metric-value">97%</span>
-              <span class="metric-label">Machine Availability</span>
-            </div>
-            <div class="metric">
-              <span class="metric-value">75%</span>
-              <span class="metric-label">Issues Addressed</span>
-            </div>
-          </div>
-          <div class="project-links">
-            <a href="#" class="project-link">📊 View Analysis</a>
-            <a href="#" class="project-link">📈 Results Report</a>
-          </div>
-        </article>
 
-        <!-- IT Ticketing Dashboard -->
-        <article class="project-card" data-category="ux" tabindex="0">
-          <div class="project-icon">🎯</div>
-          <h3 class="project-title">IT Ticketing Dashboard: UX Redesign</h3>
-          <p class="project-description">
-            Redesigned IT ticketing interface using Human-Centered Design principles, implementing role-based navigation and prioritized views to improve task success rates and reduce navigation time.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">UX Design</span>
-            <span class="project-tag">Figma</span>
-            <span class="project-tag">Usability Testing</span>
-            <span class="project-tag">Interface Design</span>
-            <span class="project-tag">SUS Score</span>
+          <!-- PLACEHOLDER FOR VISUAL 1 -->
+          <div class="project-visual">
+            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
+              📊 Layout Diagram Placeholder<br>
+              <em>Before/After assembly line layout comparison will be added here</em>
+            </p>
           </div>
-          <div class="project-metrics">
-            <div class="metric">
-              <span class="metric-value">22%</span>
-              <span class="metric-label">Task Success Boost</span>
-            </div>
-            <div class="metric">
-              <span class="metric-value">35%</span>
-              <span class="metric-label">Navigation Time Cut</span>
-            </div>
-            <div class="metric">
-              <span class="metric-value">70</span>
-              <span class="metric-label">SUS Score</span>
-            </div>
-          </div>
-          <div class="project-links">
-            <a href="#" class="project-link">🎨 View Prototype</a>
-            <a href="#" class="project-link">📋 UX Report</a>
-          </div>
-        </article>
 
-        <!-- EHR Workflow Optimization -->
-        <article class="project-card" data-category="ux" tabindex="0">
-          <div class="project-icon">🏥</div>
-          <h3 class="project-title">EHR Workflow Optimization: Healthcare UX Research</h3>
-          <p class="project-description">
-            Led comprehensive human factors research at Prisma Health, conducting clinician interviews and workflow mapping to reduce cognitive load by 30% through interface redesign and task flow optimization.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Healthcare UX</span>
-            <span class="project-tag">Human Factors</span>
-            <span class="project-tag">Python</span>
-            <span class="project-tag">R Analytics</span>
-            <span class="project-tag">NASA-TLX</span>
-            <span class="project-tag">A/B Testing</span>
+          <div class="project-section">
+            <h3>Problem Statement</h3>
+            <p>
+              The existing assembly line suffered from inefficient material flow, excessive operator movement, 
+              and bottlenecks that limited production capacity. Cycle time variability was high, and workstation 
+              layouts did not follow ergonomic best practices, leading to operator fatigue.
+            </p>
           </div>
-          <div class="project-metrics">
-            <div class="metric">
-              <span class="metric-value">15+</span>
-              <span class="metric-label">Clinician Interviews</span>
-            </div>
-            <div class="metric">
-              <span class="metric-value">30%</span>
-              <span class="metric-label">Cognitive Load Reduction</span>
-            </div>
-            <div class="metric">
-              <span class="metric-value">6</span>
-              <span class="metric-label">Workflows Mapped</span>
-            </div>
-          </div>
-          <div class="project-links">
-            <a href="#" class="project-link">🔬 Research Findings</a>
-            <a href="#" class="project-link">📊 Data Analysis</a>
-          </div>
-        </article>
 
-        <!-- SAE Baja Steering System -->
-        <article class="project-card" data-category="motorsport" tabindex="0">
-          <div class="project-icon">🏎️</div>
-          <h3 class="project-title">SAE Baja: Advanced Steering System Design</h3>
-          <p class="project-description">
-            Designed and developed high-performance steering system with rack and pinion assembly for ATV competition vehicle. Led team to podium finishes including AIR 5 overall and AIR 2 in Endurance race.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Mechanical Design</span>
-            <span class="project-tag">SolidWorks</span>
-            <span class="project-tag">ANSYS</span>
-            <span class="project-tag">Ackermann Geometry</span>
-            <span class="project-tag">Material Analysis</span>
-            <span class="project-tag">Team Leadership</span>
+          <div class="project-section">
+            <h3>Methodology & Tools</h3>
+            <ul>
+              <li><strong>Time Studies:</strong> Conducted detailed time and motion studies across 12 workstations to establish baseline cycle times and identify non-value-added activities</li>
+              <li><strong>Value Stream Mapping:</strong> Mapped current state to visualize waste and opportunities for improvement</li>
+              <li><strong>Spaghetti Diagrams:</strong> Tracked operator movement patterns to quantify unnecessary travel distance</li>
+              <li><strong>CAD Layout Design:</strong> Used SolidWorks to design optimized workstation layouts with improved tool placement and material flow</li>
+              <li><strong>Standard Work Documentation:</strong> Created standardized work instructions with visual aids to reduce cycle time variation</li>
+            </ul>
           </div>
-          <div class="project-metrics">
-            <div class="metric">
-              <span class="metric-value">AIR 5</span>
-              <span class="metric-label">Overall Position</span>
-            </div>
-            <div class="metric">
-              <span class="metric-value">AIR 2</span>
-              <span class="metric-label">Endurance Race</span>
-            </div>
-            <div class="metric">
-              <span class="metric-value">2 Years</span>
-              <span class="metric-label">Team Leadership</span>
-            </div>
-          </div>
-          <div class="project-links">
-            <a href="#" class="project-link">🏁 Competition Results</a>
-            <a href="#" class="project-link">⚙️ Technical Details</a>
-          </div>
-        </article>
 
-        <!-- Educational Platform UX -->
-        <article class="project-card" data-category="ux" tabindex="0">
-          <div class="project-icon">📱</div>
-          <h3 class="project-title">Educational Platform: Beta App Interface Design</h3>
-          <p class="project-description">
-            Led comprehensive UX redesign for educational technology platform, conducting focus groups across engineering disciplines and implementing Human-Centered Design to improve user onboarding by 35%.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Mobile UX</span>
-            <span class="project-tag">Focus Groups</span>
-            <span class="project-tag">User Interviews</span>
-            <span class="project-tag">Wireframing</span>
-            <span class="project-tag">Prototyping</span>
-            <span class="project-tag">App Analytics</span>
+          <!-- PLACEHOLDER FOR VISUAL 2 -->
+          <div class="project-visual">
+            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
+              📈 Time Study Charts Placeholder<br>
+              <em>Cycle time analysis and workstation balance chart will be added here</em>
+            </p>
           </div>
-          <div class="project-metrics">
-            <div class="metric">
-              <span class="metric-value">35%</span>
-              <span class="metric-label">Onboarding Improvement</span>
-            </div>
-            <div class="metric">
-              <span class="metric-value">25+</span>
-              <span class="metric-label">User Tests</span>
-            </div>
-            <div class="metric">
-              <span class="metric-value">18%</span>
-              <span class="metric-label">Navigation Time Cut</span>
-            </div>
-          </div>
-          <div class="project-links">
-            <a href="#" class="project-link">📱 View Prototype</a>
-            <a href="#" class="project-link">📊 User Research</a>
-          </div>
-        </article>
 
-        <!-- Manufacturing Process Optimization -->
-        <article class="project-card" data-category="sixsigma" tabindex="0">
-          <div class="project-icon">🏭</div>
-          <h3 class="project-title">Manufacturing Process Optimization: Lean Implementation</h3>
-          <p class="project-description">
-            Implemented comprehensive Lean Manufacturing tools including 5S and Kaizen across assembly and CNC machining workflows, achieving 20% reduction in process variability and 15% efficiency improvement.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Lean Manufacturing</span>
-            <span class="project-tag">5S Implementation</span>
-            <span class="project-tag">Kaizen</span>
-            <span class="project-tag">Process Mapping</span>
-            <span class="project-tag">Time-Motion Studies</span>
-            <span class="project-tag">ISO 9001</span>
+          <div class="project-section">
+            <h3>Implementation</h3>
+            <ul>
+              <li>Redesigned 3 critical workstations to reduce operator travel distance by 45%</li>
+              <li>Implemented 5S methodology to organize tools and materials at point of use</li>
+              <li>Relocated material staging areas to eliminate cross-traffic and bottlenecks</li>
+              <li>Installed gravity-fed component racks to minimize reaching and bending</li>
+              <li>Trained 15 operators on new standard work procedures</li>
+            </ul>
           </div>
-          <div class="project-metrics">
-            <div class="metric">
-              <span class="metric-value">20%</span>
-              <span class="metric-label">Variability Reduction</span>
-            </div>
-            <div class="metric">
-              <span class="metric-value">15%</span>
-              <span class="metric-label">Efficiency Gain</span>
-            </div>
-            <div class="metric">
-              <span class="metric-value">12%</span>
-              <span class="metric-label">Downtime Reduction</span>
-            </div>
-          </div>
-          <div class="project-links">
-            <a href="#" class="project-link">📈 Process Maps</a>
-            <a href="#" class="project-link">📋 Implementation Plan</a>
-          </div>
-        </article>
 
-      </section>
+          <div class="impact-box">
+            <h4>Results & Impact</h4>
+            <div class="impact-stats">
+              <div class="impact-stat">
+                <span class="impact-stat-number">18%</span>
+                <div class="impact-stat-label">Reduction in Cycle Time</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">45%</span>
+                <div class="impact-stat-label">Less Operator Travel</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">12%</span>
+                <div class="impact-stat-label">Throughput Increase</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">$85K</span>
+                <div class="impact-stat-label">Annual Cost Savings</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Lean Manufacturing</span>
+            <span class="tag">Time Studies</span>
+            <span class="tag">CAD Design</span>
+            <span class="tag">5S Implementation</span>
+            <span class="tag">Value Stream Mapping</span>
+            <span class="tag">Standard Work</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 2: Ergonomic Workstation Design -->
+      <article class="project-card">
+        <header class="project-header">
+          <h2>Ergonomic Workstation Design & Human Factors Analysis</h2>
+          <div class="project-meta">
+            <div class="project-meta-item">
+              <strong>Organization:</strong> Clemson University Research
+            </div>
+            <div class="project-meta-item">
+              <strong>Duration:</strong> Ongoing
+            </div>
+            <div class="project-meta-item">
+              <strong>Role:</strong> Graduate Research Assistant
+            </div>
+          </div>
+        </header>
+
+        <div class="project-content">
+          <div class="project-section">
+            <h3>Project Overview</h3>
+            <p>
+              Research-focused project investigating ergonomic design principles for manufacturing workstations. 
+              Applied human factors engineering methods to assess and improve workstation design, reduce musculoskeletal 
+              strain, and optimize operator comfort and productivity.
+            </p>
+          </div>
+
+          <!-- PLACEHOLDER FOR VISUAL 3 -->
+          <div class="project-visual">
+            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
+              🧍 Ergonomic Analysis Placeholder<br>
+              <em>Workstation ergonomic assessment diagrams will be added here</em>
+            </p>
+          </div>
+
+          <div class="project-section">
+            <h3>Research Methodology</h3>
+            <ul>
+              <li><strong>RULA/REBA Analysis:</strong> Conducted rapid ergonomic assessments to identify high-risk postures and movements</li>
+              <li><strong>Anthropometric Data Analysis:</strong> Applied percentile-based design principles to accommodate operator diversity</li>
+              <li><strong>3D Motion Capture:</strong> Analyzed operator movements and reach envelopes using motion tracking technology</li>
+              <li><strong>Ergonomic Simulation:</strong> Used Jack/Siemens Human simulation software to validate workstation designs</li>
+              <li><strong>Fatigue Assessment:</strong> Measured operator fatigue through subjective ratings and physiological monitoring</li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <h3>Key Findings</h3>
+            <ul>
+              <li>Identified 8 workstations with RULA scores above 5 (requiring immediate intervention)</li>
+              <li>Documented excessive forward bending (>30°) and overhead reaching in 40% of tasks</li>
+              <li>Quantified force requirements exceeding recommended limits for repetitive pushing/pulling operations</li>
+              <li>Developed design guidelines for adjustable-height work surfaces and tool presentation systems</li>
+            </ul>
+          </div>
+
+          <!-- PLACEHOLDER FOR VISUAL 4 -->
+          <div class="project-visual">
+            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
+              📐 CAD Model Placeholder<br>
+              <em>3D workstation design with ergonomic features will be added here</em>
+            </p>
+          </div>
+
+          <div class="project-section">
+            <h3>Design Recommendations</h3>
+            <ul>
+              <li>Adjustable work surface heights (28-44 inches) to accommodate 5th-95th percentile operators</li>
+              <li>Tool balancers and articulating arms to eliminate sustained arm elevation</li>
+              <li>Angled component presentation to reduce forward bending and improve visibility</li>
+              <li>Anti-fatigue matting and sit-stand capability for long-duration tasks</li>
+              <li>Task rotation schedules to distribute physical demands across operators</li>
+            </ul>
+          </div>
+
+          <div class="impact-box">
+            <h4>Expected Impact (Based on Pilot Implementation)</h4>
+            <div class="impact-stats">
+              <div class="impact-stat">
+                <span class="impact-stat-number">35%</span>
+                <div class="impact-stat-label">Reduction in RULA Score</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">4</span>
+                <div class="impact-stat-label">Published Papers (HFES)</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">60%</span>
+                <div class="impact-stat-label">Decrease in Discomfort Ratings</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Human Factors</span>
+            <span class="tag">Ergonomic Assessment</span>
+            <span class="tag">RULA/REBA</span>
+            <span class="tag">CAD Modeling</span>
+            <span class="tag">Motion Analysis</span>
+            <span class="tag">Workstation Design</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 3: Material Flow Optimization -->
+      <article class="project-card">
+        <header class="project-header">
+          <h2>Cross-Dock Material Flow Optimization</h2>
+          <div class="project-meta">
+            <div class="project-meta-item">
+              <strong>Organization:</strong> DHL Global Forwarding
+            </div>
+            <div class="project-meta-item">
+              <strong>Duration:</strong> 4 months
+            </div>
+            <div class="project-meta-item">
+              <strong>Role:</strong> Operations Trainee
+            </div>
+          </div>
+        </header>
+
+        <div class="project-content">
+          <div class="project-section">
+            <h3>Project Overview</h3>
+            <p>
+              Redesigned cross-dock facility layout to improve material flow efficiency, reduce handling time, 
+              and minimize congestion. Project involved facility layout analysis, simulation modeling, and 
+              implementation of lean logistics principles.
+            </p>
+          </div>
+
+          <!-- PLACEHOLDER FOR VISUAL 5 -->
+          <div class="project-visual">
+            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
+              🏭 Facility Layout Placeholder<br>
+              <em>Cross-dock layout with material flow paths will be added here</em>
+            </p>
+          </div>
+
+          <div class="project-section">
+            <h3>Problem Analysis</h3>
+            <p>
+              The existing cross-dock layout resulted in excessive pallet movement, frequent forklift traffic 
+              conflicts, and inefficient dock door utilization. Average dwell time was 4.2 hours, significantly 
+              above industry benchmarks.
+            </p>
+            <ul>
+              <li>Analyzed 3 months of shipment data covering 15,000+ pallet movements</li>
+              <li>Created flow matrix to identify high-frequency origin-destination pairs</li>
+              <li>Mapped current material flow patterns and identified crossing paths</li>
+              <li>Documented dock door utilization rates and staging area bottlenecks</li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <h3>Solution Implementation</h3>
+            <ul>
+              <li>Reassigned dock doors based on frequency analysis to minimize travel distance</li>
+              <li>Created dedicated staging zones for high-velocity SKUs near destination doors</li>
+              <li>Implemented directional flow patterns to eliminate crossing forklift traffic</li>
+              <li>Established visual management system with floor markings and zone identification</li>
+              <li>Optimized pallet storage positions using ABC analysis</li>
+            </ul>
+          </div>
+
+          <!-- PLACEHOLDER FOR VISUAL 6 -->
+          <div class="project-visual">
+            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
+              📊 Data Analysis Placeholder<br>
+              <em>Flow matrix and dock utilization charts will be added here</em>
+            </p>
+          </div>
+
+          <div class="impact-box">
+            <h4>Results & Impact</h4>
+            <div class="impact-stats">
+              <div class="impact-stat">
+                <span class="impact-stat-number">10%</span>
+                <div class="impact-stat-label">Reduction in Handling Time</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">25%</span>
+                <div class="impact-stat-label">Decrease in Travel Distance</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">14%</span>
+                <div class="impact-stat-label">Improved On-Time Delivery</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">3.1hrs</span>
+                <div class="impact-stat-label">New Average Dwell Time</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Facility Layout</span>
+            <span class="tag">Material Flow Analysis</span>
+            <span class="tag">Data Analysis</span>
+            <span class="tag">Logistics Optimization</span>
+            <span class="tag">Visual Management</span>
+            <span class="tag">Lean Principles</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 4: Quality Control & Poka-Yoke -->
+      <article class="project-card">
+        <header class="project-header">
+          <h2>Poka-Yoke Implementation & Quality System Development</h2>
+          <div class="project-meta">
+            <div class="project-meta-item">
+              <strong>Organization:</strong> Tritorc Manufacturing
+            </div>
+            <div class="project-meta-item">
+              <strong>Duration:</strong> 3 months
+            </div>
+            <div class="project-meta-item">
+              <strong>Role:</strong> Manufacturing Engineer Intern
+            </div>
+          </div>
+        </header>
+
+        <div class="project-content">
+          <div class="project-section">
+            <h3>Project Overview</h3>
+            <p>
+              Designed and implemented error-proofing devices (Poka-Yoke) to eliminate defects at the source 
+              and reduce quality escapes. Project included root cause analysis, fixture design using CAD, and 
+              validation through capability studies.
+            </p>
+          </div>
+
+          <!-- PLACEHOLDER FOR VISUAL 7 -->
+          <div class="project-visual">
+            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
+              🔧 Poka-Yoke Device Placeholder<br>
+              <em>CAD models of error-proofing fixtures will be added here</em>
+            </p>
+          </div>
+
+          <div class="project-section">
+            <h3>Problem Identification</h3>
+            <p>
+              Analyzed 6 months of quality data revealing recurring defects in assembly operations:
+            </p>
+            <ul>
+              <li>Component misalignment causing 23% of defects</li>
+              <li>Incorrect part orientation accounting for 18% of rework</li>
+              <li>Missing fasteners identified in 15% of quality audits</li>
+              <li>Torque specification errors in critical joints</li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <h3>Poka-Yoke Solutions Implemented</h3>
+            <ul>
+              <li><strong>Alignment Fixtures:</strong> Designed CAD models and fabricated fixtures with alignment pins to ensure correct component positioning</li>
+              <li><strong>Asymmetric Parts Trays:</strong> Created custom trays that only accept parts in correct orientation</li>
+              <li><strong>Count-Down Bins:</strong> Implemented visual counting system with pre-staged kits to prevent missing components</li>
+              <li><strong>Torque-Sensing Tools:</strong> Integrated torque wrenches with data logging and visual/audible alerts</li>
+              <li><strong>Go/No-Go Gauges:</strong> Designed and implemented inspection gauges at critical control points</li>
+            </ul>
+          </div>
+
+          <!-- PLACEHOLDER FOR VISUAL 8 -->
+          <div class="project-visual">
+            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
+              📈 Quality Metrics Placeholder<br>
+              <em>Before/after control charts and capability analysis will be added here</em>
+            </p>
+          </div>
+
+          <div class="project-section">
+            <h3>Validation & Verification</h3>
+            <ul>
+              <li>Conducted process capability studies (Cpk analysis) showing improvement from 0.89 to 1.67</li>
+              <li>Performed Gauge R&R studies to validate measurement system effectiveness</li>
+              <li>Monitored SPC control charts for 3 months post-implementation</li>
+              <li>Documented standard operating procedures for new devices</li>
+            </ul>
+          </div>
+
+          <div class="impact-box">
+            <h4>Results & Impact</h4>
+            <div class="impact-stats">
+              <div class="impact-stat">
+                <span class="impact-stat-number">78%</span>
+                <div class="impact-stat-label">Defect Reduction</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">1.67</span>
+                <div class="impact-stat-label">Process Cpk</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">92%</span>
+                <div class="impact-stat-label">Decrease in Rework</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">$120K</span>
+                <div class="impact-stat-label">Annual Savings</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Poka-Yoke</span>
+            <span class="tag">Error Proofing</span>
+            <span class="tag">CAD Design</span>
+            <span class="tag">Quality Control</span>
+            <span class="tag">Capability Studies</span>
+            <span class="tag">SPC</span>
+            <span class="tag">Six Sigma</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 5: Data-Driven Process Control -->
+      <article class="project-card">
+        <header class="project-header">
+          <h2>Manufacturing Data Analytics & Dashboard Development</h2>
+          <div class="project-meta">
+            <div class="project-meta-item">
+              <strong>Organization:</strong> DHL & Tritorc (Combined Experience)
+            </div>
+            <div class="project-meta-item">
+              <strong>Duration:</strong> Continuous
+            </div>
+            <div class="project-meta-item">
+              <strong>Role:</strong> Process Analyst
+            </div>
+          </div>
+        </header>
+
+        <div class="project-content">
+          <div class="project-section">
+            <h3>Project Overview</h3>
+            <p>
+              Developed comprehensive data collection systems and interactive dashboards to enable data-driven 
+              decision making in manufacturing and logistics operations. Implemented automated reporting systems 
+              that transformed raw production data into actionable insights.
+            </p>
+          </div>
+
+          <!-- PLACEHOLDER FOR VISUAL 9 -->
+          <div class="project-visual">
+            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
+              📊 Dashboard Screenshot Placeholder<br>
+              <em>Tableau/Power BI dashboard examples will be added here</em>
+            </p>
+          </div>
+
+          <div class="project-section">
+            <h3>Data Infrastructure Development</h3>
+            <ul>
+              <li>Designed data collection protocols for production metrics (cycle time, downtime, quality, OEE)</li>
+              <li>Created automated data pipelines connecting ERP systems to analytics platforms</li>
+              <li>Standardized KPI definitions across multiple facilities</li>
+              <li>Implemented real-time data validation checks to ensure data integrity</li>
+              <li>Developed Python scripts for automated data cleaning and transformation</li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <h3>Dashboard & Visualization</h3>
+            <ul>
+              <li><strong>Production Performance Dashboard:</strong> Real-time OEE tracking with drill-down capability by line, shift, and product</li>
+              <li><strong>Quality Analytics:</strong> Pareto charts, defect trending, and supplier quality scorecards</li>
+              <li><strong>Logistics Dashboard:</strong> On-time delivery metrics, carrier performance, and freight cost analysis</li>
+              <li><strong>Predictive Maintenance:</strong> Equipment health monitoring with predictive failure alerts</li>
+              <li><strong>Inventory Analytics:</strong> Stock levels, turnover rates, and ABC classification visualizations</li>
+            </ul>
+          </div>
+
+          <!-- PLACEHOLDER FOR VISUAL 10 -->
+          <div class="project-visual">
+            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
+              📈 Analytics Example Placeholder<br>
+              <em>OEE trending and statistical analysis charts will be added here</em>
+            </p>
+          </div>
+
+          <div class="project-section">
+            <h3>Tools & Technologies</h3>
+            <ul>
+              <li><strong>Visualization:</strong> Tableau, Power BI, Python (Matplotlib, Plotly)</li>
+              <li><strong>Data Processing:</strong> Python (Pandas, NumPy), SQL</li>
+              <li><strong>Statistical Analysis:</strong> Minitab, Python (SciPy, Statsmodels)</li>
+              <li><strong>Data Sources:</strong> ERP systems, MES, SCADA, manual data collection systems</li>
+            </ul>
+          </div>
+
+          <div class="impact-box">
+            <h4>Results & Impact</h4>
+            <div class="impact-stats">
+              <div class="impact-stat">
+                <span class="impact-stat-number">70%</span>
+                <div class="impact-stat-label">Faster KPI Reporting</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">5</span>
+                <div class="impact-stat-label">Dashboards Deployed</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">30%</span>
+                <div class="impact-stat-label">Improved Data Visibility</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">50+</span>
+                <div class="impact-stat-label">Active Dashboard Users</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Data Analytics</span>
+            <span class="tag">Tableau</span>
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">KPI Development</span>
+            <span class="tag">Statistical Analysis</span>
+            <span class="tag">OEE Tracking</span>
+          </div>
+        </div>
+      </article>
+
     </div>
   </main>
 
@@ -955,312 +918,5 @@
   <footer role="contentinfo">
     <p>&copy; 2025 Sahil Sawant. All rights reserved.</p>
   </footer>
-
-  <script>
-    // Enhanced JavaScript for interactivity and animations
-    (function() {
-      'use strict';
-      
-      // Create animated background particles
-      function createParticles() {
-        const particlesContainer = document.getElementById('particles');
-        const particleCount = window.innerWidth < 768 ? 15 : 30;
-        
-        for (let i = 0; i < particleCount; i++) {
-          const particle = document.createElement('div');
-          particle.className = 'particle';
-          
-          const size = Math.random() * 4 + 2;
-          const left = Math.random() * 100;
-          const animationDuration = Math.random() * 3 + 3;
-          const delay = Math.random() * 2;
-          
-          particle.style.width = size + 'px';
-          particle.style.height = size + 'px';
-          particle.style.left = left + '%';
-          particle.style.top = Math.random() * 100 + '%';
-          particle.style.animationDuration = animationDuration + 's';
-          particle.style.animationDelay = delay + 's';
-          particle.style.opacity = Math.random() * 0.5 + 0.3;
-          
-          particlesContainer.appendChild(particle);
-        }
-      }
-
-      // Filter functionality
-      function initializeFilters() {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-        
-        filterBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            const filter = btn.getAttribute('data-filter');
-            
-            // Update active button
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            // Filter projects with animation
-            projectCards.forEach((card, index) => {
-              const category = card.getAttribute('data-category');
-              
-              if (filter === 'all' || category === filter) {
-                card.style.display = 'block';
-                card.style.animation = 'none';
-                setTimeout(() => {
-                  card.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s both`;
-                }, 10);
-              } else {
-                card.style.animation = 'fadeOut 0.3s ease-out forwards';
-                setTimeout(() => {
-                  card.style.display = 'none';
-                }, 300);
-              }
-            });
-          });
-        });
-      }
-
-      // Enhanced card interactions
-      function initializeCardInteractions() {
-        const projectCards = document.querySelectorAll('.project-card');
-        
-        projectCards.forEach(card => {
-          card.addEventListener('mouseenter', () => {
-            // Add hover sound effect (if audio is enabled)
-            playHoverSound();
-            
-            // Enhanced hover animations
-            const icon = card.querySelector('.project-icon');
-            const tags = card.querySelectorAll('.project-tag');
-            
-            tags.forEach((tag, index) => {
-              setTimeout(() => {
-                tag.style.transform = 'scale(1.05) translateY(-2px)';
-              }, index * 50);
-            });
-          });
-          
-          card.addEventListener('mouseleave', () => {
-            const tags = card.querySelectorAll('.project-tag');
-            tags.forEach(tag => {
-              tag.style.transform = 'scale(1) translateY(0)';
-            });
-          });
-          
-          // Keyboard accessibility
-          card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              const firstLink = card.querySelector('.project-link');
-              if (firstLink) firstLink.click();
-            }
-          });
-        });
-      }
-
-      // Parallax scrolling effect
-      function initializeParallax() {
-        window.addEventListener('scroll', () => {
-          const scrolled = window.pageYOffset;
-          const particles = document.querySelectorAll('.particle');
-          
-          particles.forEach((particle, index) => {
-            const speed = (index % 3 + 1) * 0.5;
-            particle.style.transform = `translateY(${scrolled * speed}px)`;
-          });
-        });
-      }
-
-      // Intersection Observer for animations
-      function initializeIntersectionObserver() {
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-        };
-
-        function handleIntersection(entries) {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('animate-in');
-              
-              // Staggered animation for cards
-              if (entry.target.classList.contains('project-card')) {
-                const cards = Array.from(document.querySelectorAll('.project-card'));
-                const index = cards.indexOf(entry.target);
-                entry.target.style.animationDelay = `${index * 0.1}s`;
-              }
-            }
-          });
-        }
-
-        if ('IntersectionObserver' in window) {
-          const observer = new IntersectionObserver(handleIntersection, observerOptions);
-          const elements = document.querySelectorAll('.project-card, .page-hero');
-          
-          elements.forEach(el => observer.observe(el));
-        }
-      }
-
-      // Audio feedback (optional)
-      function playHoverSound() {
-        try {
-          // Create a subtle audio feedback for interactions
-          const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-          const oscillator = audioContext.createOscillator();
-          const gainNode = audioContext.createGain();
-          
-          oscillator.connect(gainNode);
-          gainNode.connect(audioContext.destination);
-          
-          oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
-          gainNode.gain.setValueAtTime(0, audioContext.currentTime);
-          gainNode.gain.linearRampToValueAtTime(0.01, audioContext.currentTime + 0.01);
-          gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.1);
-          
-          oscillator.start(audioContext.currentTime);
-          oscillator.stop(audioContext.currentTime + 0.1);
-        } catch (e) {
-          // Audio not supported or blocked
-        }
-      }
-
-      // Performance optimizations
-      function optimizePerformance() {
-        // Reduce motion for users who prefer it
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        
-        function handleReducedMotion(e) {
-          if (e.matches) {
-            document.body.classList.add('reduce-motion');
-            // Disable particles for better performance
-            document.getElementById('particles').style.display = 'none';
-          } else {
-            document.body.classList.remove('reduce-motion');
-            document.getElementById('particles').style.display = 'block';
-          }
-        }
-        
-        prefersReducedMotion.addListener(handleReducedMotion);
-        handleReducedMotion(prefersReducedMotion);
-
-        // Throttle scroll events
-        let ticking = false;
-        function updateOnScroll() {
-          if (!ticking) {
-            requestAnimationFrame(() => {
-              initializeParallax();
-              ticking = false;
-            });
-            ticking = true;
-          }
-        }
-        
-        window.addEventListener('scroll', updateOnScroll, { passive: true });
-      }
-
-      // Touch device optimizations
-      function optimizeForTouch() {
-        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        if (isTouch) {
-          document.body.classList.add('touch-device');
-          
-          // Add touch-specific interactions
-          const cards = document.querySelectorAll('.project-card');
-          cards.forEach(card => {
-            card.addEventListener('touchstart', () => {
-              card.classList.add('touch-active');
-            });
-            
-            card.addEventListener('touchend', () => {
-              setTimeout(() => {
-                card.classList.remove('touch-active');
-              }, 150);
-            });
-          });
-        }
-      }
-
-      // Initialize everything when DOM is ready
-      function initialize() {
-        createParticles();
-        initializeFilters();
-        initializeCardInteractions();
-        initializeIntersectionObserver();
-        optimizePerformance();
-        optimizeForTouch();
-      }
-
-      // Wait for DOM to be ready
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initialize);
-      } else {
-        initialize();
-      }
-
-      // Handle window resize
-      window.addEventListener('resize', () => {
-        // Recreate particles on resize
-        const particlesContainer = document.getElementById('particles');
-        particlesContainer.innerHTML = '';
-        createParticles();
-      });
-
-    })();
-  </script>
-
-  <style>
-    /* Additional animation styles */
-    @-webkit-keyframes fadeOut {
-      from { opacity: 1; -webkit-transform: scale(1); transform: scale(1); }
-      to { opacity: 0; -webkit-transform: scale(0.8); transform: scale(0.8); }
-    }
-
-    @keyframes fadeOut {
-      from { opacity: 1; -webkit-transform: scale(1); transform: scale(1); }
-      to { opacity: 0; -webkit-transform: scale(0.8); transform: scale(0.8); }
-    }
-
-    .touch-active {
-      -webkit-transform: scale(0.98) !important;
-      -ms-transform: scale(0.98) !important;
-      transform: scale(0.98) !important;
-    }
-
-    .animate-in {
-      opacity: 1;
-      -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-      transform: translateY(0);
-    }
-
-    /* High performance mode */
-    .reduce-motion .project-card,
-    .reduce-motion .particle,
-    .reduce-motion * {
-      -webkit-animation: none !important;
-      animation: none !important;
-      -webkit-transition: none !important;
-      -o-transition: none !important;
-      transition: none !important;
-    }
-
-    /* Loading state */
-    .project-card[data-loading="true"] {
-      opacity: 0.5;
-      pointer-events: none;
-    }
-
-    /* Focus styles for accessibility */
-    .project-card:focus-visible {
-      outline: 3px solid #ff6600;
-      outline-offset: 3px;
-    }
-
-    .filter-btn:focus-visible {
-      outline: 2px solid #ff6600;
-      outline-offset: 2px;
-    }
-  </style>
 </body>
 </html>
