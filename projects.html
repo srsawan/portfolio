@@ -33,7 +33,7 @@
       background-color: #f5f5f5;
     }
 
-    /* Sticky Navigation - Matching other pages */
+    /* Sticky Navigation */
     nav {
       position: fixed;
       top: 0;
@@ -231,6 +231,12 @@
       height: auto;
       border-radius: 4px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-visual img:hover {
+      transform: scale(1.02);
     }
 
     .project-visual figcaption {
@@ -238,89 +244,219 @@
       font-style: italic;
       color: #666;
       font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* Image Grid for Multiple Images */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .image-grid-item {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      text-align: center;
+    }
+
+    .image-grid-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .image-grid-item img:hover {
+      transform: scale(1.02);
+    }
+
+    .image-grid-item figcaption {
+      margin-top: 1rem;
+      font-style: italic;
+      color: #666;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Two Column Layout for Before/After */
+    .two-column-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .visual-column {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      text-align: center;
+    }
+
+    .visual-column img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .visual-column figcaption {
+      margin-top: 1rem;
+      font-style: italic;
+      color: #666;
+      font-size: 0.9rem;
+      font-weight: 600;
     }
 
     /* Results/Impact Box */
     .impact-box {
-      background: linear-gradient(135deg, #fff3e6 0%, #ffe6cc 100%);
-      border-left: 4px solid #ff6600;
-      padding: 1.5rem;
-      border-radius: 4px;
-      margin: 1.5rem 0;
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+      border-left: 5px solid #4caf50;
+      padding: 2rem;
+      border-radius: 8px;
+      margin: 2rem 0;
     }
 
     .impact-box h4 {
-      color: #ff6600;
-      margin-bottom: 0.75rem;
-      font-size: 1.2rem;
+      color: #2e7d32;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
     }
 
     .impact-stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
       margin-top: 1rem;
     }
 
     .impact-stat {
       text-align: center;
-      padding: 1rem;
+      padding: 1.5rem;
       background: white;
-      border-radius: 4px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .impact-stat-number {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ff6600;
       display: block;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2e7d32;
+      margin-bottom: 0.5rem;
     }
 
     .impact-stat-label {
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #555;
+      font-weight: 600;
+    }
+
+    /* Challenge Box */
+    .challenge-box {
+      background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+      border-left: 5px solid #ff9800;
+      padding: 2rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .challenge-box h4 {
+      color: #e65100;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Methodology Box */
+    .methodology-box {
+      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+      border-left: 5px solid #2196f3;
+      padding: 2rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .methodology-box h4 {
+      color: #0d47a1;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
     }
 
     /* Tags */
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
+      gap: 0.75rem;
+      margin-top: 2rem;
     }
 
     .tag {
-      background: #f0f0f0;
-      color: #333;
-      padding: 0.4rem 1rem;
+      background: linear-gradient(135deg, #ff6600, #e05500);
+      color: white;
+      padding: 0.5rem 1rem;
       border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      border: 1px solid #ddd;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(255, 102, 0, 0.3);
+    }
+
+    /* Highlight Box */
+    .highlight-box {
+      background: #fff9c4;
+      border: 2px solid #fbc02d;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    .highlight-box strong {
+      color: #f57f17;
     }
 
     /* Footer */
     footer {
-      text-align: center;
-      background-color: #222;
+      background: #333;
       color: white;
-      padding: 2rem 0;
+      text-align: center;
+      padding: 2rem;
       margin-top: 4rem;
     }
 
-    /* Mobile Responsive */
-    @media screen and (max-width: 768px) {
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .container {
+        padding: 1.5rem 2rem;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .two-column-visual {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
       nav {
         padding: 1rem;
-        flex-direction: column;
-        gap: 1rem;
       }
 
       nav .menu {
-        flex-wrap: wrap;
-        justify-content: center;
         gap: 0.75rem;
+      }
+
+      nav .menu li a {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.9rem;
       }
 
       .container {
@@ -328,24 +464,19 @@
       }
 
       .page-header {
-        padding: 2rem 1rem;
-      }
-
-      .project-header {
-        padding: 1.5rem;
+        padding: 2rem 1.5rem;
       }
 
       .project-content {
         padding: 1.5rem;
       }
 
-      .project-meta {
-        flex-direction: column;
-        gap: 0.75rem;
+      .impact-stats {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       }
 
-      .impact-stats {
-        grid-template-columns: 1fr;
+      .project-meta {
+        gap: 1rem;
       }
     }
   </style>
@@ -353,41 +484,304 @@
 <body>
   <!-- Navigation -->
   <nav role="navigation" aria-label="Main navigation">
-    <div class="logo">Sahil Sawant</div>
+    <a href="index.html" class="logo" aria-label="Home">Sahil Sawant</a>
     <ul class="menu">
-      <li><a href="index.html" aria-label="Go to home page">Home</a></li>
-      <li><a href="about.html" aria-label="Go to about page">About</a></li>
-      <li><a href="experience.html" aria-label="Go to experience page">Experience</a></li>
-      <li><a href="education.html" aria-label="Go to education page">Education</a></li>
-      <li><a href="projects.html" class="active" aria-current="page" aria-label="Current page: Projects">Projects</a></li>
-      <li><a href="publications.html" aria-label="Go to publications page">Publications</a></li>
-      <li><a href="skills.html" aria-label="Go to skills page">Skills</a></li>
-      <li><a href="contact.html" aria-label="Go to contact page">Contact</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
   <!-- Main Content -->
-  <main class="main-content">
-    <div class="container">
-      <!-- Page Header -->
-      <header class="page-header">
-        <h1>Projects & Case Studies</h1>
-        <p>
-          Real-world applications of industrial engineering principles across manufacturing operations, 
-          process optimization, and human factors engineering
-        </p>
-      </header>
+  <main class="main-content" role="main">
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1>Industrial Engineering Projects</h1>
+      <p>
+        Hands-on experience implementing Lean Six Sigma methodologies, process optimization, 
+        and data-driven solutions across healthcare, manufacturing, and logistics operations.
+      </p>
+    </header>
 
-      <!-- PROJECT 1: Assembly Line Optimization -->
+    <div class="container">
+
+      <!-- PROJECT 1: Healthcare Sterile Processing (Featured/Detailed) -->
       <article class="project-card">
         <header class="project-header">
-          <h2>Assembly Line Layout Optimization & Process Improvement</h2>
+          <h2>🏥 Healthcare Sterile Processing Department Optimization</h2>
+          <div class="project-meta">
+            <div class="project-meta-item">
+              <strong>Organization:</strong> Prisma Health
+            </div>
+            <div class="project-meta-item">
+              <strong>Duration:</strong> October - December 2024
+            </div>
+            <div class="project-meta-item">
+              <strong>Methodology:</strong> Lean Six Sigma (DMAIC)
+            </div>
+            <div class="project-meta-item">
+              <strong>Role:</strong> Graduate Research Assistant
+            </div>
+          </div>
+        </header>
+
+        <div class="project-content">
+          <!-- Executive Summary -->
+          <div class="project-section">
+            <h3>Executive Summary</h3>
+            <p>
+              Led a comprehensive Lean Six Sigma improvement initiative at Prisma Health's Sterile Processing Department (SPD) 
+              to reduce surgical instrument turnaround time by 20%. Through systematic application of DMAIC methodology, 
+              value stream mapping, and Kaizen event facilitation, the project achieved an 18% reduction in urgent tray 
+              processing time (from 187 to 153 minutes) and improved overall process capability from 0.67 to 1.45 Cpk.
+            </p>
+          </div>
+
+          <!-- Challenge/Problem Statement -->
+          <div class="challenge-box">
+            <h4>⚠️ The Challenge</h4>
+            <p>
+              Prisma Health's SPD faced critical bottlenecks in processing sterile surgical instrument trays, causing 
+              Operating Room (OR) delays and potential surgery cancellations. The urgent tray turnaround time averaged 
+              187 minutes against a target of 150 minutes, with significant waste throughout the process including 
+              120 minutes of non-value-added time, 18% equipment downtime, and 38% rework rates in assembly operations.
+            </p>
+          </div>
+
+          <!-- Value Stream Mapping -->
+          <div class="project-section">
+            <h3>Phase 1: Current State Analysis - Value Stream Mapping</h3>
+            <p>
+              Conducted comprehensive value stream mapping to visualize the entire sterile processing workflow from 
+              dirty tray receipt to sterile tray dispatch. The analysis revealed critical inefficiencies across five 
+              major process steps:
+            </p>
+
+            <div class="project-visual">
+              <figure>
+                <img src="VALUE_STREAM_MAPPING.png" alt="Value Stream Map showing before implementation state of sterile processing workflow with identified wastes">
+                <figcaption>Value Stream Map - Current State Analysis identifying 120 minutes of non-value-added time</figcaption>
+              </figure>
+            </div>
+
+            <ul>
+              <li><strong>Receiving & Sorting (C/T: 12 min, Wait: 45 min):</strong> Manual logging without tracking system, no standardized batching process</li>
+              <li><strong>Decontamination (C/T: 29 min, Wait: 22 min):</strong> 18% equipment downtime due to poor preventive maintenance, manual process dependencies</li>
+              <li><strong>Assembly & Inspection (C/T: 54 min, Wait: 38 min):</strong> 38% rework rate caused by missing instruments, excessive searching time, lack of visual aids</li>
+              <li><strong>Sterilization (C/T: 91 min, Wait: 15 min):</strong> 18% cycle abort rate, poor scheduling coordination</li>
+              <li><strong>Storage & Dispatch (C/T: 8 min, Wait: 0 min):</strong> Communication gaps, no tracking system for urgent requests</li>
+            </ul>
+
+            <div class="highlight-box">
+              <p>
+                <strong>Key Findings:</strong> Total Lead Time = 314 minutes (Value-Added: 194 min, Non-Value-Added: 120 min) 
+                | Value-Added Ratio: 62% | Target ≥85%
+              </p>
+            </div>
+
+            <p>
+              Seven major wastes of Lean were identified: <strong>Waiting</strong> (120 min queue time between processes), 
+              <strong>Defects</strong> (38% rework in assembly), <strong>Motion</strong> (excessive searching for instruments), 
+              <strong>Transportation</strong> (batching delays), <strong>Overprocessing</strong> (redundant count-checks), 
+              <strong>Inventory</strong> (instrument shortages), and <strong>Skills</strong> (untrained staff with high turnover).
+            </p>
+          </div>
+
+          <!-- Kaizen Event -->
+          <div class="project-section">
+            <h3>Phase 2: Rapid Improvement - 5-Day Kaizen Event</h3>
+            <p>
+              Facilitated an intensive 5-day Kaizen workshop with a cross-functional team of 15+ stakeholders from SPD, 
+              OR nursing, industrial engineering, quality management, IT support, and executive leadership. The event 
+              followed a structured timeline to achieve rapid, sustainable improvements.
+            </p>
+
+            <div class="project-visual">
+              <figure>
+                <img src="kaizen-event-infographic.png" alt="Kaizen Event timeline and results showing 5-day rapid improvement workshop structure">
+                <figcaption>Kaizen Event - 5-Day Rapid Improvement Workshop achieving 20% turnaround time reduction</figcaption>
+              </figure>
+            </div>
+
+            <div class="methodology-box">
+              <h4>📋 Kaizen Event Structure</h4>
+              <ul>
+                <li><strong>Day 1 - Current State:</strong> Gemba walks, baseline data collection, problem definition, and team alignment</li>
+                <li><strong>Day 2 - Root Cause Analysis:</strong> Fishbone diagrams, 5-Why analysis, VSM deep-dive, and FMEA review</li>
+                <li><strong>Day 3 - Solution Development:</strong> Brainstorming sessions, prioritization matrix, implementation planning</li>
+                <li><strong>Day 4 - Implementation:</strong> 5S workspace organization, visual management deployment, staff training, process testing</li>
+                <li><strong>Day 5 - Results & Sustain:</strong> Results measurement, SOPs documentation, sustainability planning, leadership presentation</li>
+              </ul>
+            </div>
+
+            <p>
+              <strong>Lean Tools Applied:</strong> Gemba Walks (workplace observation), Fishbone Diagrams (root cause analysis), 
+              5-Why Technique, Value Stream Mapping, FMEA (risk assessment), Visual Management, 5S (workplace organization), 
+              TPM (Total Productive Maintenance), PDCA (Plan-Do-Check-Act improvement cycles), and Standardized Work Instructions.
+            </p>
+          </div>
+
+          <!-- Implementation Solutions -->
+          <div class="project-section">
+            <h3>Phase 3: Improvement Opportunities Implemented</h3>
+
+            <p><strong>1. 5S Implementation for Workspace Organization</strong></p>
+            <ul>
+              <li><strong>Sort:</strong> Removed obsolete instruments and equipment from assembly area, reducing search time</li>
+              <li><strong>Set in Order:</strong> Created designated storage locations with color-coded labels for instrument sets</li>
+              <strong>Shine:</strong> Established daily cleaning schedules and equipment maintenance checklists</li>
+              <li><strong>Standardize:</strong> Developed visual standard operating procedures posted at each workstation</li>
+              <li><strong>Sustain:</strong> Implemented weekly 5S audits with team accountability boards</li>
+            </ul>
+
+            <p><strong>2. Visual Management System</strong></p>
+            <ul>
+              <li>Installed shadow boards for instrument organization with clear visual indicators for missing items</li>
+              <li>Created status boards showing real-time queue status and priority tray tracking</li>
+              <li>Deployed color-coded bins for tray routing (urgent = red, routine = blue, stat = yellow)</li>
+              <li>Posted assembly instructions with photographs at each workstation to reduce errors</li>
+            </ul>
+
+            <p><strong>3. Total Productive Maintenance (TPM) Program</strong></p>
+            <ul>
+              <li>Established preventive maintenance schedules for sterilization equipment (daily, weekly, monthly)</li>
+              <li>Trained operators on autonomous maintenance tasks and early failure detection</li>
+              <li>Reduced equipment downtime from 18% to <1% through proactive maintenance approach</li>
+              <li>Implemented equipment performance tracking dashboard with predictive alerts</li>
+            </ul>
+
+            <p><strong>4. Standardized Work Instructions</strong></p>
+            <ul>
+              <li>Documented best practices for each process step with time standards and quality checkpoints</li>
+              <li>Created visual work instructions reducing reliance on tribal knowledge</li>
+              <li>Reduced assembly rework from 38% to 2% through standardized procedures</li>
+              <li>Implemented job rotation training matrices to cross-train staff and reduce skill-based bottlenecks</li>
+            </ul>
+          </div>
+
+          <!-- FMEA Analysis -->
+          <div class="project-section">
+            <h3>Phase 4: Risk Assessment - FMEA Implementation</h3>
+            <p>
+              Conducted Failure Mode and Effects Analysis (FMEA) to proactively identify and mitigate process risks 
+              across all sterile processing steps. Each failure mode was assessed using Risk Priority Number (RPN) 
+              calculation: <strong>RPN = Severity × Occurrence × Detection</strong>
+            </p>
+
+            <div class="project-visual">
+              <figure>
+                <img src="fmea_diagram__1_.png" alt="FMEA analysis diagram showing risk assessment and mitigation strategies">
+                <figcaption>Failure Mode & Effects Analysis - Systematic risk assessment identifying critical control points</figcaption>
+              </figure>
+            </div>
+
+            <p>
+              <strong>High-Risk Failure Modes Addressed (RPN >200):</strong>
+            </p>
+            <ul>
+              <li><strong>Tray Not Logged (RPN 336 → 18):</strong> Implemented real-time RFID tracking system with automatic logging</li>
+              <li><strong>Missing Instruments (RPN 288 → 24):</strong> Deployed 5S + visual management with organized shadow boards</li>
+              <li><strong>Incorrect Assembly (RPN 300 → 20):</strong> Created standardized work instructions with visual assembly guides</li>
+              <li><strong>Cannot Locate Tray (RPN 360 → 12):</strong> Installed RFID tracking with real-time location visibility</li>
+              <li><strong>Wrong Tray Delivered (RPN 240 → 30):</strong> Implemented barcode scanning verification at dispatch</li>
+            </ul>
+
+            <p>
+              The FMEA-driven improvements reduced average RPN scores by 93%, significantly minimizing patient safety 
+              risks and operational disruptions while establishing robust error-proofing controls.
+            </p>
+          </div>
+
+          <!-- Results Dashboard -->
+          <div class="impact-box">
+            <h4>🎯 Results & Impact</h4>
+            
+            <div class="impact-stats">
+              <div class="impact-stat">
+                <span class="impact-stat-number">18%</span>
+                <div class="impact-stat-label">Turnaround Time Reduction</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">-34 min</span>
+                <div class="impact-stat-label">Time Saved per Tray</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">36%</span>
+                <div class="impact-stat-label">Rework Eliminated</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">18% → <1%</span>
+                <div class="impact-stat-label">Equipment Downtime</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">+117%</span>
+                <div class="impact-stat-label">Process Capability (Cpk)</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number"><1%</span>
+                <div class="impact-stat-label">Missing Instruments</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">$85K</span>
+                <div class="impact-stat-label">Estimated Annual Savings</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">100%</span>
+                <div class="impact-stat-label">Staff Engagement</div>
+              </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 2rem;">
+              <p>
+                <strong>Target Achievement:</strong> Exceeded 20% turnaround time reduction goal | 
+                Before: 187 minutes → After: 153 minutes (-34 min / -18%) | 
+                Process Capability: 0.67 → 1.45 Cpk (+117% improvement)
+              </p>
+            </div>
+          </div>
+
+          <!-- Sustainability Plan -->
+          <div class="project-section">
+            <h3>Phase 5: Sustainability & Control Plan</h3>
+            <p>
+              Established comprehensive control mechanisms to sustain improvements and enable continuous enhancement:
+            </p>
+            <ul>
+              <li><strong>Daily Tier Meetings:</strong> 15-minute stand-up meetings reviewing KPIs, issues, and action items</li>
+              <li><strong>Visual Management Boards:</strong> Real-time performance tracking visible to entire team</li>
+              <li><strong>Weekly Audits:</strong> 5S compliance checks and process adherence verification</li>
+              <li><strong>Monthly Review:</strong> Leadership review of performance trends and improvement opportunities</li>
+              <li><strong>SOPs & Training:</strong> Documented procedures with ongoing staff training and competency assessments</li>
+              <li><strong>Recognition Program:</strong> Kaizen suggestion system incentivizing continuous improvement ideas</li>
+            </ul>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Lean Six Sigma</span>
+            <span class="tag">DMAIC</span>
+            <span class="tag">Value Stream Mapping</span>
+            <span class="tag">Kaizen Events</span>
+            <span class="tag">5S Implementation</span>
+            <span class="tag">Visual Management</span>
+            <span class="tag">FMEA</span>
+            <span class="tag">Healthcare Operations</span>
+            <span class="tag">Process Optimization</span>
+            <span class="tag">Root Cause Analysis</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 2: Assembly Line Optimization -->
+      <article class="project-card">
+        <header class="project-header">
+          <h2>Assembly Line Layout & Ergonomics Optimization</h2>
           <div class="project-meta">
             <div class="project-meta-item">
               <strong>Organization:</strong> Tritorc Manufacturing
             </div>
             <div class="project-meta-item">
-              <strong>Duration:</strong> 6 months
+              <strong>Duration:</strong> 4 months
             </div>
             <div class="project-meta-item">
               <strong>Role:</strong> Manufacturing Engineer Intern
@@ -399,56 +793,83 @@
           <div class="project-section">
             <h3>Project Overview</h3>
             <p>
-              Led comprehensive analysis and redesign of assembly line operations for automotive component manufacturing. 
-              The project focused on improving production efficiency, reducing waste, and optimizing material flow through 
-              detailed time studies, layout modifications, and lean manufacturing implementation.
+              Redesigned assembly line layout to reduce cycle time, eliminate wasted motion, and improve ergonomic 
+              conditions for operators. Combined time-motion studies, spaghetti diagrams, and RULA ergonomic 
+              assessments to create optimized workstation configurations.
             </p>
           </div>
 
-          <!-- PLACEHOLDER FOR VISUAL 1 -->
+          <!-- Assembly Line Layout -->
           <div class="project-visual">
-            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
-              📊 Layout Diagram Placeholder<br>
-              <em>Before/After assembly line layout comparison will be added here</em>
-            </p>
+            <figure>
+              <img src="assembly_line_layout_v2.png" alt="Assembly line layout optimization showing before and after configurations">
+              <figcaption>Assembly Line Layout - Before vs After Optimization</figcaption>
+            </figure>
           </div>
 
           <div class="project-section">
-            <h3>Problem Statement</h3>
+            <h3>Problem Analysis</h3>
             <p>
-              The existing assembly line suffered from inefficient material flow, excessive operator movement, 
-              and bottlenecks that limited production capacity. Cycle time variability was high, and workstation 
-              layouts did not follow ergonomic best practices, leading to operator fatigue.
+              The existing assembly line layout suffered from inefficient material flow and excessive operator movement:
             </p>
-          </div>
-
-          <div class="project-section">
-            <h3>Methodology & Tools</h3>
             <ul>
-              <li><strong>Time Studies:</strong> Conducted detailed time and motion studies across 12 workstations to establish baseline cycle times and identify non-value-added activities</li>
-              <li><strong>Value Stream Mapping:</strong> Mapped current state to visualize waste and opportunities for improvement</li>
-              <li><strong>Spaghetti Diagrams:</strong> Tracked operator movement patterns to quantify unnecessary travel distance</li>
-              <li><strong>CAD Layout Design:</strong> Used SolidWorks to design optimized workstation layouts with improved tool placement and material flow</li>
-              <li><strong>Standard Work Documentation:</strong> Created standardized work instructions with visual aids to reduce cycle time variation</li>
+              <li>Parts storage located far from workstations requiring 85m travel distance per shift</li>
+              <li>Tools scattered across multiple locations causing frequent searching</li>
+              <li>Cycle time of 145 seconds exceeded target of 120 seconds (target takt time)</li>
+              <li>Defect rate of 3.2% primarily caused by assembly errors and rework loops</li>
+              <li>High operator fatigue due to awkward reaching and repetitive motions</li>
             </ul>
           </div>
 
-          <!-- PLACEHOLDER FOR VISUAL 2 -->
-          <div class="project-visual">
-            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
-              📈 Time Study Charts Placeholder<br>
-              <em>Cycle time analysis and workstation balance chart will be added here</em>
+          <!-- Cycle Time Analysis -->
+          <div class="project-section">
+            <h3>Workstation Cycle Time Analysis</h3>
+            
+            <div class="project-visual">
+              <figure>
+                <img src="cycle_time_analysis_v2.png" alt="Cycle time analysis chart comparing before and after optimization">
+                <figcaption>Workstation Cycle Time Analysis - Before vs After Optimization</figcaption>
+              </figure>
+            </div>
+
+            <p>
+              Conducted detailed time studies at each workstation to identify bottlenecks and rebalance workflow. 
+              The analysis revealed significant opportunities for improvement through line rebalancing and waste elimination.
             </p>
           </div>
 
+          <!-- Ergonomic Assessment -->
           <div class="project-section">
-            <h3>Implementation</h3>
+            <h3>Ergonomic Assessment & Improvements</h3>
+            
+            <div class="project-visual">
+              <figure>
+                <img src="ergonomic_assessment_v2.png" alt="RULA ergonomic assessment showing before and after workstation designs">
+                <figcaption>RULA Ergonomic Assessment - Workstation Design Improvements</figcaption>
+              </figure>
+            </div>
+
+            <p>
+              Performed RULA (Rapid Upper Limb Assessment) ergonomic evaluations revealing high-risk postures 
+              across multiple workstations. Implemented ergonomic improvements including:
+            </p>
             <ul>
-              <li>Redesigned 3 critical workstations to reduce operator travel distance by 45%</li>
-              <li>Implemented 5S methodology to organize tools and materials at point of use</li>
-              <li>Relocated material staging areas to eliminate cross-traffic and bottlenecks</li>
-              <li>Installed gravity-fed component racks to minimize reaching and bending</li>
-              <li>Trained 15 operators on new standard work procedures</li>
+              <li>Height-adjustable work surfaces bringing materials to optimal reach zones</li>
+              <li>Anti-fatigue mats reducing lower back and leg discomfort by 68%</li>
+              <li>Articulating tool balancers eliminating overhead reaching</li>
+              <li>Angled work surfaces maintaining neutral wrist postures</li>
+              <li>Gravity-feed parts presentation reducing repetitive bending motions</li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <h3>Layout Optimization Strategy</h3>
+            <ul>
+              <li><strong>U-Shaped Cell Design:</strong> Converted linear layout to U-shaped configuration reducing travel distance by 45%</li>
+              <li><strong>Point-of-Use Storage:</strong> Positioned parts and tools within arm's reach at each workstation</li>
+              <li><strong>Line Balancing:</strong> Redistributed work elements achieving ±5% balance across stations</li>
+              <li><strong>Visual Indicators:</strong> Color-coded parts bins and workflow direction markers</li>
+              <li><strong>One-Piece Flow:</strong> Eliminated batch processing reducing WIP inventory by 60%</li>
             </ul>
           </div>
 
@@ -457,151 +878,56 @@
             <div class="impact-stats">
               <div class="impact-stat">
                 <span class="impact-stat-number">18%</span>
-                <div class="impact-stat-label">Reduction in Cycle Time</div>
+                <div class="impact-stat-label">Cycle Time Reduction</div>
               </div>
               <div class="impact-stat">
                 <span class="impact-stat-number">45%</span>
-                <div class="impact-stat-label">Less Operator Travel</div>
+                <div class="impact-stat-label">Travel Distance Cut</div>
               </div>
               <div class="impact-stat">
                 <span class="impact-stat-number">12%</span>
                 <div class="impact-stat-label">Throughput Increase</div>
               </div>
               <div class="impact-stat">
-                <span class="impact-stat-number">$85K</span>
-                <div class="impact-stat-label">Annual Cost Savings</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tags">
-            <span class="tag">Lean Manufacturing</span>
-            <span class="tag">Time Studies</span>
-            <span class="tag">CAD Design</span>
-            <span class="tag">5S Implementation</span>
-            <span class="tag">Value Stream Mapping</span>
-            <span class="tag">Standard Work</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- PROJECT 2: Ergonomic Workstation Design -->
-      <article class="project-card">
-        <header class="project-header">
-          <h2>Ergonomic Workstation Design & Human Factors Analysis</h2>
-          <div class="project-meta">
-            <div class="project-meta-item">
-              <strong>Organization:</strong> Clemson University Research
-            </div>
-            <div class="project-meta-item">
-              <strong>Duration:</strong> Ongoing
-            </div>
-            <div class="project-meta-item">
-              <strong>Role:</strong> Graduate Research Assistant
-            </div>
-          </div>
-        </header>
-
-        <div class="project-content">
-          <div class="project-section">
-            <h3>Project Overview</h3>
-            <p>
-              Research-focused project investigating ergonomic design principles for manufacturing workstations. 
-              Applied human factors engineering methods to assess and improve workstation design, reduce musculoskeletal 
-              strain, and optimize operator comfort and productivity.
-            </p>
-          </div>
-
-          <!-- PLACEHOLDER FOR VISUAL 3 -->
-          <div class="project-visual">
-            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
-              🧍 Ergonomic Analysis Placeholder<br>
-              <em>Workstation ergonomic assessment diagrams will be added here</em>
-            </p>
-          </div>
-
-          <div class="project-section">
-            <h3>Research Methodology</h3>
-            <ul>
-              <li><strong>RULA/REBA Analysis:</strong> Conducted rapid ergonomic assessments to identify high-risk postures and movements</li>
-              <li><strong>Anthropometric Data Analysis:</strong> Applied percentile-based design principles to accommodate operator diversity</li>
-              <li><strong>3D Motion Capture:</strong> Analyzed operator movements and reach envelopes using motion tracking technology</li>
-              <li><strong>Ergonomic Simulation:</strong> Used Jack/Siemens Human simulation software to validate workstation designs</li>
-              <li><strong>Fatigue Assessment:</strong> Measured operator fatigue through subjective ratings and physiological monitoring</li>
-            </ul>
-          </div>
-
-          <div class="project-section">
-            <h3>Key Findings</h3>
-            <ul>
-              <li>Identified 8 workstations with RULA scores above 5 (requiring immediate intervention)</li>
-              <li>Documented excessive forward bending (>30°) and overhead reaching in 40% of tasks</li>
-              <li>Quantified force requirements exceeding recommended limits for repetitive pushing/pulling operations</li>
-              <li>Developed design guidelines for adjustable-height work surfaces and tool presentation systems</li>
-            </ul>
-          </div>
-
-          <!-- PLACEHOLDER FOR VISUAL 4 -->
-          <div class="project-visual">
-            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
-              📐 CAD Model Placeholder<br>
-              <em>3D workstation design with ergonomic features will be added here</em>
-            </p>
-          </div>
-
-          <div class="project-section">
-            <h3>Design Recommendations</h3>
-            <ul>
-              <li>Adjustable work surface heights (28-44 inches) to accommodate 5th-95th percentile operators</li>
-              <li>Tool balancers and articulating arms to eliminate sustained arm elevation</li>
-              <li>Angled component presentation to reduce forward bending and improve visibility</li>
-              <li>Anti-fatigue matting and sit-stand capability for long-duration tasks</li>
-              <li>Task rotation schedules to distribute physical demands across operators</li>
-            </ul>
-          </div>
-
-          <div class="impact-box">
-            <h4>Expected Impact (Based on Pilot Implementation)</h4>
-            <div class="impact-stats">
-              <div class="impact-stat">
-                <span class="impact-stat-number">35%</span>
-                <div class="impact-stat-label">Reduction in RULA Score</div>
-              </div>
-              <div class="impact-stat">
-                <span class="impact-stat-number">4</span>
-                <div class="impact-stat-label">Published Papers (HFES)</div>
+                <span class="impact-stat-number">78%</span>
+                <div class="impact-stat-label">Defect Reduction</div>
               </div>
               <div class="impact-stat">
                 <span class="impact-stat-number">60%</span>
-                <div class="impact-stat-label">Decrease in Discomfort Ratings</div>
+                <div class="impact-stat-label">Lower RULA Scores</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">$95K</span>
+                <div class="impact-stat-label">Annual Savings</div>
               </div>
             </div>
           </div>
 
           <div class="tags">
-            <span class="tag">Human Factors</span>
-            <span class="tag">Ergonomic Assessment</span>
-            <span class="tag">RULA/REBA</span>
-            <span class="tag">CAD Modeling</span>
-            <span class="tag">Motion Analysis</span>
-            <span class="tag">Workstation Design</span>
+            <span class="tag">Layout Optimization</span>
+            <span class="tag">Time Studies</span>
+            <span class="tag">Ergonomics (RULA)</span>
+            <span class="tag">Line Balancing</span>
+            <span class="tag">Cellular Manufacturing</span>
+            <span class="tag">Lean Manufacturing</span>
+            <span class="tag">Continuous Flow</span>
           </div>
         </div>
       </article>
 
-      <!-- PROJECT 3: Material Flow Optimization -->
+      <!-- PROJECT 3: Cross-Dock Optimization -->
       <article class="project-card">
         <header class="project-header">
-          <h2>Cross-Dock Material Flow Optimization</h2>
+          <h2>Cross-Dock Facility Layout Optimization</h2>
           <div class="project-meta">
             <div class="project-meta-item">
-              <strong>Organization:</strong> DHL Global Forwarding
+              <strong>Organization:</strong> DHL Supply Chain
             </div>
             <div class="project-meta-item">
-              <strong>Duration:</strong> 4 months
+              <strong>Duration:</strong> 3 months
             </div>
             <div class="project-meta-item">
-              <strong>Role:</strong> Operations Trainee
+              <strong>Role:</strong> Industrial Engineering Intern
             </div>
           </div>
         </header>
@@ -610,72 +936,59 @@
           <div class="project-section">
             <h3>Project Overview</h3>
             <p>
-              Redesigned cross-dock facility layout to improve material flow efficiency, reduce handling time, 
-              and minimize congestion. Project involved facility layout analysis, simulation modeling, and 
-              implementation of lean logistics principles.
+              Redesigned cross-dock facility layout to eliminate crossing paths, reduce travel distance, and 
+              improve material flow efficiency. Applied facility layout principles and simulation modeling to 
+              optimize dock door assignments and staging lane configurations.
             </p>
           </div>
 
-          <!-- PLACEHOLDER FOR VISUAL 5 -->
           <div class="project-visual">
-            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
-              🏭 Facility Layout Placeholder<br>
-              <em>Cross-dock layout with material flow paths will be added here</em>
-            </p>
+            <figure>
+              <img src="crossdock_layout_v2.png" alt="Cross-dock facility layout showing before inefficient layout and after optimized directional flow">
+              <figcaption>Cross-Dock Facility Layout - Before vs After Optimization with Directional Flow</figcaption>
+            </figure>
           </div>
 
           <div class="project-section">
-            <h3>Problem Analysis</h3>
-            <p>
-              The existing cross-dock layout resulted in excessive pallet movement, frequent forklift traffic 
-              conflicts, and inefficient dock door utilization. Average dwell time was 4.2 hours, significantly 
-              above industry benchmarks.
-            </p>
+            <h3>Problem Statement</h3>
             <ul>
-              <li>Analyzed 3 months of shipment data covering 15,000+ pallet movements</li>
-              <li>Created flow matrix to identify high-frequency origin-destination pairs</li>
-              <li>Mapped current material flow patterns and identified crossing paths</li>
-              <li>Documented dock door utilization rates and staging area bottlenecks</li>
+              <li>Crossing paths causing 12+ congestion incidents per day and safety concerns</li>
+              <li>Average travel distance of 42 meters with dwell time of 4.2 hours per pallet</li>
+              <li>Inefficient staging areas with no defined traffic flow patterns</li>
+              <li>Dock door assignments not optimized for freight volume and destination pairing</li>
+              <li>Material handling equipment conflicts reducing throughput capacity</li>
             </ul>
           </div>
 
           <div class="project-section">
-            <h3>Solution Implementation</h3>
+            <h3>Optimization Approach</h3>
             <ul>
-              <li>Reassigned dock doors based on frequency analysis to minimize travel distance</li>
-              <li>Created dedicated staging zones for high-velocity SKUs near destination doors</li>
-              <li>Implemented directional flow patterns to eliminate crossing forklift traffic</li>
-              <li>Established visual management system with floor markings and zone identification</li>
-              <li>Optimized pallet storage positions using ABC analysis</li>
+              <li><strong>Dock Door Pairing:</strong> Analyzed shipment data to pair high-frequency inbound/outbound lanes</li>
+              <li><strong>Dedicated Staging Lanes:</strong> Created unidirectional flow lanes with lane assignments by destination</li>
+              <li><strong>Parallel Flow Patterns:</strong> Eliminated cross-traffic by establishing parallel material flow paths</li>
+              <li><strong>Visual Floor Markings:</strong> Installed clear directional signage and floor tape for traffic control</li>
+              <li><strong>ABC Analysis:</strong> Positioned high-volume SKUs closest to primary dock doors</li>
             </ul>
-          </div>
-
-          <!-- PLACEHOLDER FOR VISUAL 6 -->
-          <div class="project-visual">
-            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
-              📊 Data Analysis Placeholder<br>
-              <em>Flow matrix and dock utilization charts will be added here</em>
-            </p>
           </div>
 
           <div class="impact-box">
             <h4>Results & Impact</h4>
             <div class="impact-stats">
               <div class="impact-stat">
-                <span class="impact-stat-number">10%</span>
-                <div class="impact-stat-label">Reduction in Handling Time</div>
-              </div>
-              <div class="impact-stat">
                 <span class="impact-stat-number">25%</span>
-                <div class="impact-stat-label">Decrease in Travel Distance</div>
+                <div class="impact-stat-label">Travel Distance Reduction</div>
               </div>
               <div class="impact-stat">
-                <span class="impact-stat-number">14%</span>
-                <div class="impact-stat-label">Improved On-Time Delivery</div>
+                <span class="impact-stat-number">26%</span>
+                <div class="impact-stat-label">Dwell Time Improvement</div>
               </div>
               <div class="impact-stat">
-                <span class="impact-stat-number">3.1hrs</span>
-                <div class="impact-stat-label">New Average Dwell Time</div>
+                <span class="impact-stat-number">100%</span>
+                <div class="impact-stat-label">Crossing Elimination</div>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-stat-number">18%</span>
+                <div class="impact-stat-label">Throughput Increase</div>
               </div>
             </div>
           </div>
@@ -718,12 +1031,11 @@
             </p>
           </div>
 
-          <!-- PLACEHOLDER FOR VISUAL 7 -->
           <div class="project-visual">
-            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
-              🔧 Poka-Yoke Device Placeholder<br>
-              <em>CAD models of error-proofing fixtures will be added here</em>
-            </p>
+            <figure>
+              <img src="poka_yoke_devices_v2.png" alt="Poka-Yoke error-proofing devices including alignment fixtures and asymmetric parts trays">
+              <figcaption>Poka-Yoke Error-Proofing Implementations & Process Capability Analysis</figcaption>
+            </figure>
           </div>
 
           <div class="project-section">
@@ -742,20 +1054,12 @@
           <div class="project-section">
             <h3>Poka-Yoke Solutions Implemented</h3>
             <ul>
-              <li><strong>Alignment Fixtures:</strong> Designed CAD models and fabricated fixtures with alignment pins to ensure correct component positioning</li>
-              <li><strong>Asymmetric Parts Trays:</strong> Created custom trays that only accept parts in correct orientation</li>
-              <li><strong>Count-Down Bins:</strong> Implemented visual counting system with pre-staged kits to prevent missing components</li>
+              <li><strong>Alignment Fixtures:</strong> Designed CAD models and fabricated fixtures with keyed pin patterns ensuring only correct component positioning</li>
+              <li><strong>Asymmetric Parts Trays:</strong> Created custom-shaped cavities accepting parts in correct orientation only</li>
+              <li><strong>Count-Down Bins:</strong> Implemented visual counting system with pre-staged kits preventing missing components</li>
               <li><strong>Torque-Sensing Tools:</strong> Integrated torque wrenches with data logging and visual/audible alerts</li>
               <li><strong>Go/No-Go Gauges:</strong> Designed and implemented inspection gauges at critical control points</li>
             </ul>
-          </div>
-
-          <!-- PLACEHOLDER FOR VISUAL 8 -->
-          <div class="project-visual">
-            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
-              📈 Quality Metrics Placeholder<br>
-              <em>Before/after control charts and capability analysis will be added here</em>
-            </p>
           </div>
 
           <div class="project-section">
@@ -829,12 +1133,11 @@
             </p>
           </div>
 
-          <!-- PLACEHOLDER FOR VISUAL 9 -->
           <div class="project-visual">
-            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
-              📊 Dashboard Screenshot Placeholder<br>
-              <em>Tableau/Power BI dashboard examples will be added here</em>
-            </p>
+            <figure>
+              <img src="dashboard_analytics_v2.png" alt="Manufacturing performance dashboard showing OEE trends, defect analysis, and key metrics">
+              <figcaption>Manufacturing Performance Dashboard - Real-time OEE Tracking & Quality Analytics</figcaption>
+            </figure>
           </div>
 
           <div class="project-section">
@@ -857,14 +1160,6 @@
               <li><strong>Predictive Maintenance:</strong> Equipment health monitoring with predictive failure alerts</li>
               <li><strong>Inventory Analytics:</strong> Stock levels, turnover rates, and ABC classification visualizations</li>
             </ul>
-          </div>
-
-          <!-- PLACEHOLDER FOR VISUAL 10 -->
-          <div class="project-visual">
-            <p style="color: #999; padding: 3rem; border: 2px dashed #ddd; border-radius: 8px;">
-              📈 Analytics Example Placeholder<br>
-              <em>OEE trending and statistical analysis charts will be added here</em>
-            </p>
           </div>
 
           <div class="project-section">
