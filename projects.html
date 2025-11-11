@@ -41,12 +41,20 @@
       right: 0;
       width: 100%;
       background: rgba(0, 0, 0, 0.9);
+      background: -webkit-linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
       background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
       padding: 1rem 2rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
       justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
       z-index: 9999;
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
@@ -56,16 +64,27 @@
       font-weight: bold;
       color: white;
       text-decoration: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
       user-select: none;
     }
 
     nav .menu {
       list-style: none;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
       gap: 1.25rem;
       margin: 0;
       padding: 0;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
+    }
+
+    nav .menu li {
+      margin: 0;
     }
 
     nav .menu li a {
@@ -74,6 +93,8 @@
       font-weight: bold;
       padding: 0.5rem 0.75rem;
       border-radius: 4px;
+      -webkit-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out;
       display: block;
       white-space: nowrap;
@@ -89,6 +110,11 @@
     nav .menu li a.active {
       color: #ff6600;
       background-color: rgba(255, 102, 0, 0.15);
+    }
+
+    nav .menu li a:focus-visible {
+      outline: 2px solid #ff6600;
+      outline-offset: 2px;
     }
 
     /* Main Content */
@@ -445,18 +471,34 @@
       }
     }
 
-    @media (max-width: 768px) {
+    @media screen and (max-width: 768px) {
       nav {
         padding: 1rem;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 1rem;
+        background: rgba(0, 0, 0, 0.95);
+      }
+
+      nav .logo {
+        font-size: 1.4rem;
       }
 
       nav .menu {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
         gap: 0.75rem;
+        width: 100%;
       }
 
       nav .menu li a {
-        padding: 0.4rem 0.6rem;
         font-size: 0.9rem;
+        padding: 0.4rem 0.6rem;
       }
 
       .container {
@@ -479,17 +521,43 @@
         gap: 1rem;
       }
     }
+
+    @media screen and (max-width: 480px) {
+      nav .menu li a {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.5rem;
+      }
+    }
+
+    /* Accessibility Improvements */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        -webkit-animation-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        -webkit-animation-iteration-count: 1 !important;
+        animation-iteration-count: 1 !important;
+        -webkit-transition-duration: 0.01ms !important;
+        -o-transition-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Navigation -->
   <nav role="navigation" aria-label="Main navigation">
-    <a href="index.html" class="logo" aria-label="Home">Sahil Sawant</a>
+    <div class="logo">Sahil Sawant</div>
     <ul class="menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html" class="active">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html" aria-label="Go to home page">Home</a></li>
+      <li><a href="about.html" aria-label="Go to about page">About</a></li>
+      <li><a href="experience.html" aria-label="Go to experience page">Experience</a></li>
+      <li><a href="education.html" aria-label="Go to education page">Education</a></li>
+      <li><a href="projects.html" class="active" aria-current="page" aria-label="Current page: Projects">Projects</a></li>
+      <li><a href="publications.html" aria-label="Go to publications page">Publications</a></li>
+      <li><a href="skills.html" aria-label="Go to skills page">Skills</a></li>
+      <li><a href="contact.html" aria-label="Go to contact page">Contact</a></li>
     </ul>
   </nav>
 
@@ -560,7 +628,7 @@
 
             <div class="project-visual">
               <figure>
-                <img src="VALUE_STREAM_MAPPING.png" alt="Value Stream Map showing before implementation state of sterile processing workflow with identified wastes">
+                <img src="images/VALUE_STREAM_MAPPING.png" alt="Value Stream Map showing before implementation state of sterile processing workflow with identified wastes">
                 <figcaption>Value Stream Map - Current State Analysis identifying 120 minutes of non-value-added time</figcaption>
               </figure>
             </div>
@@ -599,7 +667,7 @@
 
             <div class="project-visual">
               <figure>
-                <img src="kaizen-event-infographic.png" alt="Kaizen Event timeline and results showing 5-day rapid improvement workshop structure">
+                <img src="images/kaizen-event-infographic.png" alt="Kaizen Event timeline and results showing 5-day rapid improvement workshop structure">
                 <figcaption>Kaizen Event - 5-Day Rapid Improvement Workshop achieving 20% turnaround time reduction</figcaption>
               </figure>
             </div>
@@ -671,7 +739,7 @@
 
             <div class="project-visual">
               <figure>
-                <img src="fmea_diagram__1_.png" alt="FMEA analysis diagram showing risk assessment and mitigation strategies">
+                <img src="images/fmea_diagram__1_.png" alt="FMEA analysis diagram showing risk assessment and mitigation strategies">
                 <figcaption>Failure Mode & Effects Analysis - Systematic risk assessment identifying critical control points</figcaption>
               </figure>
             </div>
@@ -802,7 +870,7 @@
           <!-- Assembly Line Layout -->
           <div class="project-visual">
             <figure>
-              <img src="assembly_line_layout_v2.png" alt="Assembly line layout optimization showing before and after configurations">
+              <img src="images/assembly_line_layout_v2.png" alt="Assembly line layout optimization showing before and after configurations">
               <figcaption>Assembly Line Layout - Before vs After Optimization</figcaption>
             </figure>
           </div>
@@ -827,7 +895,7 @@
             
             <div class="project-visual">
               <figure>
-                <img src="cycle_time_analysis_v2.png" alt="Cycle time analysis chart comparing before and after optimization">
+                <img src="images/cycle_time_analysis_v2.png" alt="Cycle time analysis chart comparing before and after optimization">
                 <figcaption>Workstation Cycle Time Analysis - Before vs After Optimization</figcaption>
               </figure>
             </div>
@@ -844,7 +912,7 @@
             
             <div class="project-visual">
               <figure>
-                <img src="ergonomic_assessment_v2.png" alt="RULA ergonomic assessment showing before and after workstation designs">
+                <img src="images/ergonomic_assessment_v2.png" alt="RULA ergonomic assessment showing before and after workstation designs">
                 <figcaption>RULA Ergonomic Assessment - Workstation Design Improvements</figcaption>
               </figure>
             </div>
@@ -944,7 +1012,7 @@
 
           <div class="project-visual">
             <figure>
-              <img src="crossdock_layout_v2.png" alt="Cross-dock facility layout showing before inefficient layout and after optimized directional flow">
+              <img src="images/crossdock_layout_v2.png" alt="Cross-dock facility layout showing before inefficient layout and after optimized directional flow">
               <figcaption>Cross-Dock Facility Layout - Before vs After Optimization with Directional Flow</figcaption>
             </figure>
           </div>
@@ -1033,7 +1101,7 @@
 
           <div class="project-visual">
             <figure>
-              <img src="poka_yoke_devices_v2.png" alt="Poka-Yoke error-proofing devices including alignment fixtures and asymmetric parts trays">
+              <img src="images/poka_yoke_devices_v2.png" alt="Poka-Yoke error-proofing devices including alignment fixtures and asymmetric parts trays">
               <figcaption>Poka-Yoke Error-Proofing Implementations & Process Capability Analysis</figcaption>
             </figure>
           </div>
@@ -1135,7 +1203,7 @@
 
           <div class="project-visual">
             <figure>
-              <img src="dashboard_analytics_v2.png" alt="Manufacturing performance dashboard showing OEE trends, defect analysis, and key metrics">
+              <img src="images/dashboard_analytics_v2.png" alt="Manufacturing performance dashboard showing OEE trends, defect analysis, and key metrics">
               <figcaption>Manufacturing Performance Dashboard - Real-time OEE Tracking & Quality Analytics</figcaption>
             </figure>
           </div>
