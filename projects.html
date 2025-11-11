@@ -341,6 +341,51 @@
       font-weight: 600;
     }
 
+    /* Two Column Layout for Content */
+    .two-column-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .column-item {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease;
+    }
+
+    .column-item:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .column-item h4 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .column-item h5 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .column-item ul li {
+      position: relative;
+      padding-left: 0;
+    }
+
+    .column-item ul li::before {
+      content: none;
+    }
+
+    .column-item ul li strong {
+      color: #333;
+    }
+
     /* Results/Impact Box */
     .impact-box {
       background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
@@ -467,6 +512,10 @@
       }
 
       .two-column-visual {
+        grid-template-columns: 1fr;
+      }
+
+      .two-column-layout {
         grid-template-columns: 1fr;
       }
     }
@@ -606,6 +655,14 @@
             </p>
           </div>
 
+          <!-- Process Overview with Image -->
+          <div class="project-visual">
+            <figure>
+              <img src="images/Simplified-SPD-OR-Operation-Process.png" alt="Sterile Processing Department workflow showing the complete process from Operation Room to SPD and back">
+              <figcaption>Sterile Processing Department Workflow - Complete cycle from OR to decontamination, preparation, and case cart delivery</figcaption>
+            </figure>
+          </div>
+
           <!-- Challenge/Problem Statement -->
           <div class="challenge-box">
             <h4>⚠️ The Challenge</h4>
@@ -615,6 +672,50 @@
               187 minutes against a target of 150 minutes, with significant waste throughout the process including 
               120 minutes of non-value-added time, 18% equipment downtime, and 38% rework rates in assembly operations.
             </p>
+          </div>
+
+          <!-- Two Column Layout: Problem Scope & Project Goals -->
+          <div class="two-column-layout">
+            <div class="column-item">
+              <h4 style="color: #ff6600; margin-bottom: 1rem; font-size: 1.2rem;">🎯 Project Scope</h4>
+              <ul style="list-style: none; padding: 0;">
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">
+                  <strong>Location:</strong> Prisma Health Main Campus SPD
+                </li>
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">
+                  <strong>Volume:</strong> 150-200 trays processed daily
+                </li>
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">
+                  <strong>Team Size:</strong> 15+ cross-functional stakeholders
+                </li>
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">
+                  <strong>Timeline:</strong> 3 months (Oct-Dec 2024)
+                </li>
+                <li style="padding: 0.5rem 0;">
+                  <strong>Investment:</strong> $25K for improvements
+                </li>
+              </ul>
+            </div>
+            <div class="column-item">
+              <h4 style="color: #ff6600; margin-bottom: 1rem; font-size: 1.2rem;">📊 Key Objectives</h4>
+              <ul style="list-style: none; padding: 0;">
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">
+                  ✓ Reduce urgent tray turnaround by 20%
+                </li>
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">
+                  ✓ Eliminate equipment downtime (<5%)
+                </li>
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">
+                  ✓ Reduce assembly rework by 30%
+                </li>
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">
+                  ✓ Improve process capability (Cpk >1.33)
+                </li>
+                <li style="padding: 0.5rem 0;">
+                  ✓ Enhance staff engagement & satisfaction
+                </li>
+              </ul>
+            </div>
           </div>
 
           <!-- Value Stream Mapping -->
@@ -633,13 +734,72 @@
               </figure>
             </div>
 
-            <ul>
-              <li><strong>Receiving & Sorting (C/T: 12 min, Wait: 45 min):</strong> Manual logging without tracking system, no standardized batching process</li>
-              <li><strong>Decontamination (C/T: 29 min, Wait: 22 min):</strong> 18% equipment downtime due to poor preventive maintenance, manual process dependencies</li>
-              <li><strong>Assembly & Inspection (C/T: 54 min, Wait: 38 min):</strong> 38% rework rate caused by missing instruments, excessive searching time, lack of visual aids</li>
-              <li><strong>Sterilization (C/T: 91 min, Wait: 15 min):</strong> 18% cycle abort rate, poor scheduling coordination</li>
-              <li><strong>Storage & Dispatch (C/T: 8 min, Wait: 0 min):</strong> Communication gaps, no tracking system for urgent requests</li>
-            </ul>
+            <!-- Two Column: Process Steps Breakdown -->
+            <div class="two-column-layout">
+              <div class="column-item">
+                <h4 style="color: #e05500; margin-bottom: 1rem;">🔍 Process Steps Analysis</h4>
+                <ul style="list-style: none; padding: 0;">
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid #eee;">
+                    <strong>1. Receiving & Sorting</strong><br>
+                    <span style="color: #666; font-size: 0.9rem;">C/T: 12 min | Wait: 45 min<br>
+                    Issues: Manual logging, no tracking system</span>
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid #eee;">
+                    <strong>2. Decontamination</strong><br>
+                    <span style="color: #666; font-size: 0.9rem;">C/T: 29 min | Wait: 22 min<br>
+                    Issues: 18% equipment downtime</span>
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid #eee;">
+                    <strong>3. Assembly & Inspection</strong><br>
+                    <span style="color: #666; font-size: 0.9rem;">C/T: 54 min | Wait: 38 min<br>
+                    Issues: 38% rework rate, missing instruments</span>
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid #eee;">
+                    <strong>4. Sterilization</strong><br>
+                    <span style="color: #666; font-size: 0.9rem;">C/T: 91 min | Wait: 15 min<br>
+                    Issues: 18% cycle abort rate</span>
+                  </li>
+                  <li style="padding: 0.8rem 0;">
+                    <strong>5. Storage & Dispatch</strong><br>
+                    <span style="color: #666; font-size: 0.9rem;">C/T: 8 min | Wait: 0 min<br>
+                    Issues: Communication gaps, no tracking</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="column-item">
+                <h4 style="color: #c62828; margin-bottom: 1rem;">🚨 Seven Wastes Identified</h4>
+                <ul style="list-style: none; padding: 0;">
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid #eee;">
+                    <strong>⏱️ Waiting</strong><br>
+                    <span style="color: #666; font-size: 0.9rem;">120 min of queue time between processes</span>
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid #eee;">
+                    <strong>❌ Defects</strong><br>
+                    <span style="color: #666; font-size: 0.9rem;">38% rework rate in assembly operations</span>
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid #eee;">
+                    <strong>🚶 Motion</strong><br>
+                    <span style="color: #666; font-size: 0.9rem;">Excessive searching for instruments & tools</span>
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid #eee;">
+                    <strong>🚚 Transportation</strong><br>
+                    <span style="color: #666; font-size: 0.9rem;">Batching causing unnecessary delays</span>
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid #eee;">
+                    <strong>⚙️ Overprocessing</strong><br>
+                    <span style="color: #666; font-size: 0.9rem;">Redundant count-checks at multiple stages</span>
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid #eee;">
+                    <strong>📦 Inventory</strong><br>
+                    <span style="color: #666; font-size: 0.9rem;">Frequent instrument shortages causing delays</span>
+                  </li>
+                  <li style="padding: 0.8rem 0;">
+                    <strong>👥 Skills</strong><br>
+                    <span style="color: #666; font-size: 0.9rem;">Untrained staff, high turnover rates</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
             <div class="highlight-box">
               <p>
@@ -647,13 +807,6 @@
                 | Value-Added Ratio: 62% | Target ≥85%
               </p>
             </div>
-
-            <p>
-              Seven major wastes of Lean were identified: <strong>Waiting</strong> (120 min queue time between processes), 
-              <strong>Defects</strong> (38% rework in assembly), <strong>Motion</strong> (excessive searching for instruments), 
-              <strong>Transportation</strong> (batching delays), <strong>Overprocessing</strong> (redundant count-checks), 
-              <strong>Inventory</strong> (instrument shortages), and <strong>Skills</strong> (untrained staff with high turnover).
-            </p>
           </div>
 
           <!-- Kaizen Event -->
@@ -694,38 +847,83 @@
           <div class="project-section">
             <h3>Phase 3: Improvement Opportunities Implemented</h3>
 
-            <p><strong>1. 5S Implementation for Workspace Organization</strong></p>
-            <ul>
-              <li><strong>Sort:</strong> Removed obsolete instruments and equipment from assembly area, reducing search time</li>
-              <li><strong>Set in Order:</strong> Created designated storage locations with color-coded labels for instrument sets</li>
-              <strong>Shine:</strong> Established daily cleaning schedules and equipment maintenance checklists</li>
-              <li><strong>Standardize:</strong> Developed visual standard operating procedures posted at each workstation</li>
-              <li><strong>Sustain:</strong> Implemented weekly 5S audits with team accountability boards</li>
-            </ul>
+            <!-- Two Column Layout for Solutions -->
+            <div class="two-column-layout">
+              <div class="column-item">
+                <h4 style="color: #2e7d32; margin-bottom: 1rem;">✅ 5S Implementation</h4>
+                <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
+                  <li style="padding: 0.6rem 0; border-bottom: 1px solid #eee;">
+                    <strong>Sort:</strong> Removed obsolete instruments, reducing search time
+                  </li>
+                  <li style="padding: 0.6rem 0; border-bottom: 1px solid #eee;">
+                    <strong>Set in Order:</strong> Color-coded storage locations for instrument sets
+                  </li>
+                  <li style="padding: 0.6rem 0; border-bottom: 1px solid #eee;">
+                    <strong>Shine:</strong> Daily cleaning schedules and maintenance checklists
+                  </li>
+                  <li style="padding: 0.6rem 0; border-bottom: 1px solid #eee;">
+                    <strong>Standardize:</strong> Visual SOPs posted at each workstation
+                  </li>
+                  <li style="padding: 0.6rem 0;">
+                    <strong>Sustain:</strong> Weekly audits with team accountability boards
+                  </li>
+                </ul>
+              </div>
+              <div class="column-item">
+                <h4 style="color: #2e7d32; margin-bottom: 1rem;">👁️ Visual Management</h4>
+                <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
+                  <li style="padding: 0.6rem 0; border-bottom: 1px solid #eee;">
+                    <strong>Shadow Boards:</strong> Visual indicators for missing instruments
+                  </li>
+                  <li style="padding: 0.6rem 0; border-bottom: 1px solid #eee;">
+                    <strong>Status Boards:</strong> Real-time queue status and priority tracking
+                  </li>
+                  <li style="padding: 0.6rem 0; border-bottom: 1px solid #eee;">
+                    <strong>Color-Coded Bins:</strong> Urgent=red, Routine=blue, Stat=yellow
+                  </li>
+                  <li style="padding: 0.6rem 0;">
+                    <strong>Photo Instructions:</strong> Assembly guides at each workstation
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-            <p><strong>2. Visual Management System</strong></p>
-            <ul>
-              <li>Installed shadow boards for instrument organization with clear visual indicators for missing items</li>
-              <li>Created status boards showing real-time queue status and priority tray tracking</li>
-              <li>Deployed color-coded bins for tray routing (urgent = red, routine = blue, stat = yellow)</li>
-              <li>Posted assembly instructions with photographs at each workstation to reduce errors</li>
-            </ul>
-
-            <p><strong>3. Total Productive Maintenance (TPM) Program</strong></p>
-            <ul>
-              <li>Established preventive maintenance schedules for sterilization equipment (daily, weekly, monthly)</li>
-              <li>Trained operators on autonomous maintenance tasks and early failure detection</li>
-              <li>Reduced equipment downtime from 18% to <1% through proactive maintenance approach</li>
-              <li>Implemented equipment performance tracking dashboard with predictive alerts</li>
-            </ul>
-
-            <p><strong>4. Standardized Work Instructions</strong></p>
-            <ul>
-              <li>Documented best practices for each process step with time standards and quality checkpoints</li>
-              <li>Created visual work instructions reducing reliance on tribal knowledge</li>
-              <li>Reduced assembly rework from 38% to 2% through standardized procedures</li>
-              <li>Implemented job rotation training matrices to cross-train staff and reduce skill-based bottlenecks</li>
-            </ul>
+            <div class="two-column-layout">
+              <div class="column-item">
+                <h4 style="color: #2e7d32; margin-bottom: 1rem;">🔧 TPM Program</h4>
+                <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
+                  <li style="padding: 0.6rem 0; border-bottom: 1px solid #eee;">
+                    Preventive maintenance schedules (daily/weekly/monthly)
+                  </li>
+                  <li style="padding: 0.6rem 0; border-bottom: 1px solid #eee;">
+                    Operator training on autonomous maintenance tasks
+                  </li>
+                  <li style="padding: 0.6rem 0; border-bottom: 1px solid #eee;">
+                    Equipment downtime: <strong>18% → <1%</strong>
+                  </li>
+                  <li style="padding: 0.6rem 0;">
+                    Performance tracking dashboard with predictive alerts
+                  </li>
+                </ul>
+              </div>
+              <div class="column-item">
+                <h4 style="color: #2e7d32; margin-bottom: 1rem;">📋 Standardized Work</h4>
+                <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
+                  <li style="padding: 0.6rem 0; border-bottom: 1px solid #eee;">
+                    Best practices documented with time standards
+                  </li>
+                  <li style="padding: 0.6rem 0; border-bottom: 1px solid #eee;">
+                    Visual work instructions reducing tribal knowledge
+                  </li>
+                  <li style="padding: 0.6rem 0; border-bottom: 1px solid #eee;">
+                    Assembly rework: <strong>38% → 2%</strong>
+                  </li>
+                  <li style="padding: 0.6rem 0;">
+                    Job rotation training matrices for cross-training
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
 
           <!-- FMEA Analysis -->
@@ -744,21 +942,72 @@
               </figure>
             </div>
 
-            <p>
-              <strong>High-Risk Failure Modes Addressed (RPN >200):</strong>
-            </p>
-            <ul>
-              <li><strong>Tray Not Logged (RPN 336 → 18):</strong> Implemented real-time RFID tracking system with automatic logging</li>
-              <li><strong>Missing Instruments (RPN 288 → 24):</strong> Deployed 5S + visual management with organized shadow boards</li>
-              <li><strong>Incorrect Assembly (RPN 300 → 20):</strong> Created standardized work instructions with visual assembly guides</li>
-              <li><strong>Cannot Locate Tray (RPN 360 → 12):</strong> Installed RFID tracking with real-time location visibility</li>
-              <li><strong>Wrong Tray Delivered (RPN 240 → 30):</strong> Implemented barcode scanning verification at dispatch</li>
-            </ul>
+            <h4 style="color: #c62828; margin-bottom: 1rem; font-size: 1.2rem;">🚨 High-Risk Failure Modes Addressed (RPN >200)</h4>
+            
+            <div class="two-column-layout">
+              <div class="column-item" style="border-left: 4px solid #d32f2f;">
+                <h5 style="color: #c62828; margin-bottom: 0.8rem;">📋 Tray Not Logged</h5>
+                <p style="margin-bottom: 0.5rem;"><strong>RPN: 336 → 18 (-94%)</strong></p>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">
+                  <em>Risk:</em> Lost tracking causing surgery delays
+                </p>
+                <p style="font-size: 0.9rem; color: #2e7d32;">
+                  <strong>Solution:</strong> Real-time RFID tracking system with automatic logging
+                </p>
+              </div>
+              <div class="column-item" style="border-left: 4px solid #d32f2f;">
+                <h5 style="color: #c62828; margin-bottom: 0.8rem;">🔍 Missing Instruments</h5>
+                <p style="margin-bottom: 0.5rem;"><strong>RPN: 288 → 24 (-92%)</strong></p>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">
+                  <em>Risk:</em> Incomplete trays reaching OR
+                </p>
+                <p style="font-size: 0.9rem; color: #2e7d32;">
+                  <strong>Solution:</strong> 5S + visual management with organized shadow boards
+                </p>
+              </div>
+            </div>
 
-            <p>
-              The FMEA-driven improvements reduced average RPN scores by 93%, significantly minimizing patient safety 
-              risks and operational disruptions while establishing robust error-proofing controls.
-            </p>
+            <div class="two-column-layout">
+              <div class="column-item" style="border-left: 4px solid #f57c00;">
+                <h5 style="color: #e65100; margin-bottom: 0.8rem;">⚠️ Incorrect Assembly</h5>
+                <p style="margin-bottom: 0.5rem;"><strong>RPN: 300 → 20 (-93%)</strong></p>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">
+                  <em>Risk:</em> Wrong instruments leading to rework
+                </p>
+                <p style="font-size: 0.9rem; color: #2e7d32;">
+                  <strong>Solution:</strong> Standardized work instructions with visual assembly guides
+                </p>
+              </div>
+              <div class="column-item" style="border-left: 4px solid #d32f2f;">
+                <h5 style="color: #c62828; margin-bottom: 0.8rem;">📍 Cannot Locate Tray</h5>
+                <p style="margin-bottom: 0.5rem;"><strong>RPN: 360 → 12 (-97%)</strong></p>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">
+                  <em>Risk:</em> OR delay, potential surgery postponement
+                </p>
+                <p style="font-size: 0.9rem; color: #2e7d32;">
+                  <strong>Solution:</strong> RFID tracking with real-time location visibility
+                </p>
+              </div>
+            </div>
+
+            <div class="column-item" style="border-left: 4px solid #f57c00; max-width: 600px; margin: 1rem auto;">
+              <h5 style="color: #e65100; margin-bottom: 0.8rem;">❌ Wrong Tray Delivered</h5>
+              <p style="margin-bottom: 0.5rem;"><strong>RPN: 240 → 30 (-88%)</strong></p>
+              <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">
+                <em>Risk:</em> Surgery delay, patient safety concern
+              </p>
+              <p style="font-size: 0.9rem; color: #2e7d32;">
+                <strong>Solution:</strong> Barcode scanning verification at dispatch
+              </p>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 1.5rem;">
+              <p>
+                <strong>Overall Impact:</strong> FMEA-driven improvements reduced average RPN scores by 93%, 
+                significantly minimizing patient safety risks and operational disruptions while establishing 
+                robust error-proofing controls.
+              </p>
+            </div>
           </div>
 
           <!-- Results Dashboard -->
